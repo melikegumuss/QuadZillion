@@ -28,7 +28,7 @@ We require the following tools for this project:
 - Kasım Sarp Ataş
 - Melike Arslan
 - Ufuk Bombar
-- 
+
 ## References
 
 > The original game [Quadrillion can be reached here](https://www.smartgames.eu/uk/one-player-games/quadrillion).
