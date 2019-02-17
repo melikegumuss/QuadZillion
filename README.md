@@ -22,6 +22,7 @@ We require the following tools for this project:
 - Timer
 - Attempt count
 - 2D pieces and grids instead of 3D
+- Hint can be requested
 
 ## Project Members
 - Berk Güler
