@@ -8,7 +8,7 @@ quadZIBILLION, the digital clone of [Quadrillion](https://www.smartgames.eu/uk/o
 
 ## Brief Description
 
-*Quadrillion* is a single player board puzzle game that consists of 4 grids and 12 pieces. Objective of the game is to fill the grids with pieces so that there are no empty spaces left except for the forbidden spaces set out by the grid. 
+*Quadrillion* is a single player board puzzle game that consists of 4 grids and 12 pieces. Objective of the game is to fill the grids with all pieces so that there are no empty spaces left except for the forbidden spaces set out by the grid. 
 
 We will use the software development methodologies to implement the digital clone of *Quadrillion*. We will add the following new features to the clone, *quadZIBILLION*:
 - *Following features will be decided later by the team members*
