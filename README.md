@@ -1,5 +1,5 @@
 # quadZIBILLION 
-
+Term project for Bilkent University CS-319 Object Oriented Programming Course
 ## -Group 1-G
 ## -Group name: Rocket Team
 ## Project Members
@@ -10,7 +10,7 @@
 - Ufuk Bombar
 
 ## Project Topic
-Quadrillion Board Game implementation from Smart Games
+Quadrillion Board Game implementation
 
 ## Brief Description
 
