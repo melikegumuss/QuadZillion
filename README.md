@@ -23,6 +23,7 @@ We require the following tools for this project:
 - Attempt count
 - 2D pieces and grids instead of 3D
 - Hint can be requested
+- Changeable background wallpapers
 
 ## Project Members
 - Berk Güler
