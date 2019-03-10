@@ -1,4 +1,4 @@
-# quadZIBILLION 
+# QuadZillion
 Term project for Bilkent University CS-319 Object Oriented Programming Course.
 
 ## Group 1-G : Rocket Team
@@ -10,7 +10,7 @@ quadZIBILLION, the digital clone of [Quadrillion](https://www.smartgames.eu/uk/o
 
 *Quadrillion* is a single player board puzzle game that consists of 4 grids and 12 pieces. Objective of the game is to fill the grids with all pieces so that there are no empty spaces left except for the forbidden spaces set out by the grid. 
 
-We will use the software development methodologies to implement the digital clone of *Quadrillion*. We will add the following new features to the clone, *quadZIBILLION*:
+We will use the software development methodologies to implement the digital clone of *Quadrillion*. We will add the following new features to the clone, *QuadZillion*:
 - *Following features will be decided later by the team members*
 
 We require the following tools for this project:
