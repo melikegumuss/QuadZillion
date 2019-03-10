@@ -1,4 +1,4 @@
-# quadZIBILLION
+# QuadZillion
 
 Bilkent CS 319-1 Object Oriented Software Engineering Project
 ## Project Group 1-G
