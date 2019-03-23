@@ -29,7 +29,10 @@ public class PlayController
         int height = Game.getCurrent().getSettings().getWindowHeight();
 
         timeline = new Timeline(new KeyFrame(Duration.millis(delay), ae ->
-            Game.getCurrent().getRenderer().renderAll(graphics, width, height, delay)
+        {
+            Game.getCurrent().getRenderer().renderAll(graphics, width, height, delay);
+            // System.out.println("heheh");
+        }
         ));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
@@ -45,7 +48,7 @@ public class PlayController
 
     public void onMouseDragged(MouseEvent m)
     {
-        System.out.println(m.getX() + "-" + m.getY());
+        Game.getCurrent().getGameObjects().forEach(sprite -> sprite.onMouseEvent(m));
     }
 
     public void exitGameLoop()

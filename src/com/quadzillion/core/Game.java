@@ -1,9 +1,10 @@
 package com.quadzillion.core;
 
 import com.quadzillion.gui.GameApplication;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Game
 {
@@ -12,41 +13,11 @@ public class Game
     private Settings settings;
     private Renderer renderer;
 
-    private class Sphere implements Renderer.Renderable
-    {
-        int x;
-        int y;
-        int r;
-
-        public Sphere(int radius)
-        {
-            x = 100;
-            y = 100;
-            r = radius;
-        }
-
-        @Override
-        public void init()
-        {
-        }
-
-        @Override
-        public void render(GraphicsContext g, int width, int height, double delta)
-        {
-            g.setFill(Color.BLUE);
-            g.fillOval(x - r/2, y - r/2, r, r);
-            g.setFill(Color.BLACK);
-        }
-
-        @Override
-        public void destroy()
-        {
-
-        }
-    }
+    private List<Sprite> objects;
 
     public Game()
     {
+        objects = new ArrayList<>();
         // get things from a config file
         settings = new Settings(settings ->
         {
@@ -58,15 +29,11 @@ public class Game
         // start the game application
         Game.current = this;
 
-
-        GameApplication.launch(GameApplication.class, null);
-
-        gameApp = GameApplication.getInstance();
         renderer = new Renderer();
-        // Add objects to renderer
+        gameApp = GameApplication.getInstance();
+        // Add pieces to render here!
 
-        Sphere s1 = new Sphere(45);
-        renderer.addObject(s1);
+        GameApplication.launch(GameApplication.class, "");
     }
 
     public GameApplication getGameApplication()
@@ -87,5 +54,10 @@ public class Game
     public Renderer getRenderer()
     {
         return renderer;
+    }
+
+    public List<Sprite> getGameObjects()
+    {
+        return objects;
     }
 }
