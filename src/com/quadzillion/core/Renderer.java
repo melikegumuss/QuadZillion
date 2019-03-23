@@ -34,13 +34,17 @@ public class Renderer
                 x = 100;
                 y = 100;
                 width = height = 50;
+                color = Color.DARKMAGENTA;
             }
 
             @Override
             public void render(GraphicsContext g, int w, int h, double delta)
             {
-                g.setFill(Color.AQUAMARINE);
+                g.setFill(color);
+                g.fillOval(x - width / 2.0 - width, y - height / 2.0 - height, width, height);
+                g.fillOval(x - width / 2.0 - width, y - height / 2.0, width, height);
                 g.fillOval(x - width / 2.0, y - height / 2.0, width, height);
+                g.fillOval(x - width / 2.0, y - height / 2.0 + height, width, height);
             }
         });
         System.out.println(Game.getCurrent().getGameObjects());
