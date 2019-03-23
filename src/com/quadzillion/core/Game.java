@@ -21,8 +21,8 @@ public class Game
         // get things from a config file
         settings = new Settings(settings ->
         {
-            settings.WINDOW_WIDTH = 600;
-            settings.WINDOW_HEIGHT = 400;
+            settings.WINDOW_WIDTH = 1280;
+            settings.WINDOW_HEIGHT = 720;
             settings.WINDOW_RFPS = 60;
         });
 
