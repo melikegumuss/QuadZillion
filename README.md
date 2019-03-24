@@ -4,7 +4,7 @@ Term project for Bilkent University CS-319 Object Oriented Programming Course.
 ## Group 1-G : Rocket Team
 
 ## Project Topic
-quadZIBILLION, the digital clone of [Quadrillion](https://www.smartgames.eu/uk/one-player-games/quadrillion) by [Smart Games](https://www.smartgames.eu/uk).
+quadZillion, the digital clone of [Quadrillion](https://www.smartgames.eu/uk/one-player-games/quadrillion) by [Smart Games](https://www.smartgames.eu/uk).
 
 ## Brief Description
 
