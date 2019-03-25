@@ -5,7 +5,6 @@ import com.quadzillion.gui.layout.LayoutUtil;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -40,10 +39,10 @@ public class PlayController
     }
 
     @FXML
-    public void onReturnToMainMenuButtonClicked(ActionEvent ae)
+    public void onReturnToMainMenuButtonClicked()
     {
         exitGameLoop();
-        LayoutUtil.setScene(ae, "main_menu");
+        LayoutUtil.setScene("main_menu");
     }
 
     public void onMouseDragged(MouseEvent m)
