@@ -1,7 +1,6 @@
 package com.quadzillion.gui.controller;
 import com.quadzillion.gui.layout.LayoutUtil;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -51,9 +50,9 @@ public class HowToPlayController implements Initializable {
 
     }
 
-    public void onReturnToMainMenuButtonClicked(ActionEvent ae)
+    public void onReturnToMainMenuButtonClicked()
     {
-        LayoutUtil.setScene(ae, "main_menu");
+        LayoutUtil.setScene("main_menu");
         mediaPlayer.stop();
     }
 }
