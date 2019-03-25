@@ -2,7 +2,6 @@ package com.quadzillion.gui.controller;
 import com.quadzillion.gui.layout.LayoutUtil;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Hyperlink;
@@ -69,9 +68,9 @@ public class CreditsController implements Initializable {
 
     }
 
-    public void onReturnToMainMenuButtonClicked(ActionEvent ae)
+    public void onReturnToMainMenuButtonClicked()
     {
-        LayoutUtil.setScene(ae, "main_menu");
+        LayoutUtil.setScene("main_menu");
         mplay.stop();
     }
 }
