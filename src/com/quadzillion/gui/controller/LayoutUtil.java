@@ -1,20 +1,18 @@
-package com.quadzillion.gui.layout;
+package com.quadzillion.gui.controller;
 
 import com.quadzillion.core.Game;
 import com.quadzillion.gui.GameApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class LayoutUtil
 {
-    public static void setScene(ActionEvent ae, String name)
+    public static void setScene(String name)
     {
         try
         {
-            Stage stage = getStage(ae);
+            Stage stage = GameApplication.getStage();
             stage.setScene(new Scene(
                     FXMLLoader.load(GameApplication.class.getResource("./layout/" + name + ".fxml")),
                     Game.getCurrent().getSettings().getWindowWidth(),
@@ -24,10 +22,8 @@ public class LayoutUtil
         {
             e.printStackTrace();
         }
+
+
     }
 
-    public static Stage getStage(ActionEvent ae)
-    {
-        return (Stage)(((Node)(ae.getSource())).getScene().getWindow());
-    }
 }
