@@ -3,7 +3,6 @@ package com.quadzillion.gui.controller;
 import com.quadzillion.gui.layout.LayoutUtil;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -47,41 +46,40 @@ public class MainMenuController implements Initializable
     public  void stopMusic(){
         mp.stop();
     }
-    public void onPlayButtonClicked(ActionEvent ae)
+    public void onPlayButtonClicked()
     {
         stopMusic();
-        LayoutUtil.setScene(ae, "play");
+        LayoutUtil.setScene("play");
 
     }
 
-    public void onHowToPlayButtonClicked(ActionEvent ae)
+    public void onHowToPlayButtonClicked()
     {
 
-        LayoutUtil.setScene(ae, "how_to_play");
+        LayoutUtil.setScene("how_to_play");
         stopMusic();
 
     }
 
-    public void onSettingsButtonClicked(ActionEvent ae)
+    public void onSettingsButtonClicked()
     {
-        LayoutUtil.setScene(ae, "settings");
+        LayoutUtil.setScene("settings");
         stopMusic();
     }
 
-    public void onCreditsButtonClicked(ActionEvent ae)
+    public void onCreditsButtonClicked()
     {
 
-        LayoutUtil.setScene(ae, "credits");
+        LayoutUtil.setScene("credits");
         mp.stop();
 
     }
-
-    public void onQuitButtonClicked(ActionEvent ae)
+    //Clicking X button also calls this method
+    public void onQuitButtonClicked()
     {
-
-        LayoutUtil.getStage(ae).close();
-        stopMusic();
-
+        GameApplication.getStage().close();
+        
+        System.out.println("Quit button clicked");
     }
 
 
