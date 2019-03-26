@@ -21,9 +21,19 @@ public class PieceYellow extends Piece
     @Override
     public void onMouseEvent(MouseEvent me)
     {
+        int mx = (int) me.getX();
+        int my = (int) me.getY();
+
         if (me.getEventType() == MouseEvent.MOUSE_DRAGGED)
         {
-
+            if ((x - mx) * (x - mx) + (y - my) * (y - my) <= radius * radius)
+            {
+                x = mx;
+                y = my;
+            }
         }
+
+        oldMouseX = mx;
+        oldMouseY = my;
     }
 }

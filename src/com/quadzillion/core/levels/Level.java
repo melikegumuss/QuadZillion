@@ -2,6 +2,7 @@ package com.quadzillion.core.levels;
 
 import com.quadzillion.core.pieces.Piece;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Level
@@ -16,6 +17,11 @@ public class Level
         public List<Piece> pieces;
         // public List<Board> boards;
         // TODO: implement Board class later & add it to rendering stuff
+
+        public LevelContainer()
+        {
+            pieces = new ArrayList<>();
+        }
     }
 
     private LevelContainer container;

@@ -30,7 +30,7 @@ public class HowToPlayController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         //String videoUrl = "file:/C:/Users/berk/Desktop/tutorialVideo.mp4";
-        String videoUrl = new File("src/Media/tutorialVideo.mp4").getAbsolutePath();
+        String videoUrl = new File("res/sounds/tutorialVideo.mp4").getAbsolutePath();
         Media media = new Media(new File(videoUrl).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaView.setFitHeight(700);

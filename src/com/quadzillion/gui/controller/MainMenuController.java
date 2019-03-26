@@ -30,7 +30,7 @@ public class MainMenuController implements Initializable
 
     public void initialize(URL location, ResourceBundle resources)
     {
-        String path = new File("./Media/herbal.mp3").getAbsolutePath();
+        String path = new File("./res/sounds/herbal.mp3").getAbsolutePath();
         me = new Media(new File(path).toURI().toString());
         mp = new MediaPlayer(me);
         mView.setMediaPlayer(mp);

@@ -7,6 +7,8 @@ public abstract class Sprite implements Renderer.Renderable, Inputable
 {
     protected int x;
     protected int y;
+    protected int oldMouseX = 0;
+    protected int oldMouseY = 0;
     protected Color color;
 
     public Sprite()

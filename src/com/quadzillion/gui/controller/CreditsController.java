@@ -19,8 +19,6 @@ import java.util.ResourceBundle;
 
 public class CreditsController implements Initializable {
 
-
-
     @FXML
     private MediaPlayer mplay;
     @FXML
@@ -34,7 +32,7 @@ public class CreditsController implements Initializable {
     @FXML public void initialize(URL location, ResourceBundle resources)
     {
 
-        String credits = new File("src/Media/creditsSong.mp3").getAbsolutePath();
+        String credits = new File("./res/sounds/creditsSong.mp3").getAbsolutePath();
         med = new Media(new File(credits).toURI().toString());
         mplay = new MediaPlayer(med);
         meView = new MediaView();
