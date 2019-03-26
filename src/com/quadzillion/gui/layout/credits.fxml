@@ -44,7 +44,7 @@
       </Hyperlink>
       <ImageView fitHeight="32.0" fitWidth="41.0" layoutX="835.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../res/images/music_icon.png" />
+            <Image url="@../../../../../res/images/music_icon.png" />
          </image>
       </ImageView>
    </children>
