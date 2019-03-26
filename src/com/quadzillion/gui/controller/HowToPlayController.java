@@ -1,5 +1,4 @@
 package com.quadzillion.gui.controller;
-import com.quadzillion.gui.layout.LayoutUtil;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,17 +13,22 @@ import java.util.ResourceBundle;
 
 import static javafx.scene.media.MediaPlayer.Status.PLAYING;
 
-public class HowToPlayController implements Initializable {
+public class HowToPlayController implements Initializable
+{
     @FXML
     private Button btnPlay;
+
     @FXML
     private Button btnStop;
+
     @FXML
     private MediaView mediaView;
+
     @FXML
     MediaPlayer mediaPlayer;
 
-    public void initialize(URL url, ResourceBundle rb){
+    public void initialize(URL url, ResourceBundle rb)
+    {
         //String videoUrl = "file:/C:/Users/berk/Desktop/tutorialVideo.mp4";
         String videoUrl = new File("src/Media/tutorialVideo.mp4").getAbsolutePath();
         Media media = new Media(new File(videoUrl).toURI().toString());
@@ -34,10 +38,12 @@ public class HowToPlayController implements Initializable {
         mediaView.setMediaPlayer(mediaPlayer);
 
     }
+
     @FXML
     private void onClickStop(){
         mediaPlayer.pause();
     }
+
     @FXML
     private void onClickPlay(){
         if(mediaPlayer.getStatus() == PLAYING){

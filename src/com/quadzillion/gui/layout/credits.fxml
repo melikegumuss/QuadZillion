@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linen;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.CreditsController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linen;" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.CreditsController">
    <children>
       <Label layoutX="482.0" layoutY="55.0" prefHeight="108.0" prefWidth="223.0" text="Credits" textFill="#a73333">
          <font>

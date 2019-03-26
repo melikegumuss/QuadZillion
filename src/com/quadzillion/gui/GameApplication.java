@@ -30,9 +30,8 @@ public class GameApplication extends Application
     {
         GameApplication.instance = this;
         primaryStage = stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("./layout/main_menu.fxml"));
         Settings settings = Game.getCurrent().getSettings();
-        Parent root = fxmlLoader.load();
+        Parent root = FXMLLoader.load(getClass().getResource("./layout/main_menu.fxml"));
         Scene scene = new Scene(
                 root,
                 settings.getWindowWidth(),
@@ -42,7 +41,8 @@ public class GameApplication extends Application
         primaryStage.setTitle("QuadZillion");
         primaryStage.show();
 
-        MainMenuController mc = fxmlLoader.getController();
-        primaryStage.setOnCloseRequest(e->mc.onQuitButtonClicked());
+        // MainMenuController mc = fxmlLoader.getController();
+
+        // primaryStage.setOnCloseRequest(e->mc.onQuitButtonClicked());
     }
 }

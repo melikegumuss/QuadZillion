@@ -9,7 +9,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-image: url('/Media/background.png');" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.MainMenuController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-image: url('/Media/background.png');" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.MainMenuController">
    <children>
       <Button layoutX="913.0" layoutY="445.0" mnemonicParsing="false" onAction="#onSettingsButtonClicked" prefHeight="80.0" prefWidth="225.0" style="-fx-background-color: #383838;" text="Settings" textFill="WHITE">
          <font>
@@ -40,9 +40,6 @@
       <MediaView fx:id="mView" fitHeight="200.0" fitWidth="200.0" layoutX="276.0" layoutY="235.0" />
       <Slider fx:id="volumeSlider" layoutX="956.0" layoutY="45.0" />
       <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="908.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Media/music_icon.png" />
-         </image>
       </ImageView>
    </children>
 </AnchorPane>

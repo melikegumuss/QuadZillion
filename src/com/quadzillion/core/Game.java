@@ -1,10 +1,7 @@
 package com.quadzillion.core;
 
+import com.quadzillion.core.levels.Level;
 import com.quadzillion.gui.GameApplication;
-import javafx.scene.paint.Color;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Game
 {
@@ -13,11 +10,10 @@ public class Game
     private Settings settings;
     private Renderer renderer;
 
-    private List<Sprite> objects;
+    private Level gameLevel;
 
     public Game()
     {
-        objects = new ArrayList<>();
         // get things from a config file
         settings = new Settings(settings ->
         {
@@ -36,6 +32,7 @@ public class Game
         GameApplication.launch(GameApplication.class, "");
     }
 
+    @SuppressWarnings("unused")
     public GameApplication getGameApplication()
     {
         return gameApp;
@@ -56,8 +53,8 @@ public class Game
         return renderer;
     }
 
-    public List<Sprite> getGameObjects()
+    public Level getCurrentLevel()
     {
-        return objects;
+        return gameLevel;
     }
 }

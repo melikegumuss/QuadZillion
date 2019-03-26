@@ -11,7 +11,6 @@ public class Settings
 
     private SettingContainer settings;
 
-
     public interface SettingsInitListener
     {
         void onInitialize(SettingContainer sc);

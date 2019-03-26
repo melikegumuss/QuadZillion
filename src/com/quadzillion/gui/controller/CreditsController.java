@@ -1,5 +1,4 @@
 package com.quadzillion.gui.controller;
-import com.quadzillion.gui.layout.LayoutUtil;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;

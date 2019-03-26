@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.media.MediaView?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linen;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.HowToPlayController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linen;" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.HowToPlayController">
    <children>
       <Label layoutX="527.0" layoutY="35.0" text="How to Play" />
       <Button fx:id="btnStop" layoutX="152.0" layoutY="634.0" mnemonicParsing="false" onAction="#onClickStop" text="Stop" />

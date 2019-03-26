@@ -1,7 +1,7 @@
 package com.quadzillion.gui.controller;
 
 import com.quadzillion.core.Game;
-import com.quadzillion.gui.layout.LayoutUtil;
+import com.quadzillion.core.Renderer;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -47,15 +47,16 @@ public class PlayController
 
     public void onMouseDragged(MouseEvent m)
     {
-        Game.getCurrent().getGameObjects().forEach(sprite -> sprite.onMouseEvent(m));
+        Game.getCurrent().getCurrentLevel().getContainer().pieces.forEach(sprite -> sprite.onMouseEvent(m));
     }
 
     public void exitGameLoop()
     {
         timeline.stop();
-        int width = Game.getCurrent().getSettings().getWindowWidth();
-        int height = Game.getCurrent().getSettings().getWindowHeight();
-        Game.getCurrent().getRenderer().destroy(graphics, width, height);
+        Renderer.destroy(
+                graphics,
+                Game.getCurrent().getSettings().getWindowWidth(),
+                Game.getCurrent().getSettings().getWindowHeight());
     }
 
 

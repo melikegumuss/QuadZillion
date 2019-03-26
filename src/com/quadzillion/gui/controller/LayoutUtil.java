@@ -22,8 +22,6 @@ public class LayoutUtil
         {
             e.printStackTrace();
         }
-
-
     }
 
 }

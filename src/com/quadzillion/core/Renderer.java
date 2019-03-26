@@ -1,10 +1,8 @@
 package com.quadzillion.core;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
-@SuppressWarnings("unused")
 public class Renderer
 {
     public interface Renderable
@@ -14,63 +12,29 @@ public class Renderer
         void destroy();
     }
 
-    public Renderer()
+    public static void init()
     {
-        Game.getCurrent().getGameObjects().add(new Piece()
-        {
-            @Override
-            public void onMouseEvent(MouseEvent me)
-            {
-                if ((x - me.getX()) * (x - me.getX()) + (y - me.getY()) * (y - me.getY()) <= width * height)
-                {
-                    x = (int) me.getX();
-                    y = (int) me.getY();
-                }
-            }
-
-            @Override
-            public void init()
-            {
-                x = 100;
-                y = 100;
-                width = height = 50;
-                color = Color.DARKMAGENTA;
-            }
-
-            @Override
-            public void render(GraphicsContext g, int w, int h, double delta)
-            {
-                g.setFill(color);
-                g.fillOval(x - width / 2.0 - width, y - height / 2.0 - height, width, height);
-                g.fillOval(x - width / 2.0 - width, y - height / 2.0, width, height);
-                g.fillOval(x - width / 2.0, y - height / 2.0, width, height);
-                g.fillOval(x - width / 2.0, y - height / 2.0 + height, width, height);
-            }
-        });
-        System.out.println(Game.getCurrent().getGameObjects());
-    }
-
-    public void init()
-    {
-        for (Renderable r : Game.getCurrent().getGameObjects())
+        for (Renderable r : Game.getCurrent().getCurrentLevel().getContainer().pieces)
             r.init();
     }
 
-    public void renderAll(GraphicsContext g, int width, int height, double delta)
+    public static void renderAll(GraphicsContext g, int width, int height, double delta)
     {
         clear(g, width, height);
-        for (Renderable r : Game.getCurrent().getGameObjects())
+        // Render boards then pieces
+
+        for (Renderable r : Game.getCurrent().getCurrentLevel().getContainer().pieces)
             r.render(g, width, height, delta);
     }
 
-    public void destroy(GraphicsContext g, int width, int height)
+    public static void destroy(GraphicsContext g, int width, int height)
     {
-        for (Renderable r : Game.getCurrent().getGameObjects())
+        for (Renderable r : Game.getCurrent().getCurrentLevel().getContainer().pieces)
             r.destroy();
         clear(g, width, height);
     }
 
-    private void clear(GraphicsContext graphics, int width, int height)
+    private static void clear(GraphicsContext graphics, int width, int height)
     {
         graphics.setFill(Color.WHITE);
         graphics.fillRect(0, 0, width, height);

@@ -1,6 +1,6 @@
 package com.quadzillion.gui.controller;
 
-import com.quadzillion.gui.layout.LayoutUtil;
+import com.quadzillion.gui.GameApplication;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
@@ -30,7 +30,7 @@ public class MainMenuController implements Initializable
 
     public void initialize(URL location, ResourceBundle resources)
     {
-        String path = new File("src/Media/herbal.mp3").getAbsolutePath();
+        String path = new File("./Media/herbal.mp3").getAbsolutePath();
         me = new Media(new File(path).toURI().toString());
         mp = new MediaPlayer(me);
         mView.setMediaPlayer(mp);
