@@ -1,6 +1,7 @@
 package com.quadzillion.core;
 
 import com.quadzillion.core.levels.Level;
+import com.quadzillion.core.levels.LevelOne;
 import com.quadzillion.gui.GameApplication;
 
 public class Game
@@ -24,6 +25,9 @@ public class Game
 
         // start the game application
         Game.current = this;
+
+        // create level here
+        gameLevel = new LevelOne();
 
         renderer = new Renderer();
         gameApp = GameApplication.getInstance();

@@ -26,10 +26,12 @@ public abstract class Piece extends Sprite
     }
 
     protected PieceData data;
+    protected int radius;
 
     public Piece(int x, int y)
     {
         super(x, y);
+        radius = 30;
     }
 
     @Override

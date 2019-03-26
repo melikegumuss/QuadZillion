@@ -11,11 +11,11 @@ public class PieceYellow extends Piece
         super(x, y);
     }
 
-
     @Override
     public void render(GraphicsContext g, int width, int height, double delta)
     {
-
+        g.setFill(color);
+        g.fillOval(x - radius / 2, y - radius / 2, radius, radius);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class PieceYellow extends Piece
     {
         if (me.getEventType() == MouseEvent.MOUSE_DRAGGED)
         {
-            // DO STUFF
+
         }
     }
 }
