@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
@@ -10,7 +9,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchorPane" fx:id="anchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.MainMenuController">
+<AnchorPane id="anchorPane" fx:id="anchorPane" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../../../../../../../res/themes/mainmenu.css" styleClass="anchorPane" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.MainMenuController">
    <children>
       <Button layoutX="913.0" layoutY="445.0" mnemonicParsing="false" onAction="#onSettingsButtonClicked" prefHeight="80.0" prefWidth="225.0" style="-fx-background-color: #383838;" text="Settings" textFill="WHITE">
          <font>
@@ -43,10 +42,6 @@
       <ImageView fitHeight="29.0" fitWidth="30.0" layoutX="908.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
    </children>
-   <stylesheets>
-      <URL value="@../../../../../res/themes/mainmenu.css" />
-      <URL value="@../../../../../res/themes/mainmenu.css" />
-   </stylesheets>
    <styleClass>
       <String fx:value="anchorPane" />
       <String fx:value="anchorPane" />
