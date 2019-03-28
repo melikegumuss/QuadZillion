@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/8.0.191" fx:controller="com.quadzillion.gui.controller.PlayController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0"  xmlns:fx="http://javafx.com/fxml/8.0.191" fx:controller="com.quadzillion.gui.controller.PlayController">
    <children>
       <Canvas fx:id="canvas" height="720.0" onMouseDragged="#onMouseDragged" style="-fx-background-color: lınen;" width="1280.0" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onReturnToMainMenuButtonClicked" text="Back" />
