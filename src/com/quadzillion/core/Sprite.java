@@ -21,7 +21,7 @@ public abstract class Sprite implements Renderer.Renderable, Inputable
     public Sprite(int x, int y)
     {
         this.x = x;
-        this.y = x;
+        this.y = y;
         color = Color.AQUAMARINE;
     }
 }

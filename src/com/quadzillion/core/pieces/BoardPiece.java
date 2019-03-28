@@ -11,6 +11,7 @@ public abstract class BoardPiece extends Piece
         super(x, y);
         color = Color.WHITE;
         data = new Piece.PieceData(4, 4);
+        putData();
     }
 
     @Override

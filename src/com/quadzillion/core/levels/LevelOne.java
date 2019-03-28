@@ -8,11 +8,35 @@ public class LevelOne extends Level
     {
         super(c ->
         {
-            c.pieces.add(new BoardPiece(250, 500){
+            c.pieces.add(new BoardPiece(250, 150){
                 @Override
                 public void putData()
                 {
-
+                    data.put(0, 0);
+                    data.put(2, 0);
+                }
+            });
+            c.pieces.add(new BoardPiece(450, 250){
+                @Override
+                public void putData()
+                {
+                    data.put(0, 0);
+                    data.put(2, 1);
+                }
+            });
+            c.pieces.add(new BoardPiece(450, 450){
+                @Override
+                public void putData()
+                {
+                    data.put(0, 0);
+                    data.put(2, 1);
+                }
+            });
+            c.pieces.add(new BoardPiece(650, 450){
+                @Override
+                public void putData()
+                {
+                    data.put(3, 2);
                 }
             });
 
