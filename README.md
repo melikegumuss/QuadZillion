@@ -34,6 +34,6 @@ We require the following tools for this project:
 
 ## References
 
-> The original game [Quadrillion can be reached here](https://www.smartgames.eu/uk/one-player-games/quadrillion).
+> The original game: [Quadrillion can be reached here](https://www.smartgames.eu/uk/one-player-games/quadrillion).
 
 > The review of the game by [TTPM Toy Reviews](https://www.youtube.com/channel/UCcj4TuaP3w6gQ9-mCuhVlpA) can be found [here](https://www.youtube.com/watch?v=vhC_kjndjHg).
