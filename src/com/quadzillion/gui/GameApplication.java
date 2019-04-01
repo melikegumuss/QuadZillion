@@ -41,7 +41,7 @@ public class GameApplication extends Application
         scene.getStylesheets().add(getClass().getResource("/mainmenu.css").toExternalForm());
         primaryStage.setTitle("QuadZillion");
         primaryStage.show();
-
+        
         // MainMenuController mc = fxmlLoader.getController();
 
         // primaryStage.setOnCloseRequest(e->mc.onQuitButtonClicked());
