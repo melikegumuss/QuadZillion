@@ -1,7 +1,9 @@
 package com.quadzillion.gui.controller;
+import com.quadzillion.gui.GameApplication;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Slider;
@@ -17,14 +19,18 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreditsController implements Initializable {
+import static com.quadzillion.gui.controller.MainMenuController.mp;
+import static com.quadzillion.gui.controller.SettingsController.isThemeChanged;
+import com.quadzillion.gui.controller.MainMenuController;
+import static com.quadzillion.gui.GameApplication.getStage;
 
+public class CreditsController implements Initializable {
+    private MainMenuController mc;
     @FXML
     private MediaPlayer mplay;
     @FXML
     private Media med;
-    @FXML
-    Slider cSlider;
+
     @FXML
     private MediaView meView;
     @FXML
@@ -42,14 +48,12 @@ public class CreditsController implements Initializable {
             return;
         }
         mplay.setAutoPlay(true);
-        cSlider.setValue(mplay.getVolume() * 100);
 
-        cSlider.valueProperty().addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable observable) {
-                mplay.setVolume(cSlider.getValue() / 100);
-            }
-        });
+        githubLink.setOnAction(e->handleLinkClick());
+        getStage().getScene().getStylesheets().add("credits.css");
+        mc = new MainMenuController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
+        loader.setController(mc);
     }
 
     @FXML
@@ -68,6 +72,12 @@ public class CreditsController implements Initializable {
     public void onReturnToMainMenuButtonClicked()
     {
         LayoutUtil.setScene("main_menu");
+        if(isThemeChanged)
+            mc.changeTheme();
+        else
+            mc.loadDefaultCSS();
         mplay.stop();
+        mp.play();
+
     }
 }
