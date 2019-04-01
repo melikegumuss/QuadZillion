@@ -13,7 +13,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.quadzillion.gui.GameApplication.getStage;
-import static com.quadzillion.gui.GameApplication.isTheme;
 import static com.quadzillion.gui.controller.MainMenuController.fuckYou;
 import static com.quadzillion.gui.controller.MainMenuController.mp;
 //import static com.quadzillion.gui.controller.MainMenuController.tgl;
