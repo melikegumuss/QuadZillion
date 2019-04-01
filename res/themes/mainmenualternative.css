@@ -1,0 +1,10 @@
+.root{
+    -fx-background-image: url("foto.jpg");
+}
+.toggle-button {
+    -fx-graphic: url('/unmute.png');
+}
+
+.toggle-button:selected {
+    -fx-graphic: url('mute.png');
+}
