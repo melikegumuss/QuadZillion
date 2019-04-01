@@ -38,6 +38,7 @@ public class GameApplication extends Application
                 settings.getWindowHeight());
 
         primaryStage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("/mainmenu.css").toExternalForm());
         primaryStage.setTitle("QuadZillion");
         primaryStage.show();
 

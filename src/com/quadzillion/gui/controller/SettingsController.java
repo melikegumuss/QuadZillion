@@ -13,8 +13,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.quadzillion.gui.GameApplication.getStage;
-import static com.quadzillion.gui.GameApplication.isTheme;
-import static com.quadzillion.gui.controller.MainMenuController.fuckYou;
+//import static com.quadzillion.gui.GameApplication.isTheme;
+import static com.quadzillion.gui.controller.MainMenuController.isMuted;
 import static com.quadzillion.gui.controller.MainMenuController.mp;
 //import static com.quadzillion.gui.controller.MainMenuController.tgl;
 import com.quadzillion.gui.controller.MainMenuController;
@@ -43,7 +43,7 @@ public class SettingsController implements Initializable
          final FXMLLoader loader = new FXMLLoader(getClass().getResource("main_menu.fxml"));
          loader.setController(mc);
 
-
+        tgl2.setSelected(isMuted);
         changeButton.setOnAction(e->{
             mc.changeTheme();
             isThemeChanged = true;
@@ -62,13 +62,13 @@ public class SettingsController implements Initializable
                 //mainController.setToggle(false);
                 //System.out.println(mc.getToggle());
                 //mc.getToggle().setSelected(false);
-                fuckYou = true;
+                isMuted = true;
             }
             else {
                 mp.setVolume(100);
                 //System.out.println(mc.getToggle());
                 //mainController.setToggle(true);
-                fuckYou = false;
+                isMuted = false;
                 //mc.getToggle().setSelected(false);
                 //mc.print();
             }

@@ -39,7 +39,7 @@ public class MainMenuController implements Initializable
     private static final String PATH = new File("./res/sounds/herbal.mp3").getAbsolutePath();
     private static final Media me = new Media(new File(PATH).toURI().toString());
     public static final  MediaPlayer mp = new MediaPlayer(me);
-    public static boolean fuckYou = false;
+    public static boolean isMuted = false;
 
 
 
@@ -72,7 +72,7 @@ public class MainMenuController implements Initializable
         settingsButton.setOnAction(e-> onSettingsButtonClicked());
 
         tgl.setOnAction(e-> toggleFunc());
-        tgl.setSelected(fuckYou);
+        tgl.setSelected(isMuted);
 
     }
 
@@ -94,7 +94,14 @@ public class MainMenuController implements Initializable
     }
 
     public void toggleFunc(){
-        if(tgl.isSelected()) mute(); else unmute();
+        if(tgl.isSelected()) {
+            mute();
+            isMuted = true;
+        }
+        else {
+            unmute();
+            isMuted = false;
+        }
     }
 
     public void onPlayButtonClicked()
