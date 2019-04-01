@@ -1,3 +1,8 @@
 .root{
-    -fx-background-color: linen;
+    -fx-background-color: 	#E3DBCE;
+}
+
+#backButton{
+    -fx-graphic:  url("/backbutton.png");
+    -fx-background-color: 	#E3DBCE;
 }

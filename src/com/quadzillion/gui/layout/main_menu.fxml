@@ -13,7 +13,7 @@
 
 
    <children>
-      <Button fx:id="settingsButton" layoutX="913.0" layoutY="445.0" mnemonicParsing="false" onAction="#onSettingsButtonClicked" prefHeight="80.0" prefWidth="225.0" style="-fx-background-color: #383838;" text="Settings" textFill="WHITE">
+      <Button fx:id="settingsButton" layoutX="913.0" layoutY="445.0" mnemonicParsing="false" onAction="#onSettingsButtonClicked" prefHeight="80.0" prefWidth="225.0" text="Settings" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="33.0" />
          </font></Button>
@@ -22,19 +22,19 @@
             <Font name="Rockwell" size="71.0" />
          </font>
       </Label>
-      <Button contentDisplay="CENTER" layoutX="913.0" layoutY="125.0" mnemonicParsing="false" onAction="#onPlayButtonClicked" prefHeight="80.0" prefWidth="225.0" style="-fx-background-color: #383838;" text="Play Game" textFill="white">
+      <Button fx:id="playButton" contentDisplay="CENTER" layoutX="913.0" layoutY="125.0" mnemonicParsing="false" onAction="#onPlayButtonClicked" prefHeight="80.0" prefWidth="225.0" text="Play Game" textFill="white">
          <font>
             <Font name="Rockwell" size="33.0" />
          </font></Button>
-      <Button layoutX="913.0" layoutY="229.0" mnemonicParsing="false" onAction="#onHowToPlayButtonClicked" prefHeight="80.0" prefWidth="225.0" style="-fx-background-color: #383838;" text="How to Play" textFill="WHITE">
+      <Button layoutX="913.0" layoutY="229.0" fx:id="howtoButton" mnemonicParsing="false" onAction="#onHowToPlayButtonClicked" prefHeight="80.0" prefWidth="225.0" text="How to Play" textFill="WHITE">
          <font>
             <Font name="Rockwell" size="33.0" />
          </font></Button>
-      <Button layoutX="913.0" layoutY="337.0" mnemonicParsing="false" onAction="#onCreditsButtonClicked" prefHeight="80.0" prefWidth="225.0" style="-fx-background-color: #383838;" text="Credits  " textFill="WHITE">
+      <Button layoutX="913.0" layoutY="337.0" mnemonicParsing="false" fx:id="creditsButton" onAction="#onCreditsButtonClicked" prefHeight="80.0" prefWidth="225.0" text="Credits  " textFill="WHITE">
          <font>
             <Font name="Rockwell" size="33.0" />
          </font></Button>
-      <Button layoutX="913.0" layoutY="555.0" mnemonicParsing="false" onAction="#onQuitButtonClicked" prefHeight="80.0" prefWidth="225.0" style="-fx-background-color: #383838;" text="Quit" textFill="WHITE">
+      <Button layoutX="913.0" fx:id="quitButton" layoutY="555.0" mnemonicParsing="false" onAction="#onQuitButtonClicked" prefHeight="80.0" prefWidth="225.0" text="Quit" textFill="WHITE">
          <font>
             <Font size="33.0" />
          </font></Button>

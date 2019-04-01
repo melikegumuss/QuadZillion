@@ -18,7 +18,7 @@
          <font>
             <Font size="30.0" />
          </font></Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onReturnToMainMenuButtonClicked" text="Back" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onReturnToMainMenuButtonClicked" fx:id="backButton"  />
       <Label layoutX="510.0" layoutY="371.0" prefHeight="45.0" prefWidth="210.0" text="Ufuk Bombar">
          <font>
             <Font size="30.0" />

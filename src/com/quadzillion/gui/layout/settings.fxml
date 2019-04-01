@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.SettingsController">
-   <children> <fx:include fx:id="main" source="main_menu.fxml" opacity="0" /></children>
+   <children> <fx:include fx:id="main" opacity="0" source="main_menu.fxml" /></children>
 
    <children>
 
-      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" />
       <Button fx:id="changeButton" layoutX="773.0" layoutY="54.0" mnemonicParsing="false" text="Change Theme " />
       <Button fx:id="defaultTheme" layoutX="886.0" layoutY="54.0" mnemonicParsing="false" text="Default Theme" />
-      <ToggleButton fx:id="tgl2" layoutX="543.0" layoutY="67.0" mnemonicParsing="false" text="ToggleButton" />
+      <ToggleButton fx:id="tgl2" layoutX="1200.0" layoutY="26.0" mnemonicParsing="false" />
    </children>
 </AnchorPane>

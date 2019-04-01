@@ -29,7 +29,7 @@ public class MainMenuController implements Initializable
     //Controllers
     //@FXML
     SettingsController sc;
-    //@FXML HowToPlayController ht;
+    @FXML HowToPlayController ht;
     //@FXML CreditsController cr;
     static int counter = 0;
     //Buttons
@@ -59,9 +59,9 @@ public class MainMenuController implements Initializable
         FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
         loader.setController(sc);
 //
-//        ht = new HowToPlayController();
-//        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("settings.fxml"));
-//        loader2.setController(ht);
+        ht = new HowToPlayController();
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("settings.fxml"));
+        loader2.setController(ht);
 //
 //
 //        cr = new CreditsController();
@@ -121,6 +121,7 @@ public class MainMenuController implements Initializable
     public void onHowToPlayButtonClicked()
     {
         LayoutUtil.setScene("how_to_play");
+        ht.setTheme();
         mp.pause();
     }
 

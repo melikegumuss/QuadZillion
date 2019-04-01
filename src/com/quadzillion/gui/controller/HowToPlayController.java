@@ -12,6 +12,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.quadzillion.gui.GameApplication.getStage;
 import static com.quadzillion.gui.controller.MainMenuController.mp;
 import static com.quadzillion.gui.controller.SettingsController.isThemeChanged;
 import static javafx.scene.media.MediaPlayer.Status.PLAYING;
@@ -63,7 +64,9 @@ public class HowToPlayController implements Initializable
         }
 
     }
-
+    public void setTheme(){
+        getStage().getScene().getStylesheets().add("/howtoplay.css");
+    }
     public void onReturnToMainMenuButtonClicked()
     {
         LayoutUtil.setScene("main_menu");
