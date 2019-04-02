@@ -1,0 +1,35 @@
+.root{
+    -fx-background-image: url("foto.jpg");
+}
+.toggle-button {
+    -fx-graphic: url('/unmute.png');
+}
+
+.toggle-button:selected {
+    -fx-graphic: url('mute.png');
+}
+
+#playButton{
+    -fx-background-color: #383838;
+    -fx-shape: "M 750, 200 a 75,150 0 1,0 1,0";
+}
+
+#howtoButton{
+    -fx-background-color: #383838;
+    -fx-shape: "M 750, 200 a 75,150 0 1,0 1,0";
+}
+
+#creditsButton{
+    -fx-background-color: #383838;
+    -fx-shape: "M 750, 200 a 75,150 0 1,0 1,0";
+}
+
+#settingsButton{
+    -fx-background-color: #383838;
+    -fx-shape: "M 750, 200 a 75,150 0 1,0 1,0";
+}
+
+#quitButton{
+    -fx-background-color: #383838;
+    -fx-shape: "M 750, 200 a 75,150 0 1,0 1,0";
+}

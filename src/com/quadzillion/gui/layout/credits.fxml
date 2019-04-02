@@ -3,13 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Slider?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: linen;" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.CreditsController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="/credits.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.CreditsController">
    <children>
       <Label layoutX="482.0" layoutY="55.0" prefHeight="108.0" prefWidth="223.0" text="Credits" textFill="#a73333">
          <font>
@@ -19,7 +18,7 @@
          <font>
             <Font size="30.0" />
          </font></Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onReturnToMainMenuButtonClicked" text="Back" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onReturnToMainMenuButtonClicked" fx:id="backButton"  />
       <Label layoutX="510.0" layoutY="371.0" prefHeight="45.0" prefWidth="210.0" text="Ufuk Bombar">
          <font>
             <Font size="30.0" />
@@ -36,15 +35,15 @@
          <font>
             <Font size="30.0" />
          </font></Label>
-      <Slider fx:id="cSlider" layoutX="878.0" layoutY="32.0" />
+
       <Hyperlink fx:id="githubLink" layoutX="510.0" layoutY="551.0" onAction="#handleLinkClick" prefHeight="55.0" prefWidth="155.0" text="Github">
          <font>
             <Font size="40.0" />
          </font>
       </Hyperlink>
-      <ImageView fitHeight="32.0" fitWidth="41.0" layoutX="835.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="32.0" fitWidth="41.0" layoutX="835.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" visible="true">
          <image>
-            <Image url="@../../../../../res/images/music_icon.png" />
+            <Image url="/music_icon.png" />
          </image>
       </ImageView>
    </children>

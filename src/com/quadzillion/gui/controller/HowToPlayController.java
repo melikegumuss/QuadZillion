@@ -1,6 +1,7 @@
 package com.quadzillion.gui.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.media.Media;
@@ -11,10 +12,14 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.quadzillion.gui.GameApplication.getStage;
+import static com.quadzillion.gui.controller.MainMenuController.mp;
+import static com.quadzillion.gui.controller.SettingsController.isThemeChanged;
 import static javafx.scene.media.MediaPlayer.Status.PLAYING;
 
 public class HowToPlayController implements Initializable
 {
+    private MainMenuController mc;
     @FXML
     private Button btnPlay;
 
@@ -30,12 +35,16 @@ public class HowToPlayController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         //String videoUrl = "file:/C:/Users/berk/Desktop/tutorialVideo.mp4";
-        String videoUrl = new File("res/sounds/tutorialVideo.mp4").getAbsolutePath();
+        String videoUrl = new File("res/images/tutorialVideo.mp4").getAbsolutePath();
         Media media = new Media(new File(videoUrl).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         mediaView.setFitHeight(700);
         mediaView.setFitWidth(1000);
         mediaView.setMediaPlayer(mediaPlayer);
+
+        mc = new MainMenuController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
+        loader.setController(mc);
 
     }
 
@@ -55,10 +64,17 @@ public class HowToPlayController implements Initializable
         }
 
     }
-
+    public void setTheme(){
+        getStage().getScene().getStylesheets().add("/howtoplay.css");
+    }
     public void onReturnToMainMenuButtonClicked()
     {
         LayoutUtil.setScene("main_menu");
-        mediaPlayer.stop();
+        if(!isThemeChanged)
+            mc.loadDefaultCSS();
+        else
+            mc.changeTheme();
+        mp.play();
+        mediaPlayer.pause();
     }
 }

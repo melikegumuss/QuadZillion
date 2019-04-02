@@ -2,6 +2,7 @@ package com.quadzillion.gui.controller;
 
 import com.quadzillion.core.Game;
 import com.quadzillion.core.Renderer;
+import com.quadzillion.gui.GameApplication;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -43,6 +44,7 @@ public class PlayController
     {
         exitGameLoop();
         LayoutUtil.setScene("main_menu");
+        GameApplication.getStage().getScene().getStylesheets().add("mainmenu.css");
     }
 
     public void onMouseDragged(MouseEvent m)
