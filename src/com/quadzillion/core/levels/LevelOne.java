@@ -2,7 +2,7 @@ package com.quadzillion.core.levels;
 
 import com.quadzillion.core.pieces.*;
 
-public class LevelOne extends Level
+public class LevelOne extends GameObjectContainer
 {
     public LevelOne()
     {

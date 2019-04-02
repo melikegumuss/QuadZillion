@@ -1,6 +1,6 @@
 package com.quadzillion.core;
 
-import com.quadzillion.core.levels.Level;
+import com.quadzillion.core.levels.GameObjectContainer;
 import com.quadzillion.core.levels.LevelOne;
 import com.quadzillion.gui.GameApplication;
 
@@ -11,7 +11,7 @@ public class Game
     private Settings settings;
     private Renderer renderer;
 
-    private Level gameLevel;
+    private GameObjectContainer gameLevel;
 
     public Game()
     {
@@ -57,7 +57,7 @@ public class Game
         return renderer;
     }
 
-    public Level getCurrentLevel()
+    public GameObjectContainer getCurrentLevel()
     {
         return gameLevel;
     }
