@@ -1,13 +1,19 @@
 package com.quadzillion.gui.controller;
+import com.quadzillion.core.Game;
 import com.quadzillion.gui.GameApplication;
 import com.sun.javafx.iio.ios.IosDescriptor;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,97 +24,101 @@ import static com.quadzillion.gui.controller.MainMenuController.isMuted;
 import static com.quadzillion.gui.controller.MainMenuController.mp;
 //import static com.quadzillion.gui.controller.MainMenuController.tgl;
 import com.quadzillion.gui.controller.MainMenuController;
-public class SettingsController implements Initializable
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
+public class SettingsController implements Controllable
 {
-    @FXML
-    Button changeButton;
     @FXML
     Button backButton;
     @FXML
-    Button defaultTheme;
+    Slider slider;
     @FXML
     ToggleButton tgl2;
-    private MainMenuController mc;
-    @FXML private MainMenuController mainController;
-    public static boolean isThemeChanged = false;
-    //@FXML
-    //private final MainMenuController mc = new MainMenuController();
-    //@FXML
-    //private final FXMLLoader loader = new FXMLLoader(getClass().getResource("main_menu.fxml"));
+
+    @FXML
+    ListView<String> themeList;
+
+    ObservableList<String> themes;
+
+    private String selectedTheme;
 
 
-     public void initialize(URL location, ResourceBundle resources ){
-
-         mc = new MainMenuController();
-         final FXMLLoader loader = new FXMLLoader(getClass().getResource("main_menu.fxml"));
-         loader.setController(mc);
-
+    @Override
+    public void onCreate()
+    {
         tgl2.setSelected(isMuted);
-        changeButton.setOnAction(e->{
-            mc.changeTheme();
-            isThemeChanged = true;
-            //getStage().getScene().getStylesheets().add("/mainmenualternative.css");
-        });
-        backButton.setOnAction(e->{
-            LayoutUtil.setScene("main_menu");
-            if(isThemeChanged) mc.changeTheme();
-            else mc.loadDefaultCSS();
 
-
+        backButton.setOnAction(e ->
+        {
+            Util.setScene(Util.SCENE_MAIN_MENU);
         });
-        tgl2.setOnAction(e->{
-            if(tgl2.isSelected()){
+
+        // Get available themes here!
+        themes = FXCollections.observableArrayList("Vanilla", "Exotic", "Dark");
+        themeList.setItems(themes);
+        themeList.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> selectedTheme = t1);
+
+        slider.setValue(mp.getVolume());
+
+        slider.setMin(0);
+        slider.setMax(1);
+        slider.setOnMouseDragged(mouseEvent -> slider());
+        slider.setOnMouseClicked(mouseEvent -> slider());
+
+        tgl2.setOnAction(e ->
+        {
+            if (tgl2.isSelected())
+            {
                 mp.setVolume(0);
-                //mainController.setToggle(false);
-                //System.out.println(mc.getToggle());
-                //mc.getToggle().setSelected(false);
+                slider.setValue(0);
                 isMuted = true;
             }
-            else {
+            else
+            {
                 mp.setVolume(100);
-                //System.out.println(mc.getToggle());
-                //mainController.setToggle(true);
+                slider.setValue(100);
                 isMuted = false;
-                //mc.getToggle().setSelected(false);
-                //mc.print();
             }
         });
-        defaultTheme.setOnAction(e->{
-                setSettingsDefault();
-                isThemeChanged = false;
-        });
-
-
-        //getStage().getScene().getStylesheets().add("/mainmenualternative.css"));
-        //getStylesheets().add("/mainmenualternative.css"));
-    }
-    public void init(MainMenuController mainController){
-        mc = mainController;
     }
 
-    public void changeSettingsTheme(){
-        getStage().getScene().getStylesheets().clear();
-        getStage().getScene().getStylesheets().add("/mainmenualternative.css");
+
+    @Override
+    public void onDestroy()
+    {
+
     }
 
-    public void setSettingsDefault(){
-        getStage().getScene().getStylesheets().clear();
-        getStage().getScene().getStylesheets().add("mainmenu.css");
+    @Override
+    public void onThemeChange()
+    {
+
     }
 
-//    public void onChangeTheme(){
-//        GameApplication.getStage().getScene().getStylesheets().add("mainmenu.css");
-//        isTheme = !isTheme;
-//    }
-//    public void onReturnToMainMenuButtonClicked()
-//    {
-//        LayoutUtil.setScene("main_menu");
-//
-//    }
+    public void onApplyThemeButtonClicked()
+    {
+        if (selectedTheme != null)
+            if (selectedTheme.equals("Vanilla"))
+                Util.applyTheme(Util.THEME_VANILLA);
+            else if (selectedTheme.equals("Dark"))
+                Util.applyTheme(Util.THEME_DARK);
+            else if (selectedTheme.equals("Exotic"))
+                Util.applyTheme(Util.THEME_EXOTIC);
+    }
+
+    public void slider(){
+        mp.setVolume(slider.getValue());
+        if (slider.getValue() == 0)
+        {
+            isMuted = true;
+            tgl2.setSelected(true);
+        }
+        else
+        {
+            tgl2.setSelected(false);
+        }
+    }
+
+
 }
-
-//            else{
-//                getStage().getScene().getStylesheets().clear();
-//                getStage().getScene().getStylesheets().add("/mainmenualternative.css");
-//                isThemeChanged = true;
-//            }

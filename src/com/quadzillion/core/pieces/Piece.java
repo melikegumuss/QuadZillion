@@ -1,124 +1,232 @@
 package com.quadzillion.core.pieces;
 
+import com.quadzillion.core.models.Constants;
+import com.quadzillion.core.models.MainBoard;
+import com.quadzillion.core.move.MoveChecker;
+import com.quadzillion.core.move.MoveType;
+import javafx.geometry.Point2D;
+import javafx.scene.Group;
+import javafx.scene.input.MouseButton;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
-import com.quadzillion.core.Sprite;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
+import java.util.ArrayList;
 
-public abstract class Piece extends Sprite
-{
-    public static class PieceData
-    {
-        private int width;
-        private int height;
-        private boolean[] data;
+public abstract class Piece extends Group {
 
-        public PieceData(int width, int height)
-        {
-            this.width = width;
-            this.height = height;
-            this.data = new boolean[width * height];
-        }
 
-        public void put(int x, int y)
-        {
-            data[(y) * width + (x)] = true;
-        }
+    protected double INIT_X;
+    protected double INIT_Y ;
 
-        public boolean get(int x, int y)
-        {
-            return data[(y) * width + (x)];
-        }
+    MoveChecker  moveChecker;
 
-        public int getWidth()
-        {
-            return width;
-        }
+    protected double x;
+    protected double y;
 
-        public int getHeight()
-        {
-            return height;
-        }
-    }
+    private double radious = Constants.TILE_SIZE/2;
 
-    protected PieceData data;
-    protected int radius;
+    protected ArrayList<Point2D> pos;
+    protected Color color;
+    protected int id;
 
-    public Piece(int x, int y)
-    {
-        super(x, y);
-        radius = 50;
-    }
 
-    @Override
-    public void init()
+    double orgSceneX, orgSceneY;
+    double orgTranslateX, orgTranslateY;
+
+    public Piece( MoveChecker moveChecker)
     {
 
     }
 
-    @Override
-    public void render(GraphicsContext g, int width, int height, double delta)
+    public void createCircles( ArrayList<Point2D> pos2)
     {
-        g.setFill(color);
-        for (int i = 0; i < data.getHeight(); i++)
+        for (Point2D point :pos2)
         {
-            for (int j = 0; j < data.getWidth(); j++)
-            {
-                if (data.get(j, i))
-                    g.fillOval(
-                            (x - radius / 2) - (j - data.getHeight() / 2) * radius,
-                            (y - radius / 2) - (i - data.getWidth() / 2) * radius,
-                            radius,
-                            radius);
-            }
+            double x = (point.getX() * 2 * radious) + radious;
+            double y = (point.getY() * 2 * radious) + radious;
+
+            Circle circle = new Circle(x,y,radious);
+            circle.setFill(color);
+            getChildren().add(circle);
         }
+
     }
 
-    @Override
-    public void onMouseEvent(MouseEvent me)
+    public void setListeners()
     {
-        int r2 = radius * radius;
-        int mx = (int) me.getX();
-        int my = (int) me.getY();
 
-        if (me.getEventType() == MouseEvent.MOUSE_DRAGGED)
+        setOnMouseDragged(e -> {
+            double offsetX = e.getSceneX() - orgSceneX;
+            double offsetY = e.getSceneY() - orgSceneY;
+            double newTranslateX = orgTranslateX + offsetX;
+            double newTranslateY = orgTranslateY + offsetY;
+
+            toFront();
+
+            setLayoutX(newTranslateX);
+            x = newTranslateX;
+
+            setLayoutY(newTranslateY);
+            y = newTranslateY;
+
+
+
+        });
+
+        setOnMousePressed(e ->
         {
-            if (Math.pow(x - radius / 2 - mx, 2) <= r2 && Math.pow(y - radius / 2 - my, 2) <= r2)
-            {
-                x = mx;
-                y = my;
-            }
-            /*
-            for (int i = 0; i < data.getHeight(); i++)
-            {
-                for (int j = 0; j < data.getWidth(); j++)
+            if (e.getButton() == MouseButton.SECONDARY){
+                turn();
+
+                ArrayList<Point2D> point2ds = translateToBoard();
+
+                MoveType type = moveChecker.move(point2ds,id);
+
+                if( type == MoveType.VALID) {
+                    x = MainBoard.xLayout + point2ds.get(0).getX() * MainBoard.TILE_SIZE;
+                    y = MainBoard.yLayout + point2ds.get(0).getY() * MainBoard.TILE_SIZE;
+                    setLayoutX(x);
+                    setLayoutY(y);
+                }
+                else if( type == MoveType.EMPTY){}
+                else
                 {
-                    if (    data.get(j, i) &&
-                            Math.pow(((mx - x - radius / 2) - (j - data.getHeight() / 2) * radius), 2) <= r2 &&
-                            Math.pow(((my - y - radius / 2) - (i - data.getWidth() / 2) * radius), 2) <= r2)
-                    {
-                        x = mx;
-                        y = my;
-                    }
+                    x = INIT_X;
+                    y = INIT_Y;
+                    setLayoutX(x);
+                    setLayoutY(y);
+                }
+
+            }
+            else if ( e.getButton() == MouseButton.MIDDLE) {
+                flip();
+
+                 ArrayList<Point2D> point2ds = translateToBoard();
+
+                MoveType type = moveChecker.move(point2ds, id);
+
+                if (type == MoveType.VALID) {
+                    x = MainBoard.xLayout + point2ds.get(0).getX() * MainBoard.TILE_SIZE;
+                    y = MainBoard.yLayout + point2ds.get(0).getY() * MainBoard.TILE_SIZE;
+                    setLayoutX(x);
+                    setLayoutY(y);
+                }
+                else if( type == MoveType.EMPTY){}
+                else {
+                    x = INIT_X;
+                    y = INIT_Y;
+                    setLayoutX(x);
+                    setLayoutY(y);
                 }
             }
-            */
+            else {
+                orgSceneX = e.getSceneX();
+                orgSceneY = e.getSceneY();
+                orgTranslateX = getLayoutX(); //returns grubun baslangıc noktası
+                orgTranslateY = getLayoutY();
+                System.out.println(x + "," + y);
+            }
+
+        });
+
+
+
+        setOnMouseReleased( e ->
+        {
+        ArrayList<Point2D> point2ds = translateToBoard();
+
+            MoveType type = moveChecker.move(point2ds,id);
+
+            if( type == MoveType.VALID) {
+                x = MainBoard.xLayout + point2ds.get(0).getX() * MainBoard.TILE_SIZE;
+                y = MainBoard.yLayout + point2ds.get(0).getY() * MainBoard.TILE_SIZE;
+                setLayoutX(x);
+                setLayoutY(y);
+            }
+            else if( type == MoveType.EMPTY){}
+            else
+            {
+                x = INIT_X;
+                y = INIT_Y;
+                setLayoutX(x);
+                setLayoutY(y);
+            }
+
+
+
+        });
+    }
+
+    public ArrayList<Point2D> translateToBoard()
+    {
+        double mainboardX = MainBoard.xLayout;
+        double mainboardY = MainBoard.yLayout;
+
+
+        System.out.println("MainBoard:  " + mainboardX + "," + mainboardY);
+
+        System.out.println("MainBoard x,y:  " + x + "," + y);
+
+        ArrayList<Point2D> locationMap = new ArrayList<Point2D>();
+        for(Point2D point  : pos){
+
+            double realX = (x - mainboardX) + (MainBoard.TILE_SIZE / 2) + point.getX() * MainBoard.TILE_SIZE;
+            double realY = (y - mainboardY) + (MainBoard.TILE_SIZE / 2) + point.getY() * MainBoard.TILE_SIZE;
+
+            int x = (int) ( realX / MainBoard.TILE_SIZE);
+            int y = (int) ( realY / MainBoard.TILE_SIZE);
+
+            locationMap.add( new Point2D(x,y));
         }
 
-        oldMouseX = mx;
-        oldMouseY = my;
-    }
 
-    @Override
-    public void destroy()
-    {
+        for(Point2D point : locationMap)
+            System.out.println("point x: " + point.getX()+ " point y " + point.getY() );
+
+        return locationMap;
 
     }
 
-    @Override
-    public void onKeyEvent(KeyEvent me)
+    public void turn()
     {
+            ArrayList<Point2D> pos2 = new ArrayList<Point2D>();
 
+            getChildren().removeAll(getChildren());
+
+            for (int i = 0; i  < pos.size(); i++) {
+
+                double newX = -1 * pos.get(i).getY();
+                double newY = pos.get(i).getX();
+                Point2D newPoint = new Point2D(newX,newY);
+                pos2.add(newPoint);
+            }
+
+            pos = (ArrayList<Point2D>) pos2.clone();
+
+            createCircles(pos2);
+
+            System.out.println(pos);
+    }
+
+
+    public void flip()
+    {
+        ArrayList<Point2D> pos2 = new ArrayList<Point2D>();
+
+        getChildren().removeAll(getChildren());
+
+        for (int i = 0; i  < pos.size(); i++) {
+
+            double newX = -1 * pos.get(i).getX();
+            double newY = pos.get(i).getY();
+            Point2D newPoint = new Point2D(newX,newY);
+            pos2.add(newPoint);
+        }
+
+        pos = (ArrayList<Point2D>) pos2.clone();
+
+        createCircles(pos2);
+
+        System.out.println(pos);
     }
 }

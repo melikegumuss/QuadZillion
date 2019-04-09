@@ -1,7 +1,5 @@
 package com.quadzillion.core;
 
-import com.quadzillion.core.levels.GameObjectContainer;
-import com.quadzillion.core.levels.LevelOne;
 import com.quadzillion.gui.GameApplication;
 
 public class Game
@@ -9,9 +7,6 @@ public class Game
     private static Game current;
     private GameApplication gameApp;
     private Settings settings;
-    private Renderer renderer;
-
-    private GameObjectContainer gameLevel;
 
     public Game()
     {
@@ -27,9 +22,7 @@ public class Game
         Game.current = this;
 
         // create level here
-        gameLevel = new LevelOne();
 
-        renderer = new Renderer();
         gameApp = GameApplication.getInstance();
         // Add pieces to render here!
 
@@ -50,15 +43,5 @@ public class Game
     public Settings getSettings()
     {
         return settings;
-    }
-
-    public Renderer getRenderer()
-    {
-        return renderer;
-    }
-
-    public GameObjectContainer getCurrentLevel()
-    {
-        return gameLevel;
     }
 }

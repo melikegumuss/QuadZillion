@@ -1,12 +1,17 @@
 package com.quadzillion.gui;
 
+import com.quadzillion.core.GamePane;
 import com.quadzillion.core.Settings;
 import com.quadzillion.core.Game;
+import com.quadzillion.core.levels.Level;
+import com.quadzillion.core.levels.*;
 import com.quadzillion.gui.controller.MainMenuController;
+import com.quadzillion.gui.controller.Util;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
@@ -15,7 +20,11 @@ public class GameApplication extends Application
 {
     private static GameApplication instance;
     private static Stage primaryStage;
-    public static Stage getStage(){
+
+    private Scene sceneMainMenu;
+
+    public static Stage getStage()
+    {
         return primaryStage;
     }
     
@@ -24,26 +33,27 @@ public class GameApplication extends Application
         return instance;
     }
 
+    private MainMenuController mc;
 
     @Override
     public void start(Stage stage) throws Exception
     {
         GameApplication.instance = this;
         primaryStage = stage;
-        Settings settings = Game.getCurrent().getSettings();
-        Parent root = FXMLLoader.load(getClass().getResource("./layout/main_menu.fxml"));
-        Scene scene = new Scene(
-                root,
-                settings.getWindowWidth(),
-                settings.getWindowHeight());
 
-        primaryStage.setScene(scene);
-        scene.getStylesheets().add(getClass().getResource("/mainmenu.css").toExternalForm());
+        Util.loadScene(Util.SCENE_SETTINGS);
+        Util.loadScene(Util.SCENE_MAIN_MENU);
+        Util.loadScene(Util.SCENE_CREDITS);
+        Util.loadGameScene(new Level1());
+        Util.loadScene(Util.SCENE_LEVELS);
+        Util.loadScene(Util.SCENE_HOW_TO_PLAY);
+
+        Util.setScene(Util.SCENE_MAIN_MENU);
+        Util.applyTheme(Util.THEME_VANILLA);
+
         primaryStage.setTitle("QuadZillion");
+        primaryStage.setOnCloseRequest(
+                e->((MainMenuController)Util.getSceneController(Util.SCENE_MAIN_MENU)).onQuitButtonClicked());
         primaryStage.show();
-        
-        // MainMenuController mc = fxmlLoader.getController();
-
-        // primaryStage.setOnCloseRequest(e->mc.onQuitButtonClicked());
     }
 }

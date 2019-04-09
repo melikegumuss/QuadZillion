@@ -20,40 +20,50 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.quadzillion.gui.controller.MainMenuController.mp;
-import static com.quadzillion.gui.controller.SettingsController.isThemeChanged;
-import com.quadzillion.gui.controller.MainMenuController;
 import static com.quadzillion.gui.GameApplication.getStage;
 
-public class CreditsController implements Initializable {
+public class CreditsController implements Controllable
+{
     private MainMenuController mc;
+
     @FXML
     private MediaPlayer mplay;
-    @FXML
-    private Media med;
 
     @FXML
     private MediaView meView;
+
     @FXML
     private Hyperlink githubLink;
-    @FXML public void initialize(URL location, ResourceBundle resources)
-    {
 
-        String credits = new File("./res/sounds/creditsSong.mp3").getAbsolutePath();
-        med = new Media(new File(credits).toURI().toString());
-        mplay = new MediaPlayer(med);
+    @Override
+    public void onCreate()
+    {
+        mplay = new MediaPlayer(new Media(Util.getMusicPathCredits()));
         meView = new MediaView();
         meView.setMediaPlayer(mplay);
-        if(meView == null) {
+
+        if(meView == null)
+        {
             System.out.println("MEDIA IS NULL");
             return;
         }
         mplay.setAutoPlay(true);
 
         githubLink.setOnAction(e->handleLinkClick());
-        getStage().getScene().getStylesheets().add("credits.css");
-        mc = new MainMenuController();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
-        loader.setController(mc);
+        mc = (MainMenuController) Util.getSceneController(Util.SCENE_MAIN_MENU);
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        if (mplay != null)
+            mplay.dispose();
+    }
+
+    @Override
+    public void onThemeChange()
+    {
+
     }
 
     @FXML
@@ -63,7 +73,8 @@ public class CreditsController implements Initializable {
         }
         catch(IOException e){
             e.printStackTrace();
-        }catch (URISyntaxException e){
+        }catch (URISyntaxException e)
+        {
             e.printStackTrace();
         }
 
@@ -71,13 +82,8 @@ public class CreditsController implements Initializable {
 
     public void onReturnToMainMenuButtonClicked()
     {
-        LayoutUtil.setScene("main_menu");
-        if(isThemeChanged)
-            mc.changeTheme();
-        else
-            mc.loadDefaultCSS();
         mplay.stop();
         mp.play();
-
+        Util.setScene(Util.SCENE_MAIN_MENU);
     }
 }

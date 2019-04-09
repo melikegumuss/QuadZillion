@@ -12,12 +12,10 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.quadzillion.gui.GameApplication.getStage;
 import static com.quadzillion.gui.controller.MainMenuController.mp;
-import static com.quadzillion.gui.controller.SettingsController.isThemeChanged;
 import static javafx.scene.media.MediaPlayer.Status.PLAYING;
 
-public class HowToPlayController implements Initializable
+public class HowToPlayController implements Controllable
 {
     private MainMenuController mc;
     @FXML
@@ -32,19 +30,27 @@ public class HowToPlayController implements Initializable
     @FXML
     MediaPlayer mediaPlayer;
 
-    public void initialize(URL url, ResourceBundle rb)
+    @Override
+    public void onCreate()
     {
-        //String videoUrl = "file:/C:/Users/berk/Desktop/tutorialVideo.mp4";
-        String videoUrl = new File("res/images/tutorialVideo.mp4").getAbsolutePath();
-        Media media = new Media(new File(videoUrl).toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer = new MediaPlayer(new Media(Util.getVideoPath()));
+
         mediaView.setFitHeight(700);
         mediaView.setFitWidth(1000);
         mediaView.setMediaPlayer(mediaPlayer);
 
-        mc = new MainMenuController();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
-        loader.setController(mc);
+        mc = (MainMenuController) Util.getSceneController(Util.SCENE_MAIN_MENU);
+    }
+
+    @Override
+    public void onDestroy()
+    {
+
+    }
+
+    @Override
+    public void onThemeChange()
+    {
 
     }
 
@@ -55,7 +61,8 @@ public class HowToPlayController implements Initializable
 
     @FXML
     private void onClickPlay(){
-        if(mediaPlayer.getStatus() == PLAYING){
+        if(mediaPlayer.getStatus() == PLAYING)
+        {
             mediaPlayer.stop();
             mediaPlayer.play();
         }
@@ -64,17 +71,11 @@ public class HowToPlayController implements Initializable
         }
 
     }
-    public void setTheme(){
-        getStage().getScene().getStylesheets().add("/howtoplay.css");
-    }
+
     public void onReturnToMainMenuButtonClicked()
     {
-        LayoutUtil.setScene("main_menu");
-        if(!isThemeChanged)
-            mc.loadDefaultCSS();
-        else
-            mc.changeTheme();
         mp.play();
         mediaPlayer.pause();
+        Util.setScene(Util.SCENE_MAIN_MENU);
     }
 }
