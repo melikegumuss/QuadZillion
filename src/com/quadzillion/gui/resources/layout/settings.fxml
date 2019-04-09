@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.SettingsController">
+   <children> <fx:include fx:id="main" opacity="0" source="main_menu.fxml" /></children>
+
+   <children>
+
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" styleClass="button-back" />
+      <ToggleButton fx:id="tgl2" layoutX="1200.0" layoutY="14.0" mnemonicParsing="false" />
+      <Label layoutX="302.0" layoutY="166.0" text="Volume" />
+      <ListView fx:id="themeList" layoutX="506.0" layoutY="214.0" prefHeight="246.0" prefWidth="503.0" />
+      <Label layoutX="302.0" layoutY="270.0" text="Themes" />
+      <Slider fx:id="slider" layoutX="506.0" layoutY="168.0" prefHeight="14.0" prefWidth="503.0" />
+      <Button layoutX="506.0" layoutY="474.0" mnemonicParsing="false" onAction="#onApplyThemeButtonClicked" prefHeight="25.0" prefWidth="503.0" styleClass="menuButtons" text="Apply Theme" />
+   </children>
+</AnchorPane>

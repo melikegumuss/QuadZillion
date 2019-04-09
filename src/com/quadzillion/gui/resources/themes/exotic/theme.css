@@ -1,0 +1,87 @@
+
+
+.root
+{
+    -fx-font-size: 26px;
+    -fx-background-image: url("background.png");
+    -fx-text-fill: #fc8068;
+}
+
+.menu-title
+{
+    -fx-font-size: 71px;
+    -fx-font-family: Rockwell;
+    -fx-text-fill: #ff8372;
+}
+
+#tgl, #tgl2
+{
+    -fx-background-color: #444444;
+    -fx-graphic: url("unmute.png");
+}
+
+#tgl:selected, #tgl2:selected
+{
+    -fx-graphic: url("mute.png");
+}
+
+.button-back, #button-back
+{
+    -fx-graphic:  url("backbutton.png");
+    -fx-background-color: #444444;
+}
+
+#btnStop
+{
+    -fx-graphic:  url("pauseButton.png");
+    -fx-background-color: #444444;
+}
+
+#btnPlay
+{
+    -fx-graphic:  url("playButton.png");
+    -fx-background-color: #444444;
+}
+
+.menuButtons, .endgame-button
+{
+    -fx-background-color: #444444;
+    -fx-text-fill: #fc8068;
+    -fx-font-size: 33px;
+    -fx-font-family: Rockwell;
+    -fx-opacity: 40;
+}
+
+.list-view
+{
+    -fx-background-color: #444444;
+    -fx-opacity: 30;
+}
+
+.label
+{
+    -fx-text-fill: #fc8068;
+}
+
+.level-button
+{
+    -fx-text-fill: #fc8068;
+    -fx-font-weight: bold;
+}
+
+#vboxCredits
+{
+    -fx-background-color: #444444;
+}
+
+.endgame-icon
+{
+    -fx-background-image:  url("welldone.jpg");
+}
+
+
+#mahPane
+{
+    -fx-background-color: #bf7777;
+    -fx-background-image: none;
+}
