@@ -54,6 +54,12 @@ public class GameApplication extends Application
 
         levelList.add(new Level5());
 
+        levelList.add(new Level6());
+
+        levelList.add(new Level7());
+
+
+
 
 
 
