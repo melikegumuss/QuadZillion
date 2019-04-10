@@ -14,6 +14,7 @@ import javafx.util.Pair;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 @SuppressWarnings("unused")
@@ -34,13 +35,29 @@ public class Util
     private static final HashMap<String, Pair<Scene, Controllable>> loadedScenes = new HashMap<>();
     private static String current = SCENE_MAIN_MENU;
 
-    public static void loadGameScene(Level level)
+
+    private static Scene gameScene;
+    public static ArrayList<Level> levels;
+    static GamePane gamePane;
+
+    public static void loadGameScene(ArrayList<Level> lvls)
     {
-        GamePane gamePane = new GamePane(level);
+        levels = lvls;
         loadScene(SCENE_PLAY_GAME);
-        Scene scene = getScene(SCENE_PLAY_GAME);
-        ((Pane)((AnchorPane)scene.getRoot()).getChildren().get(0)).getChildren().add(gamePane);
+        gameScene = getScene(SCENE_PLAY_GAME);
     }
+
+    public static void addGamePanel()
+    {
+        gamePane = new GamePane(levels.get(LevelsController.level));
+        ((Pane)((AnchorPane)gameScene.getRoot()).getChildren().get(0)).getChildren().add(gamePane);
+    }
+
+    public static void removeChildren()
+    {
+        ((Pane)((AnchorPane)getScene(SCENE_PLAY_GAME).getRoot()).getChildren().get(0)).getChildren().removeAll(gamePane);
+    }
+
 
     public static void loadScene(String name)
     {

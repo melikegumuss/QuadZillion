@@ -9,6 +9,9 @@ import javafx.scene.control.Button;
 
 public class LevelsController implements Controllable
 {
+
+
+    public static int level;
     @Override
     public void onCreate()
     {
@@ -30,10 +33,11 @@ public class LevelsController implements Controllable
     @FXML
     public void onLevelSelected(ActionEvent ae)
     {
-        int level = Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]);
+        level = Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1;
 
         // DO STUFF ABOUT LEVEL
-
+        Util.removeChildren();
+        Util.addGamePanel();
         Util.setScene(Util.SCENE_PLAY_GAME);
     }
 

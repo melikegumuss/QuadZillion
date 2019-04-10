@@ -1,7 +1,6 @@
 package com.quadzillion.gui.controller;
 import com.quadzillion.core.Game;
 import com.quadzillion.gui.GameApplication;
-import com.sun.javafx.iio.ios.IosDescriptor;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;

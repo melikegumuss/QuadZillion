@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 
 
 public class GameApplication extends Application
@@ -41,10 +42,18 @@ public class GameApplication extends Application
         GameApplication.instance = this;
         primaryStage = stage;
 
+        ArrayList<Level> levelList = new ArrayList<>();
+
+        levelList.add(new Level1());
+
+        levelList.add(new Level2());
+
+        levelList.add(new Level3());
+
         Util.loadScene(Util.SCENE_SETTINGS);
         Util.loadScene(Util.SCENE_MAIN_MENU);
         Util.loadScene(Util.SCENE_CREDITS);
-        Util.loadGameScene(new Level1());
+        Util.loadGameScene(levelList);
         Util.loadScene(Util.SCENE_LEVELS);
         Util.loadScene(Util.SCENE_HOW_TO_PLAY);
 
