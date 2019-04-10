@@ -50,6 +50,13 @@ public class GameApplication extends Application
 
         levelList.add(new Level3());
 
+        levelList.add(new Level4());
+
+        levelList.add(new Level5());
+
+
+
+
         Util.loadScene(Util.SCENE_SETTINGS);
         Util.loadScene(Util.SCENE_MAIN_MENU);
         Util.loadScene(Util.SCENE_CREDITS);

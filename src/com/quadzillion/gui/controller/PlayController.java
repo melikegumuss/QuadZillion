@@ -42,9 +42,7 @@ public class PlayController implements Controllable
     @FXML
     public void onReturnToMainMenuButtonClicked()
     {
-
-        System.out.println("back");
-        Util.setScene(Util.SCENE_MAIN_MENU);
+        Util.setScene(Util.SCENE_LEVELS);
     }
 
     public void onGameSuccessfullyCompleted()
