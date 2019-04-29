@@ -9,6 +9,7 @@ import javafx.scene.Group;
 import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.transform.Rotate;
 
 import java.util.ArrayList;
 
@@ -34,6 +35,12 @@ public abstract class Piece extends Group {
     double orgTranslateX, orgTranslateY;
 
     public Piece( MoveChecker moveChecker)
+    {
+
+    }
+
+
+    public Piece( MoveChecker moveChecker, ArrayList<Point2D> pos, Color color, int id)
     {
 
     }
@@ -69,8 +76,6 @@ public abstract class Piece extends Group {
             setLayoutY(newTranslateY);
             y = newTranslateY;
 
-
-
         });
 
         setOnMousePressed(e ->
@@ -87,6 +92,7 @@ public abstract class Piece extends Group {
                     y = MainBoard.yLayout + point2ds.get(0).getY() * MainBoard.TILE_SIZE;
                     setLayoutX(x);
                     setLayoutY(y);
+
                 }
                 else if( type == MoveType.EMPTY){}
                 else
@@ -96,6 +102,7 @@ public abstract class Piece extends Group {
                     setLayoutX(x);
                     setLayoutY(y);
                 }
+
 
             }
             else if ( e.getButton() == MouseButton.MIDDLE) {
@@ -142,6 +149,7 @@ public abstract class Piece extends Group {
                 y = MainBoard.yLayout + point2ds.get(0).getY() * MainBoard.TILE_SIZE;
                 setLayoutX(x);
                 setLayoutY(y);
+
             }
             else if( type == MoveType.EMPTY){}
             else
@@ -150,6 +158,8 @@ public abstract class Piece extends Group {
                 y = INIT_Y;
                 setLayoutX(x);
                 setLayoutY(y);
+
+
             }
 
 
@@ -170,18 +180,39 @@ public abstract class Piece extends Group {
         ArrayList<Point2D> locationMap = new ArrayList<Point2D>();
         for(Point2D point  : pos){
 
-            double realX = (x - mainboardX) + (MainBoard.TILE_SIZE / 2) + point.getX() * MainBoard.TILE_SIZE;
-            double realY = (y - mainboardY) + (MainBoard.TILE_SIZE / 2) + point.getY() * MainBoard.TILE_SIZE;
+            double realX;
+            double realY;
 
-            int x = (int) ( realX / MainBoard.TILE_SIZE);
-            int y = (int) ( realY / MainBoard.TILE_SIZE);
+            int xLoc;
+            int yLoc;
 
-            locationMap.add( new Point2D(x,y));
+            double centerX = (x + ((MainBoard.TILE_SIZE / 2) + point.getX() * MainBoard.TILE_SIZE));
+            double centerY = (y + ((MainBoard.TILE_SIZE / 2) + point.getY() * MainBoard.TILE_SIZE));
+
+            realX =  centerX - mainboardX;
+            realY =  centerY - mainboardY;
+
+
+            if( centerX - mainboardX < 0)
+                xLoc = (int) ( realX / MainBoard.TILE_SIZE) - 1;
+            else
+                xLoc = (int) ( realX / MainBoard.TILE_SIZE);
+
+
+            if( centerY - mainboardY < 0)
+                yLoc = (int) ( realY / MainBoard.TILE_SIZE) - 1;
+            else
+                yLoc = (int) ( realY / MainBoard.TILE_SIZE);
+
+
+            System.out.println( (centerX - mainboardX) + " ," + ( centerY - mainboardY));
+
+            locationMap.add( new Point2D(xLoc,yLoc));
         }
 
 
         for(Point2D point : locationMap)
-            System.out.println("point x: " + point.getX()+ " point y " + point.getY() );
+            System.out.println("point x: " + point.getX()+ " point y " + point.getY()  + "-" + pos);
 
         return locationMap;
 
@@ -199,6 +230,7 @@ public abstract class Piece extends Group {
                 double newY = pos.get(i).getX();
                 Point2D newPoint = new Point2D(newX,newY);
                 pos2.add(newPoint);
+
             }
 
             pos = (ArrayList<Point2D>) pos2.clone();

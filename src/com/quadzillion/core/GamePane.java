@@ -5,7 +5,12 @@ import com.quadzillion.core.models.MainBoard;
 import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.pieces.*;
+import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+
+
+import java.util.ArrayList;
 
 public class GamePane extends Pane {
 
@@ -46,6 +51,10 @@ public class GamePane extends Pane {
         getChildren().add(pink);
         getChildren().add(yellow);
         getChildren().add(darkBlue);
+
+
+
+
 
     }
 
