@@ -5,6 +5,7 @@ import com.quadzillion.core.models.MainBoard;
 import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.pieces.PuzzlePiece;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 public class PuzzleGamePane extends Pane {
@@ -12,7 +13,8 @@ public class PuzzleGamePane extends Pane {
     private MainBoard mainBoard;
     private TileMatrix tileMatrix;
     private MoveChecker moveChecker;
-
+    public static int moveCounter = 0;
+    public static Label counter;
     public PuzzleGamePane(Level level)
     {
 
@@ -59,10 +61,12 @@ public class PuzzleGamePane extends Pane {
         getChildren().add(pc13);
         getChildren().add(pc14);
 
+        counter = new Label();
+        counter.setText("Move Count: " + moveCounter );
+        counter.setLayoutX(500);
+        counter.setLayoutY(50);
 
-
-
-
+        getChildren().add(counter);
 
     }
 }

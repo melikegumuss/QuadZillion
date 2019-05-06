@@ -46,5 +46,6 @@ public class LevelsController implements Controllable
     public void onReturnToMainMenuButtonClicked()
     {
         Util.setScene(Util.SCENE_MAIN_MENU);
+
     }
 }

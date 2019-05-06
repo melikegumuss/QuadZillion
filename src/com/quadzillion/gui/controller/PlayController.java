@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
-
+import com.quadzillion.core.PuzzleGamePane;
 public class PlayController implements Controllable
 {
     @FXML
@@ -43,6 +43,8 @@ public class PlayController implements Controllable
     public void onReturnToMainMenuButtonClicked()
     {
         Util.setScene(Util.SCENE_LEVELS);
+        PuzzleGamePane.moveCounter = 0;
+
     }
 
     public void onGameSuccessfullyCompleted()
