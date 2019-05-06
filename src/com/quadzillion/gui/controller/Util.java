@@ -1,22 +1,15 @@
 package com.quadzillion.gui.controller;
 
-import com.quadzillion.core.GamePane;
 import com.quadzillion.core.PuzzleGamePane;
 import com.quadzillion.core.levels.Level;
-import com.quadzillion.core.levels.PuzzleLevel;
-import com.quadzillion.core.levels.puzzleLevels.*;
 import com.quadzillion.gui.GameApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Pair;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -29,12 +22,15 @@ public class Util
 
     public static final String SCENE_MAIN_MENU      = "main_menu";
     public static final String SCENE_CREDITS        = "credits";
-    public static final String SCENE_LEVELS         = "levels";
+    //public static final String SCENE_LEVELS         = "levels";
+    public static final String SCENE_MODES          = "modes";
     public static final String SCENE_PLAY_GAME      = "play";
     public static final String SCENE_SETTINGS       = "settings";
     public static final String SCENE_HOW_TO_PLAY    = "how_to_play";
     public static final String SCENE_END_GAME       = "endGame";
-
+    public static final String SCENE_VANILLA_LEVELS = "vanilla_levels";
+    public static final String SCENE_PUZZLE_LEVELS  = "puzzle_levels";
+    public static final String SCENE_EXTENDED_LEVELS= "extended_levels";
     private static final HashMap<String, Pair<Scene, Controllable>> loadedScenes = new HashMap<>();
     private static String current = SCENE_MAIN_MENU;
 
@@ -50,11 +46,10 @@ public class Util
         gameScene = getScene(SCENE_PLAY_GAME);
     }
 
+
     public static void addGamePanel()
     {
-        gamePane = new PuzzleGamePane(new pLevel3());
-
-        //gamePane = new GamePane(levels.get(LevelsController.level));
+        gamePane = new PuzzleGamePane(levels.get(PuzzleLevelsController.puzzleLevel));
         ((Pane)((AnchorPane)gameScene.getRoot()).getChildren().get(0)).getChildren().add(gamePane);
     }
 

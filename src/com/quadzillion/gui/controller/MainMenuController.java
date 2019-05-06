@@ -40,7 +40,7 @@ public class MainMenuController implements Controllable
         {
             mp = new MediaPlayer(new Media(Util.getMusicPath()));
             mp.setCycleCount(MediaPlayer.INDEFINITE);
-            mp.play();
+            //mp.play();
         }
 
 
@@ -79,7 +79,7 @@ public class MainMenuController implements Controllable
 
     public void onPlayButtonClicked()
     {
-        Util.setScene(Util.SCENE_LEVELS);
+        Util.setScene(Util.SCENE_MODES);
     }
 
     public void onHowToPlayButtonClicked()

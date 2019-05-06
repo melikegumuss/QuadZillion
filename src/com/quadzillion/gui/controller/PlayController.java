@@ -42,7 +42,8 @@ public class PlayController implements Controllable
     @FXML
     public void onReturnToMainMenuButtonClicked()
     {
-        Util.setScene(Util.SCENE_LEVELS);
+
+        Util.setScene(Util.SCENE_MODES);
         PuzzleGamePane.moveCounter = 0;
 
     }

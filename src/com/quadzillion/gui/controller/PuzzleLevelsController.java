@@ -7,11 +7,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 
-public class LevelsController implements Controllable
+public class PuzzleLevelsController implements Controllable
 {
 
 
-    public static int level;
+    public static int puzzleLevel;
 
     @Override
     public void onCreate()
@@ -30,10 +30,11 @@ public class LevelsController implements Controllable
     {
 
     }
+
     @FXML
     public void onLevelSelected(ActionEvent ae)
     {
-        level = Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1;
+        puzzleLevel = Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1;
 
         // DO STUFF ABOUT LEVEL
         Util.removeChildren();
@@ -44,7 +45,6 @@ public class LevelsController implements Controllable
     @FXML
     public void onReturnToMainMenuButtonClicked()
     {
-        Util.setScene(Util.SCENE_MAIN_MENU);
-
+        Util.setScene(Util.SCENE_MODES);
     }
 }
