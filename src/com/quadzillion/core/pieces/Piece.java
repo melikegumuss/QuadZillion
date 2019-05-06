@@ -271,13 +271,8 @@ public abstract class Piece extends Group {
 
     public void turn()
     {
-
             setRotate(getRotate() + 90);
-
-
-
             ArrayList<Point2D> pos2 = new ArrayList<Point2D>();
-
 
             //  circles.removeAll(getChildren());
 
