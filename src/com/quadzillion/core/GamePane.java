@@ -42,10 +42,6 @@ public class GamePane extends Pane {
         Piece maroonPiece = new MaroonPiece(moveChecker);
         Piece darkGreen = new DarkGreenPiece(moveChecker);
 
-
-
-
-
         getChildren().add(mainBoard);
         getChildren().add(darkGreen);
         getChildren().add(maroonPiece);

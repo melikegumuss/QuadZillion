@@ -13,11 +13,15 @@ import javafx.scene.shape.Sphere;
 import java.util.ArrayList;
 
 public class PuzzlePiece extends Piece {
-    public PuzzlePiece(MoveChecker moveChecker, int[][] solution, int id) {
+
+    private String fileName;
+
+    public PuzzlePiece(MoveChecker moveChecker, int[][] solution, int id, String fileName) {
         super(moveChecker);
 
 
         this.id = id;
+        this.fileName = fileName;
 
         INIT_X = Constants.INIT_LOCATION[id - 3][0];
         INIT_Y = Constants.INIT_LOCATION[id - 3][1];
@@ -57,9 +61,9 @@ public class PuzzlePiece extends Piece {
             for (int j = 0; j < 8  ; j++) {
                 if ( id == solution[j][i]) {
                     newPos.add(new Point2D(i, j));
-                    Image image = new Image("com/quadzillion/gui/resources/images/puzzleLevels/pLevel1/" + j + i + ".jpg");
+                    Image image = new Image("com/quadzillion/gui/resources/images/puzzleLevels/"+fileName+"/" + j + i + ".jpg");
 
-                    System.out.println(id + " com/quadzillion/gui/resources/images/puzzleLevels/pLevel1/" + j + i + ".jpg");
+                    System.out.println(id + " com/quadzillion/gui/resources/images/puzzleLevels/"+ fileName+ "/" + j + i + ".jpg");
 
                     // simple displays ImageView the image as is
                     ImageView iv1 = new ImageView();

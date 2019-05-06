@@ -57,7 +57,7 @@ public abstract class Piece extends Group {
 
     }
 
-    public Piece( MoveChecker moveChecker, int[][] solution, int id)
+    public Piece( MoveChecker moveChecker, int[][] solution, int id, String fileName)
     {
 
     }
