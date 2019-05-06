@@ -127,9 +127,6 @@ public class PuzzleGamePane extends Pane {
 
         Label label = new Label();
 
-
-
-
         getChildren().add(lblTime);
 
 

@@ -46,9 +46,7 @@ public abstract class Piece extends Group {
 
     public Piece( MoveChecker moveChecker)
     {
-
         nodes = new ArrayList<Node>();
-
     }
 
 
@@ -208,8 +206,6 @@ public abstract class Piece extends Group {
 
 
             }
-
-
 
         });
     }
