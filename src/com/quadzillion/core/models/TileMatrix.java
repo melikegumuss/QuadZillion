@@ -33,6 +33,7 @@ public class TileMatrix {
                 tileMatrix[i][j] = Tile.EMPTY;
 
                 Point2D tempPoint = new Point2D(i,j);
+
                 if(isGridLocation(tempPoint))
                 {
                     if(isForbiddenPoint(tempPoint))

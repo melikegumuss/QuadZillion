@@ -12,6 +12,7 @@ public class LevelsController implements Controllable
 
 
     public static int level;
+
     @Override
     public void onCreate()
     {

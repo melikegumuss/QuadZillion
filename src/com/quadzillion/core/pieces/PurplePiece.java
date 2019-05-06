@@ -24,10 +24,10 @@ public class PurplePiece extends Piece {
         pos = new ArrayList<Point2D>();
 
         pos.add(new Point2D(0,0));
-        pos.add(new Point2D(0,-1));
-        pos.add(new Point2D(-1,-1));
         pos.add(new Point2D(1,0));
         pos.add(new Point2D(1,1));
+        pos.add(new Point2D(2,1));
+        pos.add(new Point2D(2,2));
 
 
         color = Color.PURPLE;

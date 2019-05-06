@@ -5,6 +5,8 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.ArrayList;
+
 public class MainBoard extends Group {
 
     public static final double xLayout = Constants.MAINBOARD_X_LAYOUT;
@@ -14,6 +16,8 @@ public class MainBoard extends Group {
 
 
     private Point2D[][] forbiddenPoints;
+
+    protected double[][] gridLocations;
 
 
 
@@ -27,9 +31,11 @@ public class MainBoard extends Group {
     private Point2D[] locations;
     private int gridNo;
 
+    public MainBoard(){}
 
     public MainBoard(Point2D[] loc, int gridNo, Point2D[][] forbiddenPts )
     {
+        gridLocations = new double[gridNo][2];
 
 
         this.locations = new Point2D[gridNo];
@@ -47,7 +53,7 @@ public class MainBoard extends Group {
         }
 
         Rectangle rect = new Rectangle(xLayout,yLayout,TILE_SIZE * ROW_NO,TILE_SIZE * COLUMN_NO);
-        rect.setFill(Color.rgb(25,25,25,0));
+        rect.setFill( Color.rgb(10,13,13,0));
 
         getChildren().add(rect);
 
@@ -62,15 +68,22 @@ public class MainBoard extends Group {
             Grid grid = new Grid(forbiddenPoints[i][0],forbiddenPoints[i][1]);
 
             double x = xLayout + locations[i].getX() * TILE_SIZE;
-            double y = yLayout + locations[i].getY() * TILE_SIZE;;
+            double y = yLayout + locations[i].getY() * TILE_SIZE;
 
             grid.setxLayout(x);
             grid.setyLayout(y);
+
+            gridLocations[i][0] = x;
+            gridLocations[i][1] = y;
 
             getChildren().add(grid);
         }
 
     }
+
+
+
+
 
     public Point2D[][] getForbiddenPoints() {
         return forbiddenPoints;

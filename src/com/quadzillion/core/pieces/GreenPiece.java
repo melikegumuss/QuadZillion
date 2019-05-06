@@ -12,8 +12,10 @@ public class GreenPiece extends Piece {
     {
         super(moveChecker);
 
-        INIT_X = Constants.MAINBOARD_X_LAYOUT - 3 * Constants.TILE_SIZE;
-        INIT_Y = Constants.MAINBOARD_Y_LAYOUT + 5 * Constants.TILE_SIZE;
+        id = 7;
+
+        INIT_X = Constants.INIT_LOCATION[id][0];
+        INIT_Y = Constants.INIT_LOCATION[id][1];
 
         x = INIT_X;
         y = INIT_Y;
@@ -32,7 +34,7 @@ public class GreenPiece extends Piece {
 
         color = Color.GREEN;
 
-        id = 7;
+
 
         this.moveChecker = moveChecker;
 

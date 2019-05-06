@@ -14,11 +14,19 @@ public class Level5 extends  Level {
         locs[2] = new Point2D(5,6);
         locs[3] = new Point2D(7,2);
 
-        forbidden = new Point2D[][]{
+        /*forbidden = new Point2D[][]{
                 {new Point2D(0,0),new Point2D(3,0)},
                 {new Point2D(2,3),new Point2D(2,3)},
                 {new Point2D(0,1),new Point2D(0,2)},
-                {new Point2D(3,0),new Point2D(1,1)}};
+                {new Point2D(3,0),new Point2D(1,1)}};*/
+
+        forbidden = new Point2D[][]{
+                {new Point2D(-100,-100),new Point2D(-100,-100)},
+                {new Point2D(-100,-100),new Point2D(-100,-100)},
+                {new Point2D(-100,-100),new Point2D(-100,-100)},
+                {new Point2D(-100,-100),new Point2D(-100,-100)}};
+
+
 
     }
 

@@ -6,7 +6,14 @@ import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.move.MoveType;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.control.Control;
+import javafx.scene.effect.Effect;
 import javafx.scene.input.MouseButton;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
@@ -27,6 +34,9 @@ public abstract class Piece extends Group {
     private double radious = Constants.TILE_SIZE/2;
 
     protected ArrayList<Point2D> pos;
+    protected ArrayList<Node> nodes;
+
+
     protected Color color;
     protected int id;
 
@@ -37,6 +47,8 @@ public abstract class Piece extends Group {
     public Piece( MoveChecker moveChecker)
     {
 
+        nodes = new ArrayList<Node>();
+
     }
 
 
@@ -44,6 +56,12 @@ public abstract class Piece extends Group {
     {
 
     }
+
+    public Piece( MoveChecker moveChecker, int[][] solution, int id)
+    {
+
+    }
+
 
     public void createCircles( ArrayList<Point2D> pos2)
     {
@@ -53,7 +71,9 @@ public abstract class Piece extends Group {
             double y = (point.getY() * 2 * radious) + radious;
 
             Circle circle = new Circle(x,y,radious);
+
             circle.setFill(color);
+
             getChildren().add(circle);
         }
 
@@ -63,18 +83,21 @@ public abstract class Piece extends Group {
     {
 
         setOnMouseDragged(e -> {
-            double offsetX = e.getSceneX() - orgSceneX;
-            double offsetY = e.getSceneY() - orgSceneY;
-            double newTranslateX = orgTranslateX + offsetX;
-            double newTranslateY = orgTranslateY + offsetY;
 
-            toFront();
+            if (e.getButton() == MouseButton.PRIMARY) {
+                double offsetX = e.getSceneX() - orgSceneX;
+                double offsetY = e.getSceneY() - orgSceneY;
+                double newTranslateX = orgTranslateX + offsetX;
+                double newTranslateY = orgTranslateY + offsetY;
 
-            setLayoutX(newTranslateX);
-            x = newTranslateX;
+                toFront();
 
-            setLayoutY(newTranslateY);
-            y = newTranslateY;
+                setLayoutX(newTranslateX);
+                x = newTranslateX;
+
+                setLayoutY(newTranslateY);
+                y = newTranslateY;
+            }
 
         });
 
@@ -88,11 +111,16 @@ public abstract class Piece extends Group {
                 MoveType type = moveChecker.move(point2ds,id);
 
                 if( type == MoveType.VALID) {
-                    x = MainBoard.xLayout + point2ds.get(0).getX() * MainBoard.TILE_SIZE;
-                    y = MainBoard.yLayout + point2ds.get(0).getY() * MainBoard.TILE_SIZE;
-                    setLayoutX(x);
-                    setLayoutY(y);
 
+                    double deltaX = getBoundsInParent().getMinX() - getLayoutX();
+                    double deltaY = getBoundsInParent().getMinY() - getLayoutY();
+
+                    Point2D minPnt = minPoint(point2ds);
+
+                    x = MainBoard.xLayout + minPnt.getX() * MainBoard.TILE_SIZE;
+                    y = MainBoard.yLayout + minPnt.getY() * MainBoard.TILE_SIZE;
+                    setLayoutX(x - deltaX);
+                    setLayoutY(y - deltaY);
                 }
                 else if( type == MoveType.EMPTY){}
                 else
@@ -113,10 +141,17 @@ public abstract class Piece extends Group {
                 MoveType type = moveChecker.move(point2ds, id);
 
                 if (type == MoveType.VALID) {
-                    x = MainBoard.xLayout + point2ds.get(0).getX() * MainBoard.TILE_SIZE;
-                    y = MainBoard.yLayout + point2ds.get(0).getY() * MainBoard.TILE_SIZE;
-                    setLayoutX(x);
-                    setLayoutY(y);
+
+                    double deltaX = getBoundsInParent().getMinX() - getLayoutX();
+                    double deltaY = getBoundsInParent().getMinY() - getLayoutY();
+
+                    Point2D minPnt = minPoint(point2ds);
+
+                    x = MainBoard.xLayout + minPnt.getX() * MainBoard.TILE_SIZE;
+                    y = MainBoard.yLayout + minPnt.getY() * MainBoard.TILE_SIZE;
+                    setLayoutX(x - deltaX);
+                    setLayoutY(y - deltaY);
+
                 }
                 else if( type == MoveType.EMPTY){}
                 else {
@@ -144,16 +179,27 @@ public abstract class Piece extends Group {
 
             MoveType type = moveChecker.move(point2ds,id);
 
+            System.out.println("point2ds: " + point2ds);
+
+
             if( type == MoveType.VALID) {
-                x = MainBoard.xLayout + point2ds.get(0).getX() * MainBoard.TILE_SIZE;
-                y = MainBoard.yLayout + point2ds.get(0).getY() * MainBoard.TILE_SIZE;
-                setLayoutX(x);
-                setLayoutY(y);
+
+                double deltaX = getBoundsInParent().getMinX() - getLayoutX();
+                double deltaY = getBoundsInParent().getMinY() - getLayoutY();
+
+                Point2D minPnt = minPoint(point2ds);
+
+                x = MainBoard.xLayout + minPnt.getX() * MainBoard.TILE_SIZE;
+                y = MainBoard.yLayout + minPnt.getY() * MainBoard.TILE_SIZE;
+                setLayoutX(x - deltaX);
+                setLayoutY(y - deltaY);
+
 
             }
             else if( type == MoveType.EMPTY){}
             else
             {
+
                 x = INIT_X;
                 y = INIT_Y;
                 setLayoutX(x);
@@ -172,12 +218,12 @@ public abstract class Piece extends Group {
         double mainboardX = MainBoard.xLayout;
         double mainboardY = MainBoard.yLayout;
 
-
         System.out.println("MainBoard:  " + mainboardX + "," + mainboardY);
 
-        System.out.println("MainBoard x,y:  " + x + "," + y);
+        System.out.println("MainBoard x,y:  " + getBoundsInParent().getMinX() + "," + getBoundsInParent().getMinY());
 
         ArrayList<Point2D> locationMap = new ArrayList<Point2D>();
+
         for(Point2D point  : pos){
 
             double realX;
@@ -185,6 +231,10 @@ public abstract class Piece extends Group {
 
             int xLoc;
             int yLoc;
+
+            double x = getBoundsInParent().getMinX();
+            double y = getBoundsInParent().getMinY();
+
 
             double centerX = (x + ((MainBoard.TILE_SIZE / 2) + point.getX() * MainBoard.TILE_SIZE));
             double centerY = (y + ((MainBoard.TILE_SIZE / 2) + point.getY() * MainBoard.TILE_SIZE));
@@ -212,7 +262,7 @@ public abstract class Piece extends Group {
 
 
         for(Point2D point : locationMap)
-            System.out.println("point x: " + point.getX()+ " point y " + point.getY()  + "-" + pos);
+            System.out.println("point x: " + point.getX()+ " point y " + point.getY());
 
         return locationMap;
 
@@ -220,9 +270,17 @@ public abstract class Piece extends Group {
 
     public void turn()
     {
+
+            setRotate(getRotate() + 90);
+
+
+
             ArrayList<Point2D> pos2 = new ArrayList<Point2D>();
 
-            getChildren().removeAll(getChildren());
+
+            //  circles.removeAll(getChildren());
+
+            //getChildren().removeAll(getChildren());
 
             for (int i = 0; i  < pos.size(); i++) {
 
@@ -232,33 +290,80 @@ public abstract class Piece extends Group {
                 pos2.add(newPoint);
 
             }
+            normalizeCoor(pos2);
 
-            pos = (ArrayList<Point2D>) pos2.clone();
-
-            createCircles(pos2);
-
+            //createCircles(pos2);
+        System.out.println("-----------------------");
             System.out.println(pos);
+        System.out.println("-----------------------");
     }
 
 
     public void flip()
     {
+
         ArrayList<Point2D> pos2 = new ArrayList<Point2D>();
 
-        getChildren().removeAll(getChildren());
+        if((getRotate() % 360) == 0 ||(getRotate() % 360)  == 180) {
+              setScaleX( -getScaleX() );
 
-        for (int i = 0; i  < pos.size(); i++) {
+        }
+        else
+        {
+            setScaleY( -getScaleY() );
+        }
+
+        for (int i = 0; i < pos.size(); i++) {
 
             double newX = -1 * pos.get(i).getX();
             double newY = pos.get(i).getY();
-            Point2D newPoint = new Point2D(newX,newY);
+            Point2D newPoint = new Point2D(newX, newY);
             pos2.add(newPoint);
         }
 
-        pos = (ArrayList<Point2D>) pos2.clone();
+        System.out.println(getRotate());
 
-        createCircles(pos2);
+        normalizeCoor(pos2);
 
-        System.out.println(pos);
+
     }
+
+    protected void normalizeCoor(ArrayList<Point2D> pos2)
+    {
+        double xDelta;
+        double yDelta;
+
+        Point2D minPnt;
+
+        ArrayList<Point2D> pos3 = new ArrayList<Point2D>();
+
+        minPnt = minPoint(pos2);
+
+        for ( Point2D point : pos2)
+        {
+            pos3.add( new Point2D(point.getX() - minPnt.getX(), point.getY() - minPnt.getY()));
+        }
+
+        pos = (ArrayList<Point2D>) pos3.clone();
+    }
+
+    protected Point2D minPoint(ArrayList<Point2D> pos2)
+    {
+        double minX = pos2.get(0).getX();
+        double minY = pos2.get(0).getY();
+
+
+        for ( Point2D point : pos2)
+        {
+            if (point.getX() < minX)
+                minX = point.getX();
+
+            if (point.getY() < minY)
+                minY = point.getY();
+        }
+
+        return new Point2D(minX,minY);
+
+    }
+
 }
