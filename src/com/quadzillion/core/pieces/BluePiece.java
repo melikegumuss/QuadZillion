@@ -2,7 +2,7 @@ package com.quadzillion.core.pieces;
 
 import com.quadzillion.core.models.Constants;
 import com.quadzillion.core.move.MoveChecker;
-import javafx.geometry.Point2D;
+import javafx.geometry  .Point2D;
 import javafx.scene.paint.Color;
 
 

@@ -17,7 +17,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
-
+import com.quadzillion.core.PuzzleGamePane;
 import java.util.ArrayList;
 
 public abstract class Piece extends Group {
@@ -46,9 +46,7 @@ public abstract class Piece extends Group {
 
     public Piece( MoveChecker moveChecker)
     {
-
         nodes = new ArrayList<Node>();
-
     }
 
 
@@ -57,7 +55,7 @@ public abstract class Piece extends Group {
 
     }
 
-    public Piece( MoveChecker moveChecker, int[][] solution, int id)
+    public Piece( MoveChecker moveChecker, int[][] solution, int id, String fileName)
     {
 
     }
@@ -193,6 +191,7 @@ public abstract class Piece extends Group {
                 y = MainBoard.yLayout + minPnt.getY() * MainBoard.TILE_SIZE;
                 setLayoutX(x - deltaX);
                 setLayoutY(y - deltaY);
+                incrementCounter();
 
 
             }
@@ -207,8 +206,6 @@ public abstract class Piece extends Group {
 
 
             }
-
-
 
         });
     }
@@ -270,13 +267,8 @@ public abstract class Piece extends Group {
 
     public void turn()
     {
-
             setRotate(getRotate() + 90);
-
-
-
             ArrayList<Point2D> pos2 = new ArrayList<Point2D>();
-
 
             //  circles.removeAll(getChildren());
 
@@ -364,6 +356,11 @@ public abstract class Piece extends Group {
 
         return new Point2D(minX,minY);
 
+    }
+
+    public void incrementCounter(){
+        PuzzleGamePane.moveCounter++;
+        PuzzleGamePane.counter.setText("Move Count: " + PuzzleGamePane.moveCounter );
     }
 
 }

@@ -12,7 +12,7 @@
    <children>
       <Button fx:id="settingsButton" layoutX="913.0" layoutY="445.0" mnemonicParsing="false" onAction="#onSettingsButtonClicked" prefHeight="80.0" prefWidth="225.0" styleClass="menuButtons" text="Settings">
       </Button>
-      <Label layoutX="40.0" layoutY="52.0" styleClass="menu-title" text="QuadZillion">
+      <Label layoutX="40.0" layoutY="52.0" styleClass="menu-title" text="QuadZillion" textFill="#752a6f">
 
       </Label>
       <Button fx:id="playButton" contentDisplay="CENTER" layoutX="913.0" layoutY="125.0" mnemonicParsing="false" onAction="#onPlayButtonClicked" prefHeight="80.0" prefWidth="225.0" styleClass="menuButtons" text="Play Game">

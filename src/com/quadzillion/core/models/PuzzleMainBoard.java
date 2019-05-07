@@ -30,14 +30,38 @@ public class PuzzleMainBoard extends MainBoard {
             views.add(iv1);
         }
 
+        int k = 0;
 
         for (int i = 0; i < getGridNo() ; i++) {
-            for (int j = 0; j < 2 ; j++) {
-                views.get(j + (2 * i)).setLayoutX(gridLocations[i][0] + Constants.TILE_SIZE * getForbiddenPoints()[i][j].getX());
-                views.get(j + (2 * i)).setLayoutY(gridLocations[i][1] + Constants.TILE_SIZE * getForbiddenPoints()[i][j].getY());
 
-                getChildren().add(views.get(j + (2 * i)));
+
+
+            if (getForbiddenPoints()[i][0].equals(getForbiddenPoints()[i][1]))
+            {
+                views.get(k).setLayoutX(gridLocations[i][0] + Constants.TILE_SIZE * getForbiddenPoints()[i][0].getX());
+                views.get(k).setLayoutY(gridLocations[i][1] + Constants.TILE_SIZE * getForbiddenPoints()[i][0].getY());
+
+                getChildren().add(views.get(k));
+                k++;
+
             }
+            else
+            {
+                views.get(k).setLayoutX(gridLocations[i][0] + Constants.TILE_SIZE * getForbiddenPoints()[i][0].getX());
+                views.get(k).setLayoutY(gridLocations[i][1] + Constants.TILE_SIZE * getForbiddenPoints()[i][0].getY());
+
+                getChildren().add(views.get(k));
+                k++;
+
+                views.get(k).setLayoutX(gridLocations[i][0] + Constants.TILE_SIZE * getForbiddenPoints()[i][1].getX());
+                views.get(k).setLayoutY(gridLocations[i][1] + Constants.TILE_SIZE * getForbiddenPoints()[i][1].getY());
+
+
+                getChildren().add(views.get(k));
+                k++;
+
+            }
+
         }
 
     }

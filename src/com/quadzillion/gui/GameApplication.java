@@ -60,9 +60,6 @@ public class GameApplication extends Application
 
 
 
-
-
-
         Util.loadScene(Util.SCENE_SETTINGS);
         Util.loadScene(Util.SCENE_MAIN_MENU);
         Util.loadScene(Util.SCENE_CREDITS);
@@ -70,7 +67,9 @@ public class GameApplication extends Application
         Util.loadScene(Util.SCENE_LEVELS);
         Util.loadScene(Util.SCENE_HOW_TO_PLAY);
         Util.loadScene(Util.SCENE_MODES);
-
+        Util.loadScene(Util.SCENE_EXTENDED_LEVELS);
+        Util.loadScene(Util.SCENE_PUZZLE_LEVELS);
+        Util.loadScene(Util.SCENE_VANILLA_LEVELS);
         Util.setScene(Util.SCENE_MAIN_MENU);
         Util.applyTheme(Util.THEME_VANILLA);
 

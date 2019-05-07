@@ -33,12 +33,31 @@ public class ModesController implements Controllable {
     @FXML
     public void onModeSelected(ActionEvent ae)
     {
-        mode = Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1;
+        int id = Integer.valueOf(((Button)ae.getSource()).getId());
+        switch(id){
+            case 1:
+                Util.setScene(Util.SCENE_VANILLA_LEVELS);
+                break;
+            case 2:
+                Util.setScene(Util.SCENE_EXTENDED_LEVELS);
+                break;
+            case 3:
+                Util.setScene(Util.SCENE_PUZZLE_LEVELS);
+                break;
+            default:
+                System.out.println("nothing");
+                break;
+        }
 
-        // DO STUFF ABOUT MODE
-        Util.removeChildren();
-        Util.addGamePanel();
-        Util.setScene(Util.SCENE_PLAY_GAME);
+
+//        mode = Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1;
+//
+//        // DO STUFF ABOUT MODE
+//        Util.removeChildren();
+//        Util.addGamePanel();
+//        Util.setScene(Util.SCENE_PLAY_GAME);
+
+
     }
 
     @FXML
