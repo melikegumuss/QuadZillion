@@ -34,7 +34,7 @@ public class PuzzleLevelsController implements Controllable
     @FXML
     public void onLevelSelected(ActionEvent ae)
     {
-        puzzleLevel = Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1;
+        puzzleLevel = (Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1) % 3;
 
         // DO STUFF ABOUT LEVEL
         Util.addPuzzleGamePanel();
