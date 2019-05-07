@@ -6,8 +6,11 @@ import com.quadzillion.core.models.MainBoard;
 import com.quadzillion.core.models.PuzzleMainBoard;
 import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
+import com.quadzillion.core.pieces.Piece;
 import com.quadzillion.core.pieces.PuzzlePiece;
 import javafx.animation.AnimationTimer;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -126,5 +129,72 @@ public class PuzzleGamePane extends Pane {
 
         getChildren().add(lblTime);
 
+//        setOnMouseClicked(e->{
+//            if(e.getSource() instanceof PuzzleGamePane){
+//                System.out.println("HIIIIIIIIIIIIIIIII");
+//            }
+//        });
+
+//        getScene().getRoot().get focusedProperty().addListener((ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) -> {
+//            focusState(newValue);
+//        });
+
+        setOnMouseClicked(e->{
+            if( getScene().focusOwnerProperty().get() instanceof Piece){
+                System.out.println("I AM A PIECEEEEEEEEEEEEEEEEEE");
+            }
+        });
+
+        //requestFocus();
+
+//        focusedProperty().addListener((observable, oldValue, newValue) -> {
+//            if (newValue) {
+//                System.out.println("Node 1: Mine!");
+//            }
+//
+//        });
+        /*setOnMouseClicked( e ->
+        {
+
+            for ( Node node : getChildren())
+            {
+
+                ((Piece) e.getSource()).selected = true;
+                /*if( node instanceof Piece)
+                {
+                    if( e.getSource().equals(node))
+                    {
+
+                        System.out.println("IF");
+
+                    }
+                    else
+                    {
+                        ((Piece) node).selected = false;
+                        System.out.println("ELSE");
+
+                    }
+                }
+            }
+
+            for ( Node node : getChildren())
+            {
+                if( node instanceof Piece)
+                {
+                    System.out.println("Selected:" + ((Piece) node).selected);
+                }
+
+            }
+        }); */
+
     }
+//    private void focusState(boolean value) {
+//        if (value) {
+//            System.out.println("Focus Gained");
+//        }
+//        else {
+//            System.out.println("Focus Lost");
+//        }
+//    }
+
 }

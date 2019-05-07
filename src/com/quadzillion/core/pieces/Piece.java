@@ -4,6 +4,8 @@ import com.quadzillion.core.models.Constants;
 import com.quadzillion.core.models.MainBoard;
 import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.move.MoveType;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -79,8 +81,7 @@ public abstract class Piece extends Group {
 
     public void setListeners()
     {
-
-
+        setFocusTraversable(true);
         setOnMouseDragged(e -> {
 
             if (e.getButton() == MouseButton.PRIMARY) {
@@ -102,9 +103,20 @@ public abstract class Piece extends Group {
 
         setOnMousePressed(e ->
         {
+
+            focusedProperty().addListener(new ChangeListener<Boolean>() {
+                @Override
+                public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue) {
+                    if (newPropertyValue) {
+                        System.out.println("piece on focus");
+                    } else {
+                        System.out.println("piece out focus");
+                    }
+                }
+            });
+
             if (e.getButton() == MouseButton.SECONDARY){
                 turn();
-
                 ArrayList<Point2D> point2ds = translateToBoard();
 
                 MoveType type = moveChecker.move(point2ds,id);

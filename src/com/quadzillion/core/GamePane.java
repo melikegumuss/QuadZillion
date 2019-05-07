@@ -69,7 +69,11 @@ public class GamePane extends Pane {
         urls.add("com/quadzillion/gui/resources/images/B.jpg");
 
 
-
+        setOnMouseClicked(e->{
+            if(e.getSource() instanceof Piece){
+                System.out.println("HIIIIIIIIIIIIIIIII");
+            }
+        });
 
 
 
