@@ -37,14 +37,15 @@ public class PuzzleLevelsController implements Controllable
         puzzleLevel = Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1;
 
         // DO STUFF ABOUT LEVEL
-        Util.removeChildren();
-        Util.addGamePanel();
+        Util.addPuzzleGamePanel();
         Util.setScene(Util.SCENE_PLAY_GAME);
     }
 
     @FXML
     public void onReturnToMainMenuButtonClicked()
     {
+
+        Util.removePuzzleChildren();
         Util.setScene(Util.SCENE_MODES);
     }
 }

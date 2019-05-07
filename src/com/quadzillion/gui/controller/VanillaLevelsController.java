@@ -35,14 +35,15 @@ public class VanillaLevelsController implements Controllable
         vanillaLevel = Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1;
 
         // DO STUFF ABOUT LEVEL
-        Util.removeChildren();
-        Util.addGamePanel();
+
+        Util.addVanillaGamePane();
         Util.setScene(Util.SCENE_PLAY_GAME);
     }
 
     @FXML
     public void onReturnToMainMenuButtonClicked()
     {
+        Util.removeVanillaChildren();
         Util.setScene(Util.SCENE_MODES);
     }
 }
