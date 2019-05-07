@@ -1,7 +1,14 @@
 package com.quadzillion.gui.controller;
 
+import com.quadzillion.core.ExtendedGamePane;
+import com.quadzillion.core.GamePane;
 import com.quadzillion.core.PuzzleGamePane;
+import com.quadzillion.core.levels.ExtendedLevel;
 import com.quadzillion.core.levels.Level;
+import com.quadzillion.core.levels.Level7;
+import com.quadzillion.core.levels.PuzzleLevel;
+import com.quadzillion.core.levels.extendedLevel.*;
+import com.quadzillion.core.levels.puzzleLevels.*;
 import com.quadzillion.gui.GameApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,27 +43,77 @@ public class Util
 
 
     private static Scene gameScene;
-    public static ArrayList<Level> levels;
-    static PuzzleGamePane gamePane;
+    public static ArrayList<Level> vanillaLevels;
+    static GamePane vanillaGamePane;
 
-    public static void loadGameScene(ArrayList<Level> lvls)
+    public static ArrayList<PuzzleLevel> puzzleLevels;
+    static PuzzleGamePane puzzleGamePane;
+
+
+    public static ArrayList<ExtendedLevel> extendedLevels;
+    static ExtendedGamePane extendedGamePane;
+
+
+    public static void loadVanillaGameScene(ArrayList<Level> lvls)
     {
-        levels = lvls;
+        vanillaLevels = lvls;
         loadScene(SCENE_PLAY_GAME);
         gameScene = getScene(SCENE_PLAY_GAME);
     }
 
 
-    public static void addGamePanel()
+    public static void addVanillaGamePane()
     {
-        gamePane = new PuzzleGamePane(levels.get(PuzzleLevelsController.puzzleLevel));
-        ((Pane)((AnchorPane)gameScene.getRoot()).getChildren().get(0)).getChildren().add(gamePane);
+        vanillaGamePane = new GamePane(vanillaLevels.get(VanillaLevelsController.vanillaLevel));
+        ((Pane)((AnchorPane)gameScene.getRoot()).getChildren().get(0)).getChildren().add(vanillaGamePane);
     }
 
-    public static void removeChildren()
+    public static void removeVanillaChildren()
     {
-        ((Pane)((AnchorPane)getScene(SCENE_PLAY_GAME).getRoot()).getChildren().get(0)).getChildren().removeAll(gamePane);
+        ((Pane)((AnchorPane)getScene(SCENE_PLAY_GAME).getRoot()).getChildren().get(0)).getChildren().removeAll(vanillaGamePane);
     }
+
+
+    public static void loadExtendedGameScene(ArrayList<ExtendedLevel> lvls)
+    {
+        extendedLevels = lvls;
+        loadScene(SCENE_PLAY_GAME);
+        gameScene = getScene(SCENE_PLAY_GAME);
+    }
+
+
+    public static void addExtendedGamePane()
+    {
+        extendedGamePane = new ExtendedGamePane( extendedLevels.get(ExtendedLevelsController.extendedLevel));
+        ((Pane)((AnchorPane)gameScene.getRoot()).getChildren().get(0)).getChildren().add(extendedGamePane);
+    }
+
+    public static void removeExtendedChildren()
+    {
+        ((Pane)((AnchorPane)getScene(SCENE_PLAY_GAME).getRoot()).getChildren().get(0)).getChildren().removeAll(extendedGamePane);
+    }
+
+
+
+    public static void loadPuzzleGameScene(ArrayList<PuzzleLevel> lvls)
+    {
+        puzzleLevels = lvls;
+        loadScene(SCENE_PLAY_GAME);
+        gameScene = getScene(SCENE_PLAY_GAME);
+    }
+
+
+    public static void addPuzzleGamePanel()
+    {
+        puzzleGamePane = new PuzzleGamePane(puzzleLevels.get(PuzzleLevelsController.puzzleLevel));
+        ((Pane)((AnchorPane)gameScene.getRoot()).getChildren().get(0)).getChildren().add(puzzleGamePane);
+    }
+
+    public static void removePuzzleChildren()
+    {
+        ((Pane)((AnchorPane)getScene(SCENE_PLAY_GAME).getRoot()).getChildren().get(0)).getChildren().removeAll(puzzleGamePane);
+    }
+
 
 
     public static void loadScene(String name)

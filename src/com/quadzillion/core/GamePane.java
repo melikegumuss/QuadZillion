@@ -8,6 +8,7 @@ import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.pieces.*;
 import javafx.geometry.Point2D;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -55,18 +56,6 @@ public class GamePane extends Pane {
         getChildren().add(pink);
         getChildren().add(yellow);
         getChildren().add(darkBlue);
-
-        ArrayList<String> urls = new ArrayList<>();
-
-        urls.add("com/quadzillion/gui/resources/images/marble.png");
-        urls.add("com/quadzillion/gui/resources/images/A.jpg");
-        urls.add("com/quadzillion/gui/resources/images/B.jpg");
-        urls.add("com/quadzillion/gui/resources/images/marble.png");
-        urls.add("com/quadzillion/gui/resources/images/marble.png");
-        urls.add("com/quadzillion/gui/resources/images/marble.png");
-        urls.add("com/quadzillion/gui/resources/images/marble.png");
-        urls.add("com/quadzillion/gui/resources/images/A.jpg");
-        urls.add("com/quadzillion/gui/resources/images/B.jpg");
 
 
 

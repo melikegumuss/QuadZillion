@@ -11,20 +11,20 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-public class PuzzleGamePane extends Pane {
+        public class PuzzleGamePane extends Pane {
 
-    private MainBoard mainBoard;
-    private TileMatrix tileMatrix;
-    private MoveChecker moveChecker;
-    public static int moveCounter = 0;
-    public static Label counter;
+            private MainBoard mainBoard;
+            private TileMatrix tileMatrix;
+            private MoveChecker moveChecker;
+            public static int moveCounter = 0;
+            public static Label counter;
 
-    public PuzzleGamePane(PuzzleLevel level)
-    {
+            public PuzzleGamePane(PuzzleLevel level)
+            {
 
-        PuzzleMainBoard mainBoard = new PuzzleMainBoard(level.getLocs(),4, level.getForbidden());
-        TileMatrix tileMatrix = new TileMatrix(mainBoard);
-        MoveChecker moveChecker = new MoveChecker(tileMatrix);
+                PuzzleMainBoard mainBoard = new PuzzleMainBoard(level.getLocs(),4, level.getForbidden());
+                TileMatrix tileMatrix = new TileMatrix(mainBoard);
+                MoveChecker moveChecker = new MoveChecker(tileMatrix);
 
         int[][] solution = level.solution;
 

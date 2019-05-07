@@ -45,6 +45,11 @@ public class PlayController implements Controllable
 
         Util.setScene(Util.SCENE_MODES);
         PuzzleGamePane.moveCounter = 0;
+        Util.removeExtendedChildren();
+        Util.removePuzzleChildren();
+        Util.removeVanillaChildren();
+        endGameTimeline.stop();
+        iteration = 0;
 
     }
 

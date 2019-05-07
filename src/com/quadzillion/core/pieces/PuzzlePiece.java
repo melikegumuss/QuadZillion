@@ -81,12 +81,6 @@ public class PuzzlePiece extends Piece {
         normalizeCoor(newPos);
 
 
-        for (Point2D point :  pos) {
-
-            System.out.println("id: " + id +"  pos:" +(int)point.getX() + "," + (int)point.getY() + ".jpg");
-
-        }
-
         for (int i = 0; i < images.size(); i++) {
 
             ImageView iv1 = images.get(i);

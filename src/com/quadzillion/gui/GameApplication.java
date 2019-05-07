@@ -5,6 +5,9 @@ import com.quadzillion.core.Settings;
 import com.quadzillion.core.Game;
 import com.quadzillion.core.levels.Level;
 import com.quadzillion.core.levels.*;
+import com.quadzillion.core.levels.extendedLevel.eLevel1;
+import com.quadzillion.core.levels.extendedLevel.eLevel2;
+import com.quadzillion.core.levels.puzzleLevels.*;
 import com.quadzillion.gui.controller.MainMenuController;
 import com.quadzillion.gui.controller.Util;
 import javafx.application.Application;
@@ -58,13 +61,27 @@ public class GameApplication extends Application
 
         levelList.add(new Level7());
 
+        ArrayList<PuzzleLevel> puzzleLevels = new ArrayList<>();
+
+        puzzleLevels.add( new pLevel1());
+        puzzleLevels.add( new pLevel2());
+        puzzleLevels.add( new pLevel3());
+
+        ArrayList<ExtendedLevel> extendedLevels = new ArrayList<>();
+
+        extendedLevels.add( new eLevel1());
+        extendedLevels.add(new eLevel2());
+
+
 
 
         Util.loadScene(Util.SCENE_SETTINGS);
         Util.loadScene(Util.SCENE_MAIN_MENU);
         Util.loadScene(Util.SCENE_CREDITS);
-        Util.loadGameScene(levelList);
-        Util.loadScene(Util.SCENE_LEVELS);
+        Util.loadVanillaGameScene(levelList);
+        Util.loadPuzzleGameScene(puzzleLevels);
+        Util.loadExtendedGameScene(extendedLevels);
+
         Util.loadScene(Util.SCENE_HOW_TO_PLAY);
         Util.loadScene(Util.SCENE_MODES);
         Util.loadScene(Util.SCENE_EXTENDED_LEVELS);
