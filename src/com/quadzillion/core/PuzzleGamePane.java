@@ -7,9 +7,11 @@ import com.quadzillion.core.models.PuzzleMainBoard;
 import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.pieces.PuzzlePiece;
+import javafx.animation.AnimationTimer;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 
 public class PuzzleGamePane extends Pane {
 
@@ -18,6 +20,9 @@ public class PuzzleGamePane extends Pane {
     private MoveChecker moveChecker;
     public static int moveCounter = 0;
     public static Label counter;
+    private int seconds;
+    private int minutes;
+    private AnimationTimer timer;
 
     public PuzzleGamePane(PuzzleLevel level)
     {
@@ -79,6 +84,47 @@ public class PuzzleGamePane extends Pane {
         counter.setLayoutY(50);
 
         getChildren().add(counter);
+
+        //Timer
+        Label lblTime = new Label("Time: 0m 0s");
+        seconds = 0;
+        minutes = 0;
+        timer = new AnimationTimer() {
+
+            long lastTime = 0;
+
+            @Override
+            public void handle(long now) {
+                if (lastTime != 0) {
+                    if (now > lastTime + 1_000_000_000) {
+                        if(seconds < 59){
+                            seconds++;
+                        }
+                        else{
+                            seconds = 0;
+                            minutes++;
+                        }
+                        lblTime.setText("Time: " + minutes + "m " + seconds + "s" );
+                        lastTime = now;
+                    }
+                } else {
+                    lastTime = now;
+                }
+            }
+
+        };
+        timer.start();
+        lblTime.setLayoutX(700);
+        lblTime.setLayoutY(50);
+        Font font = new Font("Times New Roman",25);
+        lblTime.setFont(font);
+        counter.setFont(font);
+        lblTime.setStyle("-fx-font-weight: bold; -fx-text-fill: #853c73;");
+        counter.setStyle("-fx-font-weight: bold; -fx-text-fill: #853c73 ;");
+
+        Label label = new Label();
+
+        getChildren().add(lblTime);
 
     }
 }

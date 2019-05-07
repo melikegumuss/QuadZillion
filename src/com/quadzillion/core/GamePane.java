@@ -73,9 +73,6 @@ public class GamePane extends Pane {
 
 
 
-
-
-
     }
 
 

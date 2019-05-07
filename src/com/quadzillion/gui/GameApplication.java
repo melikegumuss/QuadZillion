@@ -11,6 +11,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -64,7 +65,7 @@ public class GameApplication extends Application
         Util.loadScene(Util.SCENE_MAIN_MENU);
         Util.loadScene(Util.SCENE_CREDITS);
         Util.loadGameScene(levelList);
-        Util.loadScene(Util.SCENE_LEVELS);
+        //Util.loadScene(Util.SCENE_LEVELS);
         Util.loadScene(Util.SCENE_HOW_TO_PLAY);
         Util.loadScene(Util.SCENE_MODES);
         Util.loadScene(Util.SCENE_EXTENDED_LEVELS);
