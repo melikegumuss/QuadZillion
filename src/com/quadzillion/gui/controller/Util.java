@@ -2,6 +2,8 @@ package com.quadzillion.gui.controller;
 
 import com.quadzillion.core.PuzzleGamePane;
 import com.quadzillion.core.levels.Level;
+import com.quadzillion.core.levels.PuzzleLevel;
+import com.quadzillion.core.levels.puzzleLevels.pLevel2;
 import com.quadzillion.gui.GameApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -49,7 +51,7 @@ public class Util
 
     public static void addGamePanel()
     {
-        gamePane = new PuzzleGamePane(levels.get(PuzzleLevelsController.puzzleLevel));
+        gamePane = new PuzzleGamePane(new pLevel2());
         ((Pane)((AnchorPane)gameScene.getRoot()).getChildren().get(0)).getChildren().add(gamePane);
     }
 

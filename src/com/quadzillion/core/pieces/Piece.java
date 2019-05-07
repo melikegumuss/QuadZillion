@@ -9,6 +9,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.control.Control;
 import javafx.scene.effect.Effect;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -74,11 +75,11 @@ public abstract class Piece extends Group {
 
             getChildren().add(circle);
         }
-
     }
 
     public void setListeners()
     {
+
 
         setOnMouseDragged(e -> {
 
@@ -128,8 +129,6 @@ public abstract class Piece extends Group {
                     setLayoutX(x);
                     setLayoutY(y);
                 }
-
-
             }
             else if ( e.getButton() == MouseButton.MIDDLE) {
                 flip();
@@ -170,7 +169,6 @@ public abstract class Piece extends Group {
         });
 
 
-
         setOnMouseReleased( e ->
         {
         ArrayList<Point2D> point2ds = translateToBoard();
@@ -196,17 +194,12 @@ public abstract class Piece extends Group {
 
             }
             else if( type == MoveType.EMPTY){}
-            else
-            {
-
+            else{
                 x = INIT_X;
                 y = INIT_Y;
                 setLayoutX(x);
                 setLayoutY(y);
-
-
             }
-
         });
     }
 
