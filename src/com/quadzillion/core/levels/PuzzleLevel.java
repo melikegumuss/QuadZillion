@@ -29,7 +29,6 @@ public class PuzzleLevel extends Level{
         }
 
 
-
         for (int j = 0; j < 4; j++) {
             for  (int i = 4; i < 8; i++){
                 if (solution[j][i] == 2)
@@ -44,7 +43,6 @@ public class PuzzleLevel extends Level{
                     urls.add("com/quadzillion/gui/resources/images/puzzleLevels/" + fileName + "/" + j + i + ".jpg");
             }
         }
-
 
         for(int j = 4; j < 8; j++)  {
             for (int i = 4; i < 8; i++)  {
