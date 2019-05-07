@@ -79,7 +79,7 @@ public class MainMenuController implements Controllable
 
     public void onPlayButtonClicked()
     {
-        Util.setScene(Util.SCENE_LEVELS);
+        Util.setScene(Util.SCENE_MODES);
     }
 
     public void onHowToPlayButtonClicked()
@@ -104,6 +104,8 @@ public class MainMenuController implements Controllable
         mp.dispose();
         GameApplication.getStage().close();
     }
+
+
 
 }
 

@@ -69,6 +69,7 @@ public class GameApplication extends Application
         Util.loadGameScene(levelList);
         Util.loadScene(Util.SCENE_LEVELS);
         Util.loadScene(Util.SCENE_HOW_TO_PLAY);
+        Util.loadScene(Util.SCENE_MODES);
 
         Util.setScene(Util.SCENE_MAIN_MENU);
         Util.applyTheme(Util.THEME_VANILLA);

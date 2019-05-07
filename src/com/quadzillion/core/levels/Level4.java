@@ -21,6 +21,4 @@ public class Level4 extends  Level {
                 {new Point2D(1,0),new Point2D(3,0)}};
 
     }
-
-
 }
