@@ -10,6 +10,7 @@ import com.quadzillion.gui.controller.MainMenuController;
 import com.quadzillion.gui.controller.Util;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -84,6 +85,8 @@ public class GameApplication extends Application {
         primaryStage.setOnCloseRequest(
                 e -> ((MainMenuController) Util.getSceneController(Util.SCENE_MAIN_MENU)).onQuitButtonClicked());
         primaryStage.show();
+        Image icon = new Image("com/quadzillion/gui/resources/images/icon.jpeg");
+        primaryStage.getIcons().add(icon);
 
     }
 }
