@@ -1,47 +1,38 @@
 package com.quadzillion.gui;
 
-import com.quadzillion.core.GamePane;
-import com.quadzillion.core.Settings;
-import com.quadzillion.core.Game;
-import com.quadzillion.core.levels.Level;
 import com.quadzillion.core.levels.*;
 import com.quadzillion.core.levels.extendedLevel.eLevel1;
 import com.quadzillion.core.levels.extendedLevel.eLevel2;
-import com.quadzillion.core.levels.puzzleLevels.*;
+import com.quadzillion.core.levels.puzzleLevels.pLevel1;
+import com.quadzillion.core.levels.puzzleLevels.pLevel2;
+import com.quadzillion.core.levels.puzzleLevels.pLevel3;
 import com.quadzillion.gui.controller.MainMenuController;
 import com.quadzillion.gui.controller.Util;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
 
-public class GameApplication extends Application
-{
+public class GameApplication extends Application {
     private static GameApplication instance;
     private static Stage primaryStage;
 
     private Scene sceneMainMenu;
 
-    public static Stage getStage()
-    {
+    public static Stage getStage() {
         return primaryStage;
     }
-    
-    public static GameApplication getInstance()
-    {
+
+    public static GameApplication getInstance() {
         return instance;
     }
 
     private MainMenuController mc;
 
     @Override
-    public void start(Stage stage) throws Exception
-    {
+    public void start(Stage stage) throws Exception {
         GameApplication.instance = this;
         primaryStage = stage;
 
@@ -63,16 +54,15 @@ public class GameApplication extends Application
 
         ArrayList<PuzzleLevel> puzzleLevels = new ArrayList<>();
 
-        puzzleLevels.add( new pLevel1());
-        puzzleLevels.add( new pLevel2());
-        puzzleLevels.add( new pLevel3());
+        puzzleLevels.add(new pLevel1());
+        puzzleLevels.add(new pLevel2());
+        puzzleLevels.add(new pLevel3());
 
         ArrayList<ExtendedLevel> extendedLevels = new ArrayList<>();
 
-        extendedLevels.add( new eLevel1());
+        extendedLevels.add(new eLevel1());
         extendedLevels.add(new eLevel2());
-
-
+        extendedLevels.add(new eLevel2());
 
 
         Util.loadScene(Util.SCENE_SETTINGS);
@@ -92,7 +82,8 @@ public class GameApplication extends Application
 
         primaryStage.setTitle("QuadZillion");
         primaryStage.setOnCloseRequest(
-                e->((MainMenuController)Util.getSceneController(Util.SCENE_MAIN_MENU)).onQuitButtonClicked());
+                e -> ((MainMenuController) Util.getSceneController(Util.SCENE_MAIN_MENU)).onQuitButtonClicked());
         primaryStage.show();
+
     }
 }

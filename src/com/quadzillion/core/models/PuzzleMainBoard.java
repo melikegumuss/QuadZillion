@@ -15,12 +15,11 @@ public class PuzzleMainBoard extends MainBoard {
     }
 
 
-    public void putImageToPoints(ArrayList<String> imageUrls)
-    {
+    public void putImageToPoints(ArrayList<String> imageUrls) {
 
         ArrayList<ImageView> views = new ArrayList<>();
 
-        for(String imageUrl : imageUrls) {
+        for (String imageUrl : imageUrls) {
             Image image = new Image(imageUrl);
             // simple displays ImageView the image as is
             ImageView iv1 = new ImageView();
@@ -32,21 +31,17 @@ public class PuzzleMainBoard extends MainBoard {
 
         int k = 0;
 
-        for (int i = 0; i < getGridNo() ; i++) {
+        for (int i = 0; i < getGridNo(); i++) {
 
 
-
-            if (getForbiddenPoints()[i][0].equals(getForbiddenPoints()[i][1]))
-            {
+            if (getForbiddenPoints()[i][0].equals(getForbiddenPoints()[i][1])) {
                 views.get(k).setLayoutX(gridLocations[i][0] + Constants.TILE_SIZE * getForbiddenPoints()[i][0].getX());
                 views.get(k).setLayoutY(gridLocations[i][1] + Constants.TILE_SIZE * getForbiddenPoints()[i][0].getY());
 
                 getChildren().add(views.get(k));
                 k++;
 
-            }
-            else
-            {
+            } else {
                 views.get(k).setLayoutX(gridLocations[i][0] + Constants.TILE_SIZE * getForbiddenPoints()[i][0].getX());
                 views.get(k).setLayoutY(gridLocations[i][1] + Constants.TILE_SIZE * getForbiddenPoints()[i][0].getY());
 
@@ -65,7 +60,6 @@ public class PuzzleMainBoard extends MainBoard {
         }
 
     }
-
 
 
 }

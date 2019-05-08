@@ -8,8 +8,7 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
 public class GreenPiece extends Piece {
-    public GreenPiece(MoveChecker moveChecker)
-    {
+    public GreenPiece(MoveChecker moveChecker) {
         super(moveChecker);
 
         id = 7;
@@ -25,19 +24,17 @@ public class GreenPiece extends Piece {
 
         pos = new ArrayList<Point2D>();
 
-        pos.add(new Point2D(0,0));
-        pos.add(new Point2D(1,0));
-        pos.add(new Point2D(1,1));
-        pos.add(new Point2D(1,2));
-        pos.add(new Point2D(0,2));
+        pos.add(new Point2D(0, 0));
+        pos.add(new Point2D(1, 0));
+        pos.add(new Point2D(1, 1));
+        pos.add(new Point2D(1, 2));
+        pos.add(new Point2D(0, 2));
 
 
         color = Color.GREEN;
 
 
-
         this.moveChecker = moveChecker;
-
 
 
         createCircles(pos);

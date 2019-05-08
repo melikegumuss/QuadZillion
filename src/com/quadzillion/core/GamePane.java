@@ -1,32 +1,20 @@
 package com.quadzillion.core;
 
 import com.quadzillion.core.levels.Level;
-import com.quadzillion.core.models.Constants;
 import com.quadzillion.core.models.MainBoard;
-import com.quadzillion.core.models.PuzzleMainBoard;
 import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.pieces.*;
-import javafx.geometry.Point2D;
-import javafx.scene.Node;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 
-
-import java.util.ArrayList;
-
-public class GamePane extends Pane {
+public class GamePane extends AbstractPane {
 
     private MainBoard mainBoard;
     private TileMatrix tileMatrix;
     private MoveChecker moveChecker;
 
-    public GamePane(Level level)
-    {
-
-       MainBoard mainBoard = new MainBoard(level.getLocs(),4, level.getForbidden());
+    public GamePane(Level level) {
+        super();
+        MainBoard mainBoard = new MainBoard(level.getLocs(), 4, level.getForbidden());
         TileMatrix tileMatrix = new TileMatrix(mainBoard);
         MoveChecker moveChecker = new MoveChecker(tileMatrix);
 
@@ -56,17 +44,10 @@ public class GamePane extends Pane {
         getChildren().add(pink);
         getChildren().add(yellow);
         getChildren().add(darkBlue);
-
-
-
-
-
-
     }
 
 
-    public boolean isFinished()
-    {
+    public boolean isFinished() {
         return tileMatrix.isFinished();
     }
 

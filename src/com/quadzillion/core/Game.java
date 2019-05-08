@@ -2,14 +2,12 @@ package com.quadzillion.core;
 
 import com.quadzillion.gui.GameApplication;
 
-public class Game
-{
+public class Game {
     private static Game current;
     private GameApplication gameApp;
     private Settings settings;
 
-    public Game()
-    {
+    public Game() {
         // get things from a config file
         settings = new Settings(settings ->
         {
@@ -30,18 +28,15 @@ public class Game
     }
 
     @SuppressWarnings("unused")
-    public GameApplication getGameApplication()
-    {
+    public GameApplication getGameApplication() {
         return gameApp;
     }
 
-    public static Game getCurrent()
-    {
+    public static Game getCurrent() {
         return current;
     }
 
-    public Settings getSettings()
-    {
+    public Settings getSettings() {
         return settings;
     }
 }
