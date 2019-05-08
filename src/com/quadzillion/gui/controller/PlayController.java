@@ -92,7 +92,7 @@ public class PlayController implements Controllable
     // next level
     public void onModesClicked()
     {
-        maxpayne.setVisible(false);
+
         removeAll();
         Util.currentLevel = (Util.currentLevel + 1) % 3 ;
         onCreate();
