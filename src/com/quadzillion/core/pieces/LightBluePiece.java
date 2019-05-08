@@ -8,8 +8,7 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
 public class LightBluePiece extends Piece {
-    public LightBluePiece(MoveChecker moveChecker)
-    {
+    public LightBluePiece(MoveChecker moveChecker) {
         super(moveChecker);
 
         INIT_X = Constants.MAINBOARD_X_LAYOUT - 3 * Constants.TILE_SIZE;
@@ -23,9 +22,9 @@ public class LightBluePiece extends Piece {
 
         pos = new ArrayList<Point2D>();
 
-        pos.add(new Point2D(0,0));
-        pos.add(new Point2D(0,1));
-        pos.add(new Point2D(1,1));
+        pos.add(new Point2D(0, 0));
+        pos.add(new Point2D(0, 1));
+        pos.add(new Point2D(1, 1));
 
 
         color = Color.LIGHTBLUE;

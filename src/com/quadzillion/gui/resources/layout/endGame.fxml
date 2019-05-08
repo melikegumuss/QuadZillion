@@ -4,15 +4,19 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
-<AnchorPane opacity="-Infinity" fx:id="none" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.EndGameController">
+<AnchorPane opacity="-Infinity" fx:id="none" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.EndGameController">
     <children>
-        <Button fx:id="replay" layoutX="87.0" layoutY="309.0" mnemonicParsing="false" styleClass="endgame-button" text="Replay" />
-        <Button fx:id="home" layoutX="278.0" layoutY="309.0" mnemonicParsing="false" styleClass="endgame-button" text="Home" />
-        <Button fx:id="next" layoutX="423.0" layoutY="309.0" mnemonicParsing="false" styleClass="endgame-button" text="Next" />
+        <Button fx:id="replay" layoutX="87.0" layoutY="309.0" mnemonicParsing="false" styleClass="endgame-button"
+                text="Replay"/>
+        <Button fx:id="home" layoutX="278.0" layoutY="309.0" mnemonicParsing="false" styleClass="endgame-button"
+                text="Home"/>
+        <Button fx:id="next" layoutX="423.0" layoutY="309.0" mnemonicParsing="false" styleClass="endgame-button"
+                text="Next"/>
         <Label layoutX="49.0" layoutY="83.0" styleClass="endgame-title" text="Congratulations">
             <font>
-                <Font size="36.0" />
+                <Font size="36.0"/>
             </font>
         </Label>
     </children>

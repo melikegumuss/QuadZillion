@@ -5,15 +5,14 @@ import javafx.geometry.Point2D;
 
 public class pLevel2 extends PuzzleLevel {
 
-    public pLevel2()
-    {
+    public pLevel2() {
         //68
         super();
 
         fileName = "pLevel2";
 
         int[][] temp = {
-                { 10, 10, 12, 2, 3, 3, 3, 3},
+                {10, 10, 12, 2, 3, 3, 3, 3},
                 {8, 10, 12, 12, 12, 4, 14, 3},
                 {8, 10, 10, 12, 2, 4, 14, 14},
                 {8, 8, 8, 2, 4, 4, 4, 14},
@@ -28,17 +27,17 @@ public class pLevel2 extends PuzzleLevel {
 
         locs = new Point2D[4];
 
-        locs[0] = new Point2D(4,4);
-        locs[1] = new Point2D(8,4);
-        locs[2] = new Point2D(4,8);
-        locs[3] = new Point2D(8,8);
+        locs[0] = new Point2D(4, 4);
+        locs[1] = new Point2D(8, 4);
+        locs[2] = new Point2D(4, 8);
+        locs[3] = new Point2D(8, 8);
 
 
         forbidden = new Point2D[][]{
-                {new Point2D(3,0),new Point2D(3,3)},
-                {new Point2D(0,2),new Point2D(0,2)},
-                {new Point2D(  1,0),new Point2D(2,0)},
-                {new Point2D(0,0),new Point2D(1,2)}};
+                {new Point2D(3, 0), new Point2D(3, 3)},
+                {new Point2D(0, 2), new Point2D(0, 2)},
+                {new Point2D(1, 0), new Point2D(2, 0)},
+                {new Point2D(0, 0), new Point2D(1, 2)}};
 
     }
 

@@ -1,45 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.CreditsController">
+    <children>
+        <VBox fx:id="vboxCredits" layoutY="-2.0" prefHeight="720.0" prefWidth="1280.0"/>
+        <Label layoutX="482.0" layoutY="55.0" prefHeight="108.0" prefWidth="223.0" text="Credits" textFill="#a73333">
+            <font>
+                <Font size="69.0"/>
+            </font>
+        </Label>
+        <Label layoutX="510.0" layoutY="307.0" prefHeight="45.0" prefWidth="188.0" text="Melike Arslan">
+            <font>
+                <Font size="30.0"/>
+            </font>
+        </Label>
+        <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false"
+                onAction="#onReturnToMainMenuButtonClicked" prefHeight="13.0" prefWidth="13.0"
+                styleClass="button-back"/>
+        <Label layoutX="510.0" layoutY="371.0" prefHeight="45.0" prefWidth="210.0" text="Ufuk Bombar">
+            <font>
+                <Font size="30.0"/>
+            </font>
+        </Label>
+        <Label layoutX="510.0" layoutY="443.0" prefHeight="27.0" prefWidth="126.0" text="Sarp Ataş">
+            <font>
+                <Font size="30.0"/>
+            </font>
+        </Label>
+        <Label layoutX="510.0" layoutY="236.0" prefHeight="45.0" prefWidth="185.0" text="Enver Yiğitler">
+            <font>
+                <Font size="30.0"/>
+            </font>
+        </Label>
+        <Label layoutX="510.0" layoutY="176.0" prefHeight="45.0" prefWidth="168.0" text="Berk Güler">
+            <font>
+                <Font size="30.0"/>
+            </font>
+        </Label>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quadzillion.gui.controller.CreditsController">
-   <children>
-      <VBox fx:id="vboxCredits" layoutY="-2.0" prefHeight="720.0" prefWidth="1280.0" />
-      <Label layoutX="482.0" layoutY="55.0" prefHeight="108.0" prefWidth="223.0" text="Credits" textFill="#a73333">
-         <font>
-            <Font size="69.0" />
-         </font></Label>
-      <Label layoutX="510.0" layoutY="307.0" prefHeight="45.0" prefWidth="188.0" text="Melike Arslan">
-         <font>
-            <Font size="30.0" />
-         </font></Label>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onReturnToMainMenuButtonClicked" prefHeight="13.0" prefWidth="13.0" styleClass="button-back" />
-      <Label layoutX="510.0" layoutY="371.0" prefHeight="45.0" prefWidth="210.0" text="Ufuk Bombar">
-         <font>
-            <Font size="30.0" />
-         </font></Label>
-      <Label layoutX="510.0" layoutY="443.0" prefHeight="27.0" prefWidth="126.0" text="Sarp Ataş">
-         <font>
-            <Font size="30.0" />
-         </font></Label>
-      <Label layoutX="510.0" layoutY="236.0" prefHeight="45.0" prefWidth="185.0" text="Enver Yiğitler">
-         <font>
-            <Font size="30.0" />
-         </font></Label>
-      <Label layoutX="510.0" layoutY="176.0" prefHeight="45.0" prefWidth="168.0" text="Berk Güler">
-         <font>
-            <Font size="30.0" />
-         </font></Label>
-
-      <Hyperlink fx:id="githubLink" layoutX="496.0" layoutY="530.0" onAction="#handleLinkClick" prefHeight="55.0" prefWidth="155.0" text="Github">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Hyperlink>
-   </children>
+        <Hyperlink fx:id="githubLink" layoutX="496.0" layoutY="530.0" onAction="#handleLinkClick" prefHeight="55.0"
+                   prefWidth="155.0" text="Github">
+            <font>
+                <Font size="40.0"/>
+            </font>
+        </Hyperlink>
+    </children>
 </AnchorPane>

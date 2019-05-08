@@ -1,33 +1,20 @@
 package com.quadzillion.gui.controller;
-import com.quadzillion.core.Game;
-import com.quadzillion.gui.GameApplication;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Slider;
+import javafx.scene.control.ToggleButton;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import static com.quadzillion.gui.GameApplication.getStage;
-//import static com.quadzillion.gui.GameApplication.isTheme;
 import static com.quadzillion.gui.controller.MainMenuController.isMuted;
 import static com.quadzillion.gui.controller.MainMenuController.mp;
-//import static com.quadzillion.gui.controller.MainMenuController.tgl;
-import com.quadzillion.gui.controller.MainMenuController;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
-public class SettingsController implements Controllable
-{
+//import static com.quadzillion.gui.GameApplication.isTheme;
+//import static com.quadzillion.gui.controller.MainMenuController.tgl;
+
+public class SettingsController implements Controllable {
     @FXML
     Button backButton;
     @FXML
@@ -44,8 +31,7 @@ public class SettingsController implements Controllable
 
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         tgl2.setSelected(isMuted);
 
         backButton.setOnAction(e ->
@@ -67,14 +53,11 @@ public class SettingsController implements Controllable
 
         tgl2.setOnAction(e ->
         {
-            if (tgl2.isSelected())
-            {
+            if (tgl2.isSelected()) {
                 mp.setVolume(0);
                 slider.setValue(0);
                 isMuted = true;
-            }
-            else
-            {
+            } else {
                 mp.setVolume(100);
                 slider.setValue(100);
                 isMuted = false;
@@ -84,19 +67,16 @@ public class SettingsController implements Controllable
 
 
     @Override
-    public void onDestroy()
-    {
+    public void onDestroy() {
 
     }
 
     @Override
-    public void onThemeChange()
-    {
+    public void onThemeChange() {
 
     }
 
-    public void onApplyThemeButtonClicked()
-    {
+    public void onApplyThemeButtonClicked() {
         if (selectedTheme != null)
             if (selectedTheme.equals("Vanilla"))
                 Util.applyTheme(Util.THEME_VANILLA);
@@ -106,15 +86,12 @@ public class SettingsController implements Controllable
                 Util.applyTheme(Util.THEME_EXOTIC);
     }
 
-    public void slider(){
+    public void slider() {
         mp.setVolume(slider.getValue());
-        if (slider.getValue() == 0)
-        {
+        if (slider.getValue() == 0) {
             isMuted = true;
             tgl2.setSelected(true);
-        }
-        else
-        {
+        } else {
             tgl2.setSelected(false);
         }
     }

@@ -5,8 +5,6 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-import java.util.ArrayList;
-
 public class MainBoard extends Group {
 
     public static final double xLayout = Constants.MAINBOARD_X_LAYOUT;
@@ -14,13 +12,9 @@ public class MainBoard extends Group {
     public static final double yLayout = Constants.MAINBOARD_Y_LAYOUT;
 
 
-
     private Point2D[][] forbiddenPoints;
 
     protected double[][] gridLocations;
-
-
-
 
 
     public static final int TILE_SIZE = Constants.TILE_SIZE;
@@ -31,15 +25,15 @@ public class MainBoard extends Group {
     private Point2D[] locations;
     private int gridNo;
 
-    public MainBoard(){}
+    public MainBoard() {
+    }
 
-    public MainBoard(Point2D[] loc, int gridNo, Point2D[][] forbiddenPts )
-    {
+    public MainBoard(Point2D[] loc, int gridNo, Point2D[][] forbiddenPts) {
         gridLocations = new double[gridNo][2];
 
 
         this.locations = new Point2D[gridNo];
-        System.arraycopy(loc,0,this.locations,0,gridNo);
+        System.arraycopy(loc, 0, this.locations, 0, gridNo);
         //this.locations = loc;
         this.gridNo = gridNo;
 
@@ -52,8 +46,8 @@ public class MainBoard extends Group {
             }
         }
 
-        Rectangle rect = new Rectangle(xLayout,yLayout,TILE_SIZE * ROW_NO,TILE_SIZE * COLUMN_NO);
-        rect.setFill( Color.rgb(10,13,13,0));
+        Rectangle rect = new Rectangle(xLayout, yLayout, TILE_SIZE * ROW_NO, TILE_SIZE * COLUMN_NO);
+        rect.setFill(Color.rgb(10, 13, 13, 0));
 
         getChildren().add(rect);
 
@@ -62,10 +56,9 @@ public class MainBoard extends Group {
     }
 
 
-    public void createGrids()
-    {
+    public void createGrids() {
         for (int i = 0; i < gridNo; i++) {
-            Grid grid = new Grid(forbiddenPoints[i][0],forbiddenPoints[i][1]);
+            Grid grid = new Grid(forbiddenPoints[i][0], forbiddenPoints[i][1]);
 
             double x = xLayout + locations[i].getX() * TILE_SIZE;
             double y = yLayout + locations[i].getY() * TILE_SIZE;
@@ -82,9 +75,6 @@ public class MainBoard extends Group {
     }
 
 
-
-
-
     public Point2D[][] getForbiddenPoints() {
         return forbiddenPoints;
     }
@@ -96,7 +86,6 @@ public class MainBoard extends Group {
     public int getGridNo() {
         return gridNo;
     }
-
 
 
 }

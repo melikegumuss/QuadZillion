@@ -7,14 +7,12 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
-public class DarkBluePiece extends Piece
-{
-    public DarkBluePiece(MoveChecker moveChecker)
-    {
+public class DarkBluePiece extends Piece {
+    public DarkBluePiece(MoveChecker moveChecker) {
         super(moveChecker);
 
 
-        INIT_X = Constants.MAINBOARD_X_LAYOUT - 7 *  Constants.TILE_SIZE;
+        INIT_X = Constants.MAINBOARD_X_LAYOUT - 7 * Constants.TILE_SIZE;
         INIT_Y = Constants.MAINBOARD_Y_LAYOUT + 13 * Constants.TILE_SIZE;
 
         x = INIT_X;
@@ -25,11 +23,11 @@ public class DarkBluePiece extends Piece
 
         pos = new ArrayList<Point2D>();
 
-        pos.add(new Point2D(1,1));
-        pos.add(new Point2D(1,0));
-        pos.add(new Point2D(0,0));
-        pos.add(new Point2D(1,2));
-        pos.add(new Point2D(2,2));
+        pos.add(new Point2D(1, 1));
+        pos.add(new Point2D(1, 0));
+        pos.add(new Point2D(0, 0));
+        pos.add(new Point2D(1, 2));
+        pos.add(new Point2D(2, 2));
 
 
         color = Color.DARKBLUE;
