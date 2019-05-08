@@ -13,7 +13,7 @@ public class MaroonPiece extends Piece {
         super(moveChecker);
 
         INIT_X = Constants.MAINBOARD_X_LAYOUT - 4 *  Constants.TILE_SIZE;
-        INIT_Y = Constants.MAINBOARD_Y_LAYOUT + 13 * Constants.TILE_SIZE;
+        INIT_Y = Constants.MAINBOARD_Y_LAYOUT + 5 * Constants.TILE_SIZE;
 
         x = INIT_X;
         y = INIT_Y;

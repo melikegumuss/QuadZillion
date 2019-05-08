@@ -48,8 +48,7 @@ public class PlayController implements Controllable
         Util.removeExtendedChildren();
         Util.removePuzzleChildren();
         Util.removeVanillaChildren();
-        endGameTimeline.stop();
-        iteration = 0;
+
 
     }
 
