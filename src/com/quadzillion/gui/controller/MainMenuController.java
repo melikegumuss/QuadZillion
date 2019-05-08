@@ -76,5 +76,7 @@ public class MainMenuController implements Controllable {
         GameApplication.getStage().close();
     }
 
+
+
 }
 
