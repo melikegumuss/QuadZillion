@@ -1,54 +1,42 @@
 package com.quadzillion.core.move;
 
+import com.quadzillion.core.AbstractPane;
 import com.quadzillion.core.models.Tile;
 import com.quadzillion.core.models.TileMatrix;
 import javafx.geometry.Point2D;
 
 import java.util.ArrayList;
 
-public class MoveChecker
-{
+public class MoveChecker {
     TileMatrix tileMatrix;
 
-    public MoveChecker(TileMatrix tm)
-    {
+    public MoveChecker(TileMatrix tm) {
         tileMatrix = tm;
 
     }
 
-    public MoveType move(ArrayList<Point2D> locationMap, int pieceID)
-    {
-
-        System.out.println("Before Move:");
-        tileMatrix.display();
+    public MoveType move(ArrayList<Point2D> locationMap, int pieceID) {
 
         for (int i = 0; i < 16; i++) {
             for (int j = 0; j < 16; j++) {
-                if(tileMatrix.get(i,j) == pieceID)
-                {
-                    tileMatrix.updateMatrix(i,j, Tile.VALID);
+                if (tileMatrix.get(i, j) == pieceID) {
+                    tileMatrix.updateMatrix(i, j, Tile.VALID);
                 }
             }
         }
 
-        if (isValid(locationMap))
-        {
-            for ( Point2D point : locationMap)
-            {
-                tileMatrix.updateMatrix((int) point.getX(),(int) point.getY(), pieceID);
+        if (isValid(locationMap)) {
+            for (Point2D point : locationMap) {
+                tileMatrix.updateMatrix((int) point.getX(), (int) point.getY(), pieceID);
             }
 
-            System.out.println("After Move:");
-            tileMatrix.display();
+
             return MoveType.VALID;
-        }
-        else
-        {
-            if(isAllEMpty(locationMap)) {
+        } else {
+            if (isAllEMpty(locationMap)) {
 
                 return MoveType.EMPTY;
-            }
-            else {
+            } else {
 
                 for (int i = 0; i < 16; i++) {
                     for (int j = 0; j < 16; j++) {
@@ -59,31 +47,25 @@ public class MoveChecker
                 }
 
 
-                System.out.println("After Move:");
-                tileMatrix.display();
-
                 return MoveType.INVALID;
             }
         }
-     }
+    }
 
 
-    private boolean isValid(ArrayList<Point2D> locationMap)
-    {
+    private boolean isValid(ArrayList<Point2D> locationMap) {
         boolean valid = true;
 
-        for ( Point2D point : locationMap)
-        {
-           if( point.getX() < 0 || point.getY() < 0)
-               return false;
+        for (Point2D point : locationMap) {
+            if (point.getX() < 0 || point.getY() < 0)
+                return false;
 
-           if(point.getX()  > 15 || point.getY() > 15)
-               return false;
+            if (point.getX() > 15 || point.getY() > 15)
+                return false;
         }
 
-        for ( Point2D point : locationMap)
-        {
-            if( tileMatrix.get((int)point.getX(),(int) point.getY()) != Tile.VALID)
+        for (Point2D point : locationMap) {
+            if (tileMatrix.get((int) point.getX(), (int) point.getY()) != Tile.VALID)
                 valid = false;
 
         }
@@ -97,11 +79,9 @@ public class MoveChecker
         int k = 0;
 
         for (Point2D point : locationMap) {
-            if (isOut((int) point.getX(),(int) point.getY()))
-            {
+            if (isOut((int) point.getX(), (int) point.getY())) {
                 k++;
-            }
-            else{
+            } else {
                 if (tileMatrix.get((int) point.getX(), (int) point.getY()) == Tile.EMPTY)
                     k++;
             }
@@ -115,18 +95,14 @@ public class MoveChecker
         }
     }
 
-        public boolean isOut( int x, int y){
+    public boolean isOut(int x, int y) {
 
-            if (x < 0 || y < 0 || x > 15 || y > 15) {
+        if (x < 0 || y < 0 || x > 15 || y > 15)
+            return true;
+        else
+            return false;
 
-                return true;
-            }
-
-            else
-                return false;
-
-        }
-
+    }
 
 
 }

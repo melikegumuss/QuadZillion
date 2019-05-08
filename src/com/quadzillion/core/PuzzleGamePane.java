@@ -1,33 +1,22 @@
 package com.quadzillion.core;
 
-import com.quadzillion.core.levels.Level;
 import com.quadzillion.core.levels.PuzzleLevel;
 import com.quadzillion.core.models.MainBoard;
 import com.quadzillion.core.models.PuzzleMainBoard;
 import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.pieces.PuzzlePiece;
-import javafx.animation.AnimationTimer;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
 
-public class PuzzleGamePane extends Pane {
+public class PuzzleGamePane extends AbstractPane {
 
     private MainBoard mainBoard;
     private TileMatrix tileMatrix;
     private MoveChecker moveChecker;
-    public static int moveCounter = 0;
-    public static Label counter;
-    private int seconds;
-    private int minutes;
-    private AnimationTimer timer;
 
-    public PuzzleGamePane(PuzzleLevel level)
-    {
-
-        PuzzleMainBoard mainBoard = new PuzzleMainBoard(level.getLocs(),4, level.getForbidden());
+    public PuzzleGamePane(PuzzleLevel level) {
+        super();
+        PuzzleMainBoard mainBoard = new PuzzleMainBoard(level.getLocs(), 4, level.getForbidden());
         TileMatrix tileMatrix = new TileMatrix(mainBoard);
         MoveChecker moveChecker = new MoveChecker(tileMatrix);
 
@@ -37,18 +26,18 @@ public class PuzzleGamePane extends Pane {
         mainBoard.putImageToPoints(level.forbiddenUrls());
 
 
-        PuzzlePiece pc3 = new PuzzlePiece(moveChecker,solution,3, level.getFileName());
-        PuzzlePiece pc4 = new PuzzlePiece(moveChecker,solution,4, level.getFileName());
-        PuzzlePiece pc5 = new PuzzlePiece(moveChecker,solution,5, level.getFileName());
-        PuzzlePiece pc6 = new PuzzlePiece(moveChecker,solution,6, level.getFileName());
-        PuzzlePiece pc7 = new PuzzlePiece(moveChecker,solution,7, level.getFileName());
-        PuzzlePiece pc8 = new PuzzlePiece(moveChecker,solution,8, level.getFileName());
-        PuzzlePiece pc9 = new PuzzlePiece(moveChecker,solution,9, level.getFileName());
-        PuzzlePiece pc10 = new PuzzlePiece(moveChecker,solution,10, level.getFileName());
-        PuzzlePiece pc11 = new PuzzlePiece(moveChecker,solution,11, level.getFileName());
-        PuzzlePiece pc12 = new PuzzlePiece(moveChecker,solution,12, level.getFileName());
-        PuzzlePiece pc13 = new PuzzlePiece(moveChecker,solution,13, level.getFileName());
-        PuzzlePiece pc14 = new PuzzlePiece(moveChecker,solution,14, level.getFileName());
+        PuzzlePiece pc3 = new PuzzlePiece(moveChecker, solution, 3, level.getFileName());
+        PuzzlePiece pc4 = new PuzzlePiece(moveChecker, solution, 4, level.getFileName());
+        PuzzlePiece pc5 = new PuzzlePiece(moveChecker, solution, 5, level.getFileName());
+        PuzzlePiece pc6 = new PuzzlePiece(moveChecker, solution, 6, level.getFileName());
+        PuzzlePiece pc7 = new PuzzlePiece(moveChecker, solution, 7, level.getFileName());
+        PuzzlePiece pc8 = new PuzzlePiece(moveChecker, solution, 8, level.getFileName());
+        PuzzlePiece pc9 = new PuzzlePiece(moveChecker, solution, 9, level.getFileName());
+        PuzzlePiece pc10 = new PuzzlePiece(moveChecker, solution, 10, level.getFileName());
+        PuzzlePiece pc11 = new PuzzlePiece(moveChecker, solution, 11, level.getFileName());
+        PuzzlePiece pc12 = new PuzzlePiece(moveChecker, solution, 12, level.getFileName());
+        PuzzlePiece pc13 = new PuzzlePiece(moveChecker, solution, 13, level.getFileName());
+        PuzzlePiece pc14 = new PuzzlePiece(moveChecker, solution, 14, level.getFileName());
 
 
         getChildren().add(mainBoard);
@@ -65,9 +54,8 @@ public class PuzzleGamePane extends Pane {
         getChildren().add(pc13);
         getChildren().add(pc14);
 
-        for ( Node piece : getChildren())
-        {
-            if( piece instanceof PuzzlePiece) {
+        for (Node piece : getChildren()) {
+            if (piece instanceof PuzzlePiece) {
                 for (int i = 0; i < (int) ((Math.random()) * 4); i++) {
                     ((PuzzlePiece) piece).turn();
                 }
@@ -77,54 +65,6 @@ public class PuzzleGamePane extends Pane {
             }
 
         }
-
-        counter = new Label();
-        counter.setText("Move Count: " + moveCounter );
-        counter.setLayoutX(500);
-        counter.setLayoutY(50);
-
-        getChildren().add(counter);
-
-        //Timer
-        Label lblTime = new Label("Time: 0m 0s");
-        seconds = 0;
-        minutes = 0;
-        timer = new AnimationTimer() {
-
-            long lastTime = 0;
-
-            @Override
-            public void handle(long now) {
-                if (lastTime != 0) {
-                    if (now > lastTime + 1_000_000_000) {
-                        if(seconds < 59){
-                            seconds++;
-                        }
-                        else{
-                            seconds = 0;
-                            minutes++;
-                        }
-                        lblTime.setText("Time: " + minutes + "m " + seconds + "s" );
-                        lastTime = now;
-                    }
-                } else {
-                    lastTime = now;
-                }
-            }
-
-        };
-        timer.start();
-        lblTime.setLayoutX(700);
-        lblTime.setLayoutY(50);
-        Font font = new Font("Times New Roman",25);
-        lblTime.setFont(font);
-        counter.setFont(font);
-        lblTime.setStyle("-fx-font-weight: bold; -fx-text-fill: #853c73;");
-        counter.setStyle("-fx-font-weight: bold; -fx-text-fill: #853c73 ;");
-
-        Label label = new Label();
-
-        getChildren().add(lblTime);
 
     }
 }

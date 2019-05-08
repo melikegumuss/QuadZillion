@@ -1,22 +1,15 @@
 package com.quadzillion.gui.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import static com.quadzillion.gui.controller.MainMenuController.mp;
 import static javafx.scene.media.MediaPlayer.Status.PLAYING;
 
-public class HowToPlayController implements Controllable
-{
+public class HowToPlayController implements Controllable {
     private MainMenuController mc;
     @FXML
     private Button btnPlay;
@@ -31,8 +24,7 @@ public class HowToPlayController implements Controllable
     MediaPlayer mediaPlayer;
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         mediaPlayer = new MediaPlayer(new Media(Util.getVideoPath()));
 
         mediaView.setFitHeight(700);
@@ -43,37 +35,32 @@ public class HowToPlayController implements Controllable
     }
 
     @Override
-    public void onDestroy()
-    {
+    public void onDestroy() {
 
     }
 
     @Override
-    public void onThemeChange()
-    {
+    public void onThemeChange() {
 
     }
 
     @FXML
-    private void onClickStop(){
+    private void onClickStop() {
         mediaPlayer.pause();
     }
 
     @FXML
-    private void onClickPlay(){
-        if(mediaPlayer.getStatus() == PLAYING)
-        {
+    private void onClickPlay() {
+        if (mediaPlayer.getStatus() == PLAYING) {
             mediaPlayer.stop();
             mediaPlayer.play();
-        }
-        else{
+        } else {
             mediaPlayer.play();
         }
 
     }
 
-    public void onReturnToMainMenuButtonClicked()
-    {
+    public void onReturnToMainMenuButtonClicked() {
         mp.play();
         mediaPlayer.pause();
         Util.setScene(Util.SCENE_MAIN_MENU);

@@ -7,14 +7,12 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
-public class LightLimePiece extends Piece
-{
-    public LightLimePiece(MoveChecker moveChecker)
-    {
+public class LightLimePiece extends Piece {
+    public LightLimePiece(MoveChecker moveChecker) {
         super(moveChecker);
 
 
-        INIT_X = Constants.MAINBOARD_X_LAYOUT - 7 *  Constants.TILE_SIZE + 10;
+        INIT_X = Constants.MAINBOARD_X_LAYOUT - 7 * Constants.TILE_SIZE + 10;
         INIT_Y = Constants.MAINBOARD_Y_LAYOUT + 70;
 
         x = INIT_X;
@@ -26,11 +24,11 @@ public class LightLimePiece extends Piece
 
         pos = new ArrayList<Point2D>();
 
-        pos.add(new Point2D(0,0));
-        pos.add(new Point2D(0,1));
-        pos.add(new Point2D(1,0));
-        pos.add(new Point2D(1,1));
-        pos.add(new Point2D(0,2));
+        pos.add(new Point2D(0, 0));
+        pos.add(new Point2D(0, 1));
+        pos.add(new Point2D(1, 0));
+        pos.add(new Point2D(1, 1));
+        pos.add(new Point2D(0, 2));
 
 
         color = Color.rgb(128, 255, 128);
