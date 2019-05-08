@@ -2,13 +2,9 @@ package com.quadzillion.core.pieces;
 
 import com.quadzillion.core.models.Constants;
 import com.quadzillion.core.move.MoveChecker;
-
 import javafx.geometry.Point2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Sphere;
 
 import java.util.ArrayList;
 
@@ -38,8 +34,6 @@ public class PuzzlePiece extends Piece {
         solutionToPos(solution);
 
 
-
-
         this.moveChecker = moveChecker;
 
         //createCircles(pos);
@@ -47,7 +41,6 @@ public class PuzzlePiece extends Piece {
     }
 
     public void createCircles(ArrayList<Point2D> pos2) {
-
 
 
     }
@@ -58,10 +51,10 @@ public class PuzzlePiece extends Piece {
         ArrayList<ImageView> images = new ArrayList<>();
 
         for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8  ; j++) {
-                if ( id == solution[j][i]) {
+            for (int j = 0; j < 8; j++) {
+                if (id == solution[j][i]) {
                     newPos.add(new Point2D(i, j));
-                    Image image = new Image("com/quadzillion/gui/resources/images/puzzleLevels/"+fileName+"/" + j + i + ".jpg");
+                    Image image = new Image("com/quadzillion/gui/resources/images/puzzleLevels/" + fileName + "/" + j + i + ".jpg");
 
 
                     // simple displays ImageView the image as is

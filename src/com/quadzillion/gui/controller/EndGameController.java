@@ -3,8 +3,7 @@ package com.quadzillion.gui.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class EndGameController implements Controllable
-{
+public class EndGameController implements Controllable {
     @FXML
     public Button replay;
 
@@ -16,25 +15,23 @@ public class EndGameController implements Controllable
 
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         replay.setOnAction(e ->
         {
             // TODO:
         });
         home.setOnAction(e -> Util.loadScene(Util.SCENE_MAIN_MENU));
-        next.setOnAction(e ->  {});
+        next.setOnAction(e -> {
+        });
     }
 
     @Override
-    public void onDestroy()
-    {
+    public void onDestroy() {
 
     }
 
     @Override
-    public void onThemeChange()
-    {
+    public void onThemeChange() {
 
     }
 

@@ -3,17 +3,13 @@ package com.quadzillion.core.pieces;
 import com.quadzillion.core.models.Constants;
 import com.quadzillion.core.move.MoveChecker;
 import javafx.geometry.Point2D;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 
-public class GeneratedPiece extends Piece
-{
-    public GeneratedPiece(MoveChecker moveChecker, int[][] solution, Color color, int id)
-    {
+public class GeneratedPiece extends Piece {
+    public GeneratedPiece(MoveChecker moveChecker, int[][] solution, Color color, int id) {
         super(moveChecker);
 
 
@@ -48,11 +44,11 @@ public class GeneratedPiece extends Piece
 
         for (int i = 0; i < solution.length; i++) {
             for (int j = 0; j < solution[0].length; j++) {
-                if ( id == solution[j][i]) {
+                if (id == solution[j][i]) {
                     newPos.add(new Point2D(i, j));
 
                     Circle circle = new Circle();
-                    circle.setRadius(Constants.TILE_SIZE/2);
+                    circle.setRadius(Constants.TILE_SIZE / 2);
                     circle.setFill(color);
                     circles.add(circle);
                 }

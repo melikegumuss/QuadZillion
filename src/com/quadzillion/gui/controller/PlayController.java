@@ -1,23 +1,13 @@
 package com.quadzillion.gui.controller;
 
 import com.quadzillion.core.AbstractPane;
-import com.quadzillion.core.Game;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.util.Duration;
-import com.quadzillion.core.PuzzleGamePane;
-public class PlayController implements Controllable
-{
+
+public class PlayController implements Controllable {
     @FXML
     public Button backButton;
     @FXML
@@ -27,38 +17,32 @@ public class PlayController implements Controllable
     private int iteration;
 
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         maxpayne.setVisible(false);
         AbstractPane.resetTimerAndStart();
     }
 
     @Override
-    public void onDestroy()
-    {
+    public void onDestroy() {
 
     }
 
     @Override
-    public void onThemeChange()
-    {
-
+    public void onThemeChange() {
+        // Hellos no one calls me :(
     }
 
     @FXML
-    public void onReturnToMainMenuButtonClicked()
-    {
+    public void onReturnToMainMenuButtonClicked() {
 
         Util.setScene(Util.SCENE_MODES);
-        PuzzleGamePane.moveCounter = 0;
+        AbstractPane.resetTimerAndStart();
         removeAll();
-
 
 
     }
 
-    public void onGameSuccessfullyCompleted()
-    {
+    public void onGameSuccessfullyCompleted() {
         Scene currentScene = Util.getCurrentScene();
         maxpayne.setVisible(true);
 
@@ -83,21 +67,20 @@ public class PlayController implements Controllable
 
     }
 
-    public void onMainMenuClicked(){
+    public void onMainMenuClicked() {
         Util.setScene(Util.SCENE_MAIN_MENU);
         maxpayne.setVisible(false);
         removeAll();
     }
 
     // next level
-    public void onModesClicked()
-    {
+    public void onModesClicked() {
         maxpayne.setVisible(false);
         removeAll();
-        Util.currentLevel = (Util.currentLevel + 1) % 3 ;
+        Util.currentLevel = (Util.currentLevel + 1) % 3;
         onCreate();
 
-        switch(Util.mode){
+        switch (Util.mode) {
             case 1:
                 Util.addVanillaGamePane();
                 break;
@@ -110,7 +93,7 @@ public class PlayController implements Controllable
         }
     }
 
-    public void removeAll(){
+    public void removeAll() {
         Util.removeExtendedChildren();
         Util.removePuzzleChildren();
         Util.removeVanillaChildren();

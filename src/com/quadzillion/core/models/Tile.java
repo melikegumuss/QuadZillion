@@ -13,19 +13,16 @@ public class Tile {
 
     private int piece = -1;
 
-    Tile(int piece)
-    {
+    Tile(int piece) {
         this.piece = piece;
     }
 
-    Tile piece(int piece)
-    {
+    Tile piece(int piece) {
         this.piece = piece;
         return this;
     }
 
-    public boolean equal(Tile tile)
-    {
+    public boolean equal(Tile tile) {
         return this == tile && tile.piece == this.piece;
     }
 

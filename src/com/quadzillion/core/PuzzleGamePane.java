@@ -1,6 +1,5 @@
 package com.quadzillion.core;
 
-import com.quadzillion.core.levels.Level;
 import com.quadzillion.core.levels.PuzzleLevel;
 import com.quadzillion.core.models.MainBoard;
 import com.quadzillion.core.models.PuzzleMainBoard;
@@ -8,23 +7,18 @@ import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.pieces.PuzzlePiece;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
 
-        public class PuzzleGamePane extends AbstractPane {
+public class PuzzleGamePane extends AbstractPane {
 
-            private MainBoard mainBoard;
-            private TileMatrix tileMatrix;
-            private MoveChecker moveChecker;
-            public static int moveCounter = 0;
-            public static Label counter;
+    private MainBoard mainBoard;
+    private TileMatrix tileMatrix;
+    private MoveChecker moveChecker;
 
-            public PuzzleGamePane(PuzzleLevel level)
-            {
-                super();
-                PuzzleMainBoard mainBoard = new PuzzleMainBoard(level.getLocs(),4, level.getForbidden());
-                TileMatrix tileMatrix = new TileMatrix(mainBoard);
-                MoveChecker moveChecker = new MoveChecker(tileMatrix);
+    public PuzzleGamePane(PuzzleLevel level) {
+        super();
+        PuzzleMainBoard mainBoard = new PuzzleMainBoard(level.getLocs(), 4, level.getForbidden());
+        TileMatrix tileMatrix = new TileMatrix(mainBoard);
+        MoveChecker moveChecker = new MoveChecker(tileMatrix);
 
         int[][] solution = level.solution;
 
@@ -32,18 +26,18 @@ import javafx.scene.layout.Pane;
         mainBoard.putImageToPoints(level.forbiddenUrls());
 
 
-        PuzzlePiece pc3 = new PuzzlePiece(moveChecker,solution,3, level.getFileName());
-        PuzzlePiece pc4 = new PuzzlePiece(moveChecker,solution,4, level.getFileName());
-        PuzzlePiece pc5 = new PuzzlePiece(moveChecker,solution,5, level.getFileName());
-        PuzzlePiece pc6 = new PuzzlePiece(moveChecker,solution,6, level.getFileName());
-        PuzzlePiece pc7 = new PuzzlePiece(moveChecker,solution,7, level.getFileName());
-        PuzzlePiece pc8 = new PuzzlePiece(moveChecker,solution,8, level.getFileName());
-        PuzzlePiece pc9 = new PuzzlePiece(moveChecker,solution,9, level.getFileName());
-        PuzzlePiece pc10 = new PuzzlePiece(moveChecker,solution,10, level.getFileName());
-        PuzzlePiece pc11 = new PuzzlePiece(moveChecker,solution,11, level.getFileName());
-        PuzzlePiece pc12 = new PuzzlePiece(moveChecker,solution,12, level.getFileName());
-        PuzzlePiece pc13 = new PuzzlePiece(moveChecker,solution,13, level.getFileName());
-        PuzzlePiece pc14 = new PuzzlePiece(moveChecker,solution,14, level.getFileName());
+        PuzzlePiece pc3 = new PuzzlePiece(moveChecker, solution, 3, level.getFileName());
+        PuzzlePiece pc4 = new PuzzlePiece(moveChecker, solution, 4, level.getFileName());
+        PuzzlePiece pc5 = new PuzzlePiece(moveChecker, solution, 5, level.getFileName());
+        PuzzlePiece pc6 = new PuzzlePiece(moveChecker, solution, 6, level.getFileName());
+        PuzzlePiece pc7 = new PuzzlePiece(moveChecker, solution, 7, level.getFileName());
+        PuzzlePiece pc8 = new PuzzlePiece(moveChecker, solution, 8, level.getFileName());
+        PuzzlePiece pc9 = new PuzzlePiece(moveChecker, solution, 9, level.getFileName());
+        PuzzlePiece pc10 = new PuzzlePiece(moveChecker, solution, 10, level.getFileName());
+        PuzzlePiece pc11 = new PuzzlePiece(moveChecker, solution, 11, level.getFileName());
+        PuzzlePiece pc12 = new PuzzlePiece(moveChecker, solution, 12, level.getFileName());
+        PuzzlePiece pc13 = new PuzzlePiece(moveChecker, solution, 13, level.getFileName());
+        PuzzlePiece pc14 = new PuzzlePiece(moveChecker, solution, 14, level.getFileName());
 
 
         getChildren().add(mainBoard);
@@ -60,9 +54,8 @@ import javafx.scene.layout.Pane;
         getChildren().add(pc13);
         getChildren().add(pc14);
 
-        for ( Node piece : getChildren())
-        {
-            if( piece instanceof PuzzlePiece) {
+        for (Node piece : getChildren()) {
+            if (piece instanceof PuzzlePiece) {
                 for (int i = 0; i < (int) ((Math.random()) * 4); i++) {
                     ((PuzzlePiece) piece).turn();
                 }
@@ -72,13 +65,6 @@ import javafx.scene.layout.Pane;
             }
 
         }
-
-        counter = new Label();
-        counter.setText("Move Count: " + moveCounter );
-        counter.setLayoutX(500);
-        counter.setLayoutY(50);
-
-        getChildren().add(counter);
 
     }
 }

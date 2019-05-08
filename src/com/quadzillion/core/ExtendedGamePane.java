@@ -1,27 +1,12 @@
 package com.quadzillion.core;
 
 import com.quadzillion.core.levels.ExtendedLevel;
-import com.quadzillion.core.levels.Level;
-import com.quadzillion.core.models.Constants;
 import com.quadzillion.core.models.MainBoard;
-import com.quadzillion.core.models.PuzzleMainBoard;
 import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
-import com.quadzillion.core.pieces.*;
+import com.quadzillion.core.pieces.GeneratedPiece;
 import javafx.animation.AnimationTimer;
-import javafx.geometry.Point2D;
-import javafx.scene.Node;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-
-
-import java.util.ArrayList;
-
-import static com.quadzillion.core.PuzzleGamePane.moveCounter;
 
 public class ExtendedGamePane extends AbstractPane {
 
@@ -40,16 +25,16 @@ public class ExtendedGamePane extends AbstractPane {
 
         int[][] solution = level.solution;
 
-        GeneratedPiece gp3 = new GeneratedPiece(moveChecker,solution,Color.PURPLE,3);
-        GeneratedPiece gp4 = new GeneratedPiece(moveChecker,solution,Color.PINK,4);
-        GeneratedPiece gp5 = new GeneratedPiece(moveChecker,solution,Color.BLUE,5);
-        GeneratedPiece gp6 = new GeneratedPiece(moveChecker,solution,Color.GREEN,6);
-        GeneratedPiece gp7 = new GeneratedPiece(moveChecker,solution,Color.GOLD,7);
-        GeneratedPiece gp8 = new GeneratedPiece(moveChecker,solution,Color.INDIGO,8);
-        GeneratedPiece gp9 = new GeneratedPiece(moveChecker,solution,Color.NAVY,9);
-        GeneratedPiece gp10 = new GeneratedPiece(moveChecker,solution,Color.HOTPINK,10);
-        GeneratedPiece gp11 = new GeneratedPiece(moveChecker,solution,Color.CHOCOLATE,11);
-        GeneratedPiece gp12 = new GeneratedPiece(moveChecker,solution,Color.YELLOW,12);
+        GeneratedPiece gp3 = new GeneratedPiece(moveChecker, solution, Color.PURPLE, 3);
+        GeneratedPiece gp4 = new GeneratedPiece(moveChecker, solution, Color.PINK, 4);
+        GeneratedPiece gp5 = new GeneratedPiece(moveChecker, solution, Color.BLUE, 5);
+        GeneratedPiece gp6 = new GeneratedPiece(moveChecker, solution, Color.GREEN, 6);
+        GeneratedPiece gp7 = new GeneratedPiece(moveChecker, solution, Color.GOLD, 7);
+        GeneratedPiece gp8 = new GeneratedPiece(moveChecker, solution, Color.INDIGO, 8);
+        GeneratedPiece gp9 = new GeneratedPiece(moveChecker, solution, Color.NAVY, 9);
+        GeneratedPiece gp10 = new GeneratedPiece(moveChecker, solution, Color.HOTPINK, 10);
+        GeneratedPiece gp11 = new GeneratedPiece(moveChecker, solution, Color.CHOCOLATE, 11);
+        GeneratedPiece gp12 = new GeneratedPiece(moveChecker, solution, Color.YELLOW, 12);
 
 
         getChildren().add(mainBoard);
@@ -63,21 +48,6 @@ public class ExtendedGamePane extends AbstractPane {
         getChildren().add(gp10);
         getChildren().add(gp11);
         getChildren().add(gp12);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 
