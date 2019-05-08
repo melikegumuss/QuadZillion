@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 import static com.quadzillion.core.PuzzleGamePane.moveCounter;
 
-public class ExtendedGamePane extends Pane {
+public class ExtendedGamePane extends AbstractPane {
 
 
     /* public  int moveCounter = 0;
@@ -33,7 +33,7 @@ public class ExtendedGamePane extends Pane {
     private AnimationTimer timer;
 
     public ExtendedGamePane(ExtendedLevel level) {
-
+        super();
         MainBoard mainBoard = new MainBoard(level.getLocs(), 4, level.getForbidden());
         TileMatrix tileMatrix = new TileMatrix(mainBoard);
         MoveChecker moveChecker = new MoveChecker(tileMatrix);
@@ -66,45 +66,9 @@ public class ExtendedGamePane extends Pane {
 
 
 
-        Label lblTime = new Label("Time: 0m 0s");
-        seconds = 0;
-        minutes = 0;
-        timer = new AnimationTimer() {
 
-            long lastTime = 0;
 
-            @Override
-            public void handle(long now) {
-                if (lastTime != 0) {
-                    if (now > lastTime + 1_000_000_000) {
-                        if(seconds < 59){
-                            seconds++;
-                        }
-                        else{
-                            seconds = 0;
-                            minutes++;
-                        }
-                        lblTime.setText("Time: " + minutes + "m " + seconds + "s" );
-                        lastTime = now;
-                    }
-                } else {
-                    lastTime = now;
-                }
-            }
 
-        };
-
-        timer.start();
-        lblTime.setLayoutX(700);
-        lblTime.setLayoutY(50);
-        Font font = new Font("Times New Roman",25);
-        lblTime.setFont(font);
-        lblTime.setStyle("-fx-font-weight: bold; -fx-text-fill: #853c73;");
-        /*counter.setFont(font);
-
-        counter.setStyle("-fx-font-weight: bold; -fx-text-fill: #853c73 ;");*/
-
-        getChildren().add(lblTime);
 
 
 

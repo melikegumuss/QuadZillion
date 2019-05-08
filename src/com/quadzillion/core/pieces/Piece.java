@@ -165,7 +165,6 @@ public abstract class Piece extends Group {
                 orgSceneY = e.getSceneY();
                 orgTranslateX = getLayoutX(); //returns grubun baslangıc noktası
                 orgTranslateY = getLayoutY();
-                System.out.println(x + "," + y);
             }
 
         });
@@ -178,7 +177,6 @@ public abstract class Piece extends Group {
 
             MoveType type = moveChecker.move(point2ds,id);
 
-            System.out.println("point2ds: " + point2ds);
 
 
             if( type == MoveType.VALID) {
@@ -210,10 +208,6 @@ public abstract class Piece extends Group {
     {
         double mainboardX = MainBoard.xLayout;
         double mainboardY = MainBoard.yLayout;
-
-        System.out.println("MainBoard:  " + mainboardX + "," + mainboardY);
-
-        System.out.println("MainBoard x,y:  " + getBoundsInParent().getMinX() + "," + getBoundsInParent().getMinY());
 
         ArrayList<Point2D> locationMap = new ArrayList<Point2D>();
 
@@ -248,14 +242,10 @@ public abstract class Piece extends Group {
                 yLoc = (int) ( realY / MainBoard.TILE_SIZE);
 
 
-            System.out.println( (centerX - mainboardX) + " ," + ( centerY - mainboardY));
 
             locationMap.add( new Point2D(xLoc,yLoc));
         }
 
-
-        for(Point2D point : locationMap)
-            System.out.println("point x: " + point.getX()+ " point y " + point.getY());
 
         return locationMap;
 
@@ -281,9 +271,6 @@ public abstract class Piece extends Group {
             normalizeCoor(pos2);
 
             //createCircles(pos2);
-        System.out.println("-----------------------");
-            System.out.println(pos);
-        System.out.println("-----------------------");
     }
 
 
@@ -308,8 +295,6 @@ public abstract class Piece extends Group {
             Point2D newPoint = new Point2D(newX, newY);
             pos2.add(newPoint);
         }
-
-        System.out.println(getRotate());
 
         normalizeCoor(pos2);
 

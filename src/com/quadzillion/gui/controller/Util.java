@@ -13,6 +13,7 @@ import com.quadzillion.gui.GameApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Pair;
@@ -53,6 +54,8 @@ public class Util
     public static ArrayList<ExtendedLevel> extendedLevels;
     static ExtendedGamePane extendedGamePane;
 
+    public static int currentLevel = 0;
+    public static int mode = 1;
 
     public static void loadVanillaGameScene(ArrayList<Level> lvls)
     {
@@ -64,7 +67,7 @@ public class Util
 
     public static void addVanillaGamePane()
     {
-        vanillaGamePane = new GamePane(vanillaLevels.get(VanillaLevelsController.vanillaLevel));
+        vanillaGamePane = new GamePane(vanillaLevels.get(currentLevel));
         ((Pane)((AnchorPane)gameScene.getRoot()).getChildren().get(0)).getChildren().add(vanillaGamePane);
     }
 
@@ -84,7 +87,7 @@ public class Util
 
     public static void addExtendedGamePane()
     {
-        extendedGamePane = new ExtendedGamePane( extendedLevels.get(ExtendedLevelsController.extendedLevel));
+        extendedGamePane = new ExtendedGamePane( extendedLevels.get(currentLevel));
         ((Pane)((AnchorPane)gameScene.getRoot()).getChildren().get(0)).getChildren().add(extendedGamePane);
     }
 
@@ -105,7 +108,7 @@ public class Util
 
     public static void addPuzzleGamePanel()
     {
-        puzzleGamePane = new PuzzleGamePane(puzzleLevels.get(PuzzleLevelsController.puzzleLevel));
+        puzzleGamePane = new PuzzleGamePane(puzzleLevels.get(currentLevel));
         ((Pane)((AnchorPane)gameScene.getRoot()).getChildren().get(0)).getChildren().add(puzzleGamePane);
     }
 
@@ -127,6 +130,11 @@ public class Util
             Scene scene = new Scene(loader.getRoot(), 1280, 720);
 
             loadedScenes.put(name, new Pair<>(scene, loader.getController()));
+            scene.setOnKeyPressed(e->{
+                if(e.getCode() == KeyCode.ESCAPE){
+                    ((MainMenuController)Util.getSceneController(Util.SCENE_MAIN_MENU)).onQuitButtonClicked();
+                }
+            });
         }
         catch (Exception e)
         {

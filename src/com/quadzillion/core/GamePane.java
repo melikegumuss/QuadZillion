@@ -17,7 +17,7 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
-public class GamePane extends Pane {
+public class GamePane extends AbstractPane {
 
     private MainBoard mainBoard;
     private TileMatrix tileMatrix;
@@ -25,7 +25,7 @@ public class GamePane extends Pane {
 
     public GamePane(Level level)
     {
-
+        super();
        MainBoard mainBoard = new MainBoard(level.getLocs(),4, level.getForbidden());
         TileMatrix tileMatrix = new TileMatrix(mainBoard);
         MoveChecker moveChecker = new MoveChecker(tileMatrix);
@@ -56,12 +56,6 @@ public class GamePane extends Pane {
         getChildren().add(pink);
         getChildren().add(yellow);
         getChildren().add(darkBlue);
-
-
-
-
-
-
     }
 
 

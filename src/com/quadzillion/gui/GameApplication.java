@@ -14,6 +14,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -71,6 +72,7 @@ public class GameApplication extends Application
 
         extendedLevels.add( new eLevel1());
         extendedLevels.add(new eLevel2());
+        extendedLevels.add(new eLevel2());
 
 
 
@@ -94,5 +96,6 @@ public class GameApplication extends Application
         primaryStage.setOnCloseRequest(
                 e->((MainMenuController)Util.getSceneController(Util.SCENE_MAIN_MENU)).onQuitButtonClicked());
         primaryStage.show();
+
     }
 }

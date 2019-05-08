@@ -11,7 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-        public class PuzzleGamePane extends Pane {
+        public class PuzzleGamePane extends AbstractPane {
 
             private MainBoard mainBoard;
             private TileMatrix tileMatrix;
@@ -21,7 +21,7 @@ import javafx.scene.layout.Pane;
 
             public PuzzleGamePane(PuzzleLevel level)
             {
-
+                super();
                 PuzzleMainBoard mainBoard = new PuzzleMainBoard(level.getLocs(),4, level.getForbidden());
                 TileMatrix tileMatrix = new TileMatrix(mainBoard);
                 MoveChecker moveChecker = new MoveChecker(tileMatrix);

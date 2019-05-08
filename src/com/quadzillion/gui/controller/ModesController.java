@@ -33,8 +33,8 @@ public class ModesController implements Controllable {
     @FXML
     public void onModeSelected(ActionEvent ae)
     {
-        int id = Integer.valueOf(((Button)ae.getSource()).getId());
-        switch(id){
+        Util.mode = Integer.valueOf(((Button)ae.getSource()).getId());
+        switch(Util.mode){
             case 1:
                 Util.setScene(Util.SCENE_VANILLA_LEVELS);
                 break;
@@ -43,9 +43,6 @@ public class ModesController implements Controllable {
                 break;
             case 3:
                 Util.setScene(Util.SCENE_PUZZLE_LEVELS);
-                break;
-            default:
-                System.out.println("nothing");
                 break;
         }
 

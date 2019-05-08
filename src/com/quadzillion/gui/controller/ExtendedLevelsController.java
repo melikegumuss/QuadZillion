@@ -33,7 +33,8 @@ public class ExtendedLevelsController implements Controllable
     @FXML
     public void onLevelSelected(ActionEvent ae)
     {
-        extendedLevel = (Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1) % 3;
+        Util.currentLevel = (Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1) % 3;
+        Util.mode = 2;
 
         // DO STUFF ABOUT LEVEL
         Util.addExtendedGamePane();

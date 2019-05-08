@@ -21,8 +21,6 @@ public class RedPiece extends Piece {
         setLayoutX(INIT_X);
         setLayoutY(INIT_Y);
 
-        System.out.println(getLayoutX() + " , " + getLayoutY());
-
         pos = new ArrayList<Point2D>();
 
         pos.add(new Point2D(0,0));

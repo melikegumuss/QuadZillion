@@ -32,8 +32,8 @@ public class VanillaLevelsController implements Controllable
     @FXML
     public void onLevelSelected(ActionEvent ae)
     {
-        vanillaLevel = (Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1) % 3;
-
+        Util.currentLevel = (Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1) % 3;
+        Util.mode = 1;
 
 
         // DO STUFF ABOUT LEVEL

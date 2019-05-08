@@ -95,7 +95,7 @@ public class TileMatrix {
     {
         tileMatrix[x][y] = tile;
         isFinished = finishTest();
-
+        isFinished = true;
         if (isFinished)
         {
             Controllable controllable = Util.getSceneController(Util.SCENE_PLAY_GAME);
@@ -106,16 +106,6 @@ public class TileMatrix {
         }
     }
 
-    public void display()
-    {
-        for (int j = 0; j < 16; j++) {
-            for (int i = 0; i < 16; i++) {
-                System.out.print(tileMatrix[i][j] + ", ");
-            }
-            System.out.println();
-        }
-
-    }
 
     public boolean finishTest()
     {

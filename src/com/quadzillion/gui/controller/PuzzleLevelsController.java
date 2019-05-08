@@ -9,8 +9,6 @@ import javafx.scene.control.Button;
 
 public class PuzzleLevelsController implements Controllable
 {
-
-
     public static int puzzleLevel;
 
     @Override
@@ -34,7 +32,8 @@ public class PuzzleLevelsController implements Controllable
     @FXML
     public void onLevelSelected(ActionEvent ae)
     {
-        puzzleLevel = (Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1) % 3;
+        Util.currentLevel = (Integer.valueOf(((Button)ae.getSource()).getText().split(" ")[1]) - 1) % 3;
+        Util.mode = 3;
 
         // DO STUFF ABOUT LEVEL
         Util.addPuzzleGamePanel();

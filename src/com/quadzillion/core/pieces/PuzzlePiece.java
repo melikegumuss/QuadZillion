@@ -63,7 +63,6 @@ public class PuzzlePiece extends Piece {
                     newPos.add(new Point2D(i, j));
                     Image image = new Image("com/quadzillion/gui/resources/images/puzzleLevels/"+fileName+"/" + j + i + ".jpg");
 
-                    System.out.println(id + " com/quadzillion/gui/resources/images/puzzleLevels/"+ fileName+ "/" + j + i + ".jpg");
 
                     // simple displays ImageView the image as is
                     ImageView iv1 = new ImageView();

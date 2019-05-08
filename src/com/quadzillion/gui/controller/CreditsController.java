@@ -44,7 +44,6 @@ public class CreditsController implements Controllable
 
         if(meView == null)
         {
-            System.out.println("MEDIA IS NULL");
             return;
         }
         mplay.setAutoPlay(true);

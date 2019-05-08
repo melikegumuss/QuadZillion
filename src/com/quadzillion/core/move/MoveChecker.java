@@ -19,9 +19,6 @@ public class MoveChecker
     public MoveType move(ArrayList<Point2D> locationMap, int pieceID)
     {
 
-        System.out.println("Before Move:");
-        tileMatrix.display();
-
         for (int i = 0; i < 16; i++) {
             for (int j = 0; j < 16; j++) {
                 if(tileMatrix.get(i,j) == pieceID)
@@ -38,8 +35,6 @@ public class MoveChecker
                 tileMatrix.updateMatrix((int) point.getX(),(int) point.getY(), pieceID);
             }
 
-            System.out.println("After Move:");
-            tileMatrix.display();
             return MoveType.VALID;
         }
         else
@@ -58,9 +53,6 @@ public class MoveChecker
                     }
                 }
 
-
-                System.out.println("After Move:");
-                tileMatrix.display();
 
                 return MoveType.INVALID;
             }
@@ -117,11 +109,8 @@ public class MoveChecker
 
         public boolean isOut( int x, int y){
 
-            if (x < 0 || y < 0 || x > 15 || y > 15) {
-
+            if (x < 0 || y < 0 || x > 15 || y > 15)
                 return true;
-            }
-
             else
                 return false;
 
