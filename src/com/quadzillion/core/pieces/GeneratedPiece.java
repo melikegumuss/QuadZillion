@@ -13,8 +13,8 @@ public class GeneratedPiece extends Piece {
         super(moveChecker);
 
 
-        INIT_X = Constants.INIT_LOCATION[id - 3][0];
-        INIT_Y = Constants.INIT_LOCATION[id - 3][1];
+        INIT_X = Constants.INIT_LOCATION[id - 2][0];
+        INIT_Y = Constants.INIT_LOCATION[id - 2][1];
 
         x = INIT_X;
         y = INIT_Y;

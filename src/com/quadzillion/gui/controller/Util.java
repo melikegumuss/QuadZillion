@@ -106,7 +106,7 @@ public class Util {
 
     public static void loadScene(String name) {
         try {
-            String fullPath = "./resources/layout/" + name + ".fxml";
+            String fullPath = "/layout/" + name + ".fxml";
             FXMLLoader loader = new FXMLLoader(GameApplication.class.getResource(fullPath));
 
             Parent root = loader.load();
@@ -124,7 +124,7 @@ public class Util {
     }
 
     public static void applyTheme(String name) {
-        String path = GameApplication.class.getResource("./resources/themes/" + name + "/theme.css").toExternalForm();
+        String path = GameApplication.class.getResource("/themes/" + name + "/theme.css").toExternalForm();
 
         for (HashMap.Entry<String, Pair<Scene, Controllable>> entry : loadedScenes.entrySet()) {
             entry.getValue().getKey().getStylesheets().clear();
@@ -162,18 +162,18 @@ public class Util {
     // ADDITIONAL
 
     public static String getMusicPath() {
-        return GameApplication.class.getResource("./resources/sounds/herbal.mp3").toExternalForm();
+        return GameApplication.class.getResource("/sounds/herbal.mp3").toExternalForm();
     }
 
     public static String getMusicPathCredits() {
-        return GameApplication.class.getResource("./resources/sounds/creditsSong.mp3").toExternalForm();
+        return GameApplication.class.getResource("/sounds/creditsSong.mp3").toExternalForm();
     }
 
     public static String getVideoPath() {
-        return GameApplication.class.getResource("./resources/sounds/tutorialVideo.mp4").toExternalForm();
+        return GameApplication.class.getResource("/sounds/tutorialVideo.mp4").toExternalForm();
     }
 
     public static String getEndGamePath() {
-        return GameApplication.class.getResource("./resources/images/127-512.jpeg").toExternalForm();
+        return GameApplication.class.getResource("/images/127-512.jpeg").toExternalForm();
     }
 }

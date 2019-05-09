@@ -5,7 +5,9 @@ import com.quadzillion.core.models.MainBoard;
 import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.pieces.GeneratedPiece;
+import com.quadzillion.core.pieces.PuzzlePiece;
 import javafx.animation.AnimationTimer;
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
 
 public class ExtendedGamePane extends AbstractPane {
@@ -48,6 +50,19 @@ public class ExtendedGamePane extends AbstractPane {
         getChildren().add(gp10);
         getChildren().add(gp11);
         getChildren().add(gp12);
+
+
+        for (Node piece : getChildren()) {
+            if (piece instanceof GeneratedPiece) {
+                for (int i = 0; i < (int) ((Math.random()) * 4); i++) {
+                    ((GeneratedPiece) piece).turn();
+                }
+
+                if (Math.random() < 0.5)
+                    ((GeneratedPiece) piece).flip();
+            }
+
+        }
     }
 
 
