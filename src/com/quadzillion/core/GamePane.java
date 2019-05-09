@@ -6,6 +6,8 @@ import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
 import com.quadzillion.core.pieces.*;
 
+import java.util.ArrayList;
+
 public class GamePane extends AbstractPane {
 
     private MainBoard mainBoard;
@@ -18,32 +20,14 @@ public class GamePane extends AbstractPane {
         TileMatrix tileMatrix = new TileMatrix(mainBoard);
         MoveChecker moveChecker = new MoveChecker(tileMatrix);
 
-        Piece circle = new RedPiece(moveChecker);
-        Piece tpiece = new GreenPiece(moveChecker);
-        Piece lightBlue = new LightBluePiece(moveChecker);
-        Piece blue = new BluePiece(moveChecker);
-        Piece purple = new PurplePiece(moveChecker);
-        Piece lightLime = new LightLimePiece(moveChecker);
-        Piece orange = new OrangePiece(moveChecker);
-        Piece pink = new PinkPiece(moveChecker);
-        Piece yellow = new YellowPiece(moveChecker);
-        Piece darkBlue = new DarkBluePiece(moveChecker);
-        Piece maroonPiece = new MaroonPiece(moveChecker);
-        Piece darkGreen = new DarkGreenPiece(moveChecker);
+        PieceFactory pieceFactory = new PieceFactory(level, moveChecker);
 
+        getChildren().addAll(pieceFactory.buildPieces(PieceFactory.VANILLA_PIECE));
         getChildren().add(mainBoard);
-        getChildren().add(darkGreen);
-        getChildren().add(maroonPiece);
-        getChildren().add(purple);
-        getChildren().add(lightBlue);
-        getChildren().add(tpiece);
-        getChildren().add(blue);
-        getChildren().add(circle);
-        getChildren().add(lightLime);
-        getChildren().add(orange);
-        getChildren().add(pink);
-        getChildren().add(yellow);
-        getChildren().add(darkBlue);
+
+
+
+
     }
 
 

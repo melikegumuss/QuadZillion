@@ -87,76 +87,7 @@ public class PuzzlePiece extends Piece {
 
 
     }
-/*
 
-        Image image = new Image("com/quadzillion/gui/resources/images/A.jpg");
-
-        // simple displays ImageView the image as is
-        ImageView iv = new ImageView();
-        iv.setImage(image);
-        iv.setFitHeight(Constants.TILE_SIZE);
-        iv.setFitWidth(Constants.TILE_SIZE);
-
-
-
-        iv.setLayoutX(Constants.TILE_SIZE * pos2.get(0).getX());
-        iv.setLayoutY(Constants.TILE_SIZE * pos2.get(0).getY());
-
-
-        getChildren().add(iv);
-
-        Image image2 = new Image("com/quadzillion/gui/resources/images/B.jpg");
-
-        // simple displays ImageView the image as is
-        ImageView iv2 = new ImageView();
-        iv2.setImage(image2);
-        iv2.setFitHeight(Constants.TILE_SIZE);
-        iv2.setFitWidth(Constants.TILE_SIZE);
-
-
-
-        iv2.setLayoutX(Constants.TILE_SIZE * pos2.get(1).getX());
-        iv2.setLayoutY(Constants.TILE_SIZE * pos2.get(1).getY());
-
-
-        getChildren().add(iv2);
-
-
-        Image image3 = new Image("com/quadzillion/gui/resources/images/C.jpg");
-
-        // simple displays ImageView the image as is
-        ImageView iv3 = new ImageView();
-        iv3.setImage(image3);
-        iv3.setFitHeight(Constants.TILE_SIZE);
-        iv3.setFitWidth(Constants.TILE_SIZE);
-
-
-
-        iv3.setLayoutX(Constants.TILE_SIZE * pos2.get(2).getX());
-        iv3.setLayoutY(Constants.TILE_SIZE * pos2.get(2).getY());
-
-
-        getChildren().add(iv3);
-
-
-        Image image4 = new Image("com/quadzillion/gui/resources/images/D.jpg");
-
-        // simple displays ImageView the image as is
-        ImageView iv4 = new ImageView();
-        iv4.setImage(image4);
-        iv4.setFitHeight(Constants.TILE_SIZE);
-        iv4.setFitWidth(Constants.TILE_SIZE);
-
-
-        iv4.setLayoutX(Constants.TILE_SIZE * pos2.get(3).getX());
-        iv4.setLayoutY(Constants.TILE_SIZE * pos2.get(3).getY());
-
-
-        getChildren().add(iv4);
-
-   }
-
-   */
 
 
 }

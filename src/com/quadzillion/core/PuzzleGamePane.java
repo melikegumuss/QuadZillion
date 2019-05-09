@@ -5,6 +5,7 @@ import com.quadzillion.core.models.MainBoard;
 import com.quadzillion.core.models.PuzzleMainBoard;
 import com.quadzillion.core.models.TileMatrix;
 import com.quadzillion.core.move.MoveChecker;
+import com.quadzillion.core.pieces.PieceFactory;
 import com.quadzillion.core.pieces.PuzzlePiece;
 import javafx.scene.Node;
 
@@ -20,39 +21,12 @@ public class PuzzleGamePane extends AbstractPane {
         TileMatrix tileMatrix = new TileMatrix(mainBoard);
         MoveChecker moveChecker = new MoveChecker(tileMatrix);
 
-        int[][] solution = level.solution;
-
-
         mainBoard.putImageToPoints(level.forbiddenUrls());
 
-
-        PuzzlePiece pc3 = new PuzzlePiece(moveChecker, solution, 3, level.getFileName());
-        PuzzlePiece pc4 = new PuzzlePiece(moveChecker, solution, 4, level.getFileName());
-        PuzzlePiece pc5 = new PuzzlePiece(moveChecker, solution, 5, level.getFileName());
-        PuzzlePiece pc6 = new PuzzlePiece(moveChecker, solution, 6, level.getFileName());
-        PuzzlePiece pc7 = new PuzzlePiece(moveChecker, solution, 7, level.getFileName());
-        PuzzlePiece pc8 = new PuzzlePiece(moveChecker, solution, 8, level.getFileName());
-        PuzzlePiece pc9 = new PuzzlePiece(moveChecker, solution, 9, level.getFileName());
-        PuzzlePiece pc10 = new PuzzlePiece(moveChecker, solution, 10, level.getFileName());
-        PuzzlePiece pc11 = new PuzzlePiece(moveChecker, solution, 11, level.getFileName());
-        PuzzlePiece pc12 = new PuzzlePiece(moveChecker, solution, 12, level.getFileName());
-        PuzzlePiece pc13 = new PuzzlePiece(moveChecker, solution, 13, level.getFileName());
-        PuzzlePiece pc14 = new PuzzlePiece(moveChecker, solution, 14, level.getFileName());
-
-
+        PieceFactory pieceFactory = new PieceFactory(level, moveChecker);
+        getChildren().addAll(pieceFactory.buildPieces(PieceFactory.PUZZLE_PIECE));
         getChildren().add(mainBoard);
-        getChildren().add(pc3);
-        getChildren().add(pc4);
-        getChildren().add(pc5);
-        getChildren().add(pc6);
-        getChildren().add(pc7);
-        getChildren().add(pc8);
-        getChildren().add(pc9);
-        getChildren().add(pc10);
-        getChildren().add(pc11);
-        getChildren().add(pc12);
-        getChildren().add(pc13);
-        getChildren().add(pc14);
+
 
         for (Node piece : getChildren()) {
             if (piece instanceof PuzzlePiece) {
